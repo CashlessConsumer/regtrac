@@ -1,72 +1,55 @@
-# RegTrac — the watchers, watched
+# RegTrac
 
-Public register of India's **statutory financial regulators**: their statutes, powers,
-leadership appointments, grievance machinery and accountability gaps.
+**The watchers, watched.** A public register of India's statutory financial regulators — their statutes, powers, leadership appointments, grievance machinery and accountability gaps.
 
-**Live**: https://regtrac.cashlessconsumer.in (GitHub Pages, repo `CashlessConsumer/regtrac`)
-Raw fallback: https://cashlessconsumer.github.io/regtrac/
+**Live:** https://regtrac.cashlessconsumer.in (GitHub Pages; falls back to https://cashlessconsumer.github.io/regtrac/ until the DNS CNAME `regtrac → cashlessconsumer.github.io` is added on Netlify DNS)
 
-By [CashlessConsumer](https://cashlessconsumer.in) · a sousveillance project.
-*Surveillance is watching citizens; sousveillance is citizens watching back.*
+Part of a three-layer **sousveillance stack** for financial-sector policy making in India:
 
-## The sousveillance stack
-
-| Layer | Project | Tracks | Status |
+| Layer | Project | Status | Tracks |
 | --- | --- | --- | --- |
-| Rule-writers | **RegTrac** (this repo) | Statutory regulators of the financial sector | live |
-| Rule-borrowers | [SROTrac](https://srotrac.cashlessconsumer.in) | RBI/SEBI-recognised SROs, their rosters and members | live |
-| Rule-buyers | **LobbyWatch** | Consultations: who commented, access, revolving doors | planned |
+| Rule-writers | **RegTrac** (this) | live | statutory regulators |
+| Rule-borrowers | [SROTrac](https://srotrac.cashlessconsumer.in) | live | RBI-recognised SROs + rosters |
+| Rule-buyers | LobbyWatch | planned | consultations, access, revolving doors |
 
-See `SOUSVEILLANCE.md` for the three-layer concept and what LobbyWatch must cover.
+Concept and build order for the third layer: `SOUSVEILLANCE.md`.
 
-## Register (v1)
+## Register (as of 2026-09-12)
 
-**Statutory core** — RBI, SEBI, IRDAI, PFRDA, IBBI, IFSCA, NABARD
-**Statutory adjacent** — DICGC (deposit insurance), NHB (housing, post-2019), SIDBI (development finance), NFRA (audit oversight)
-**Non-statutory context** — FSDC (executive apex council), NPCI (Section 8, The Clearing Corporation of India context)
+- **Statutory core (7):** RBI, SEBI, IRDAI, PFRDA, IBBI, IFSCA, NABARD
+- **Statutory adjacent (4):** DICGC, NHB, SIDBI, NFRA
+- **Non-statutory context (2, flagged):** FSDC, NPCI
 
-Each entity page: statute & setup · what it regulates · powers that matter ·
-leadership table (sourced per row, "as of" stamped) · for the person paying
-(grievance routes) · watchpoints (capture & accountability) · layer links to SROTrac.
+13 entities · 14 sourced appointments · 38 timeline events.
 
-## Repo layout
+## Layout
 
 ```
-data/regulators.csv    register: id, statute, established, ministry, mandate, website, grievance, status
-data/leadership.csv    appointments: role, name, since, term_or_note, predecessor, appointing_authority, source_url
-data/events.csv        timeline: date, actor, type (statute/reform/leadership/proposal/SRO framework), title, source_url
-scripts/build.py       builds all HTML + data/regtrac.duckdb + llms.txt/llms-full.txt + sitemap.xml + robots.txt + og.png
-css/style.css          single stylesheet (dark, serif display)
-.github/workflows/     Build & Deploy → GitHub Pages (workflow build type)
-CNAME                  regtrac.cashlessconsumer.in
+data/regulators.csv    register: statute, ministry, mandate, grievance, status
+data/leadership.csv    appointments: role, name, since, predecessor, source_url
+data/events.csv        timeline: statutes, reforms, leadership changes (sourced)
+data/regtrac.duckdb    queryable copy (regulators, leadership, events)
+scripts/build.py       CSVs → all HTML + duckdb + llms.txt + sitemap + og.png
+css/style.css          hand-written (not generated)
+SOUSVEILLANCE.md       the stack concept + LobbyWatch build order
+AGENTS.md              agent conventions (scope, sourcing, build/deploy)
 ```
 
-## Build
+## Build & deploy
 
 ```bash
-python3 scripts/build.py   # regenerates every page + duckdb + static files
+python3 scripts/build.py   # regenerate everything from data/
+git push                   # main → GitHub Actions → Pages (~25s)
 ```
 
-Edit the CSVs, run build, commit, push. Deploy is push-to-main via Actions.
-No JS framework; plain static HTML, ~17 pages.
+Never hand-edit generated HTML. Update `data/*.csv` (and the per-entity content dicts in `scripts/build.py` for deep pages), rebuild, push.
 
-## Data
+## Query the data
 
-- `data/regtrac.duckdb` — tables: `regulators`, `leadership`, `events` (all VARCHAR).
-- `llms.txt` / `llms-full.txt` — machine-readable summaries for LLM consumers.
+```bash
+duckdb data/regtrac.duckdb -c "SELECT * FROM leadership ORDER BY since DESC"
+duckdb data/regtrac.duckdb -c "SELECT * FROM events WHERE type='statute'"
+```
 
-## Ground rules
-
-1. **Source every leadership row** — one URL per appointment, no exceptions.
-2. **"As of" stamped** — leadership positions carry an as-of date in the build; stale rows are corrected, not silently overwritten.
-3. **Statutory vs non-statutory is flagged** — FSDC/NPCI are context, clearly labelled.
-4. **Consumer section mandatory** — every entity page answers "what does this mean for the person paying".
-5. **Capture watchpoints in plain language** — who appoints, who sits on boards, what is not published.
-
-## Status / next
-
-- [x] v1 register, leadership (14 appointments, as of 2026-09-12), 38-event timeline, live
-- [ ] DNS: CNAME record `regtrac → cashlessconsumer.github.io` on Netlify DNS (manual; token cannot write DNS)
-- [ ] Per-regulator board composition (full member lists, not just chair)
-- [ ] Consultation-papers watcher per regulator (feeds future LobbyWatch)
-- [ ] Weekly automation: leadership-change scan + timeline additions
+---
+CashlessConsumer · consumer collective for digital payments & fintech · *surveillance is watching citizens; sousveillance is citizens watching back.*
