@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://regtrac.cashlessconsumer.in/sitemap.xml

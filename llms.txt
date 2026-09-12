@@ -1,0 +1,32 @@
+# RegTrac
+
+> Public register of India's statutory financial regulators — statutes, leadership appointments, powers, grievance routes and accountability gaps. By CashlessConsumer. Leadership as of 12 Sep 2026.
+
+Part of a three-layer sousveillance stack: RegTrac (rule-writers), SROTrac (rule-borrowers, https://srotrac.cashlessconsumer.in), LobbyWatch (rule-buyers, planned).
+
+## Pages
+
+- [Index](https://regtrac.cashlessconsumer.in/index.html): overview, stats, stack, register of core regulators
+- [Register](https://regtrac.cashlessconsumer.in/regulators.html): all 13 entities with type filters
+- [Timeline](https://regtrac.cashlessconsumer.in/timeline.html): 38 sourced events
+- [About](https://regtrac.cashlessconsumer.in/about.html): scope, method, caveats, the stack
+
+## Register
+
+- Reserve Bank of India (RBI): Reserve Bank of India Act, 1934 (operational 1 Apr 1935)
+- Securities and Exchange Board of India (SEBI): SEBI Act, 1992 (statutory; existed as non-statutory body since 1988)
+- Insurance Regulatory and Development Authority of India (IRDAI): IRDA Act, 1999
+- Pension Fund Regulatory and Development Authority (PFRDA): PFRDA Act, 2013 (statutory w.e.f. 1 Feb 2014; interim body since 2003)
+- Insolvency and Bankruptcy Board of India (IBBI): Insolvency and Bankruptcy Code, 2016 (Board constituted 1 Oct 2016)
+- International Financial Services Centres Authority (IFSCA): IFSCA Act, 2019 (operational 1 Oct 2020)
+- National Bank for Agriculture and Rural Development (NABARD): NABARD Act, 1981 (established 12 Jul 1982)
+- Deposit Insurance and Credit Guarantee Corporation (DICGC): DICGC Act, 1961 (corporation constituted 1978)
+- National Housing Bank (NHB): NHB Act, 1987 (established 9 Jul 1988)
+- Small Industries Development Bank of India (SIDBI): SIDBI Act, 1989 (began operations 2 Apr 1990)
+- National Financial Reporting Authority (NFRA): Companies Act, 2013, section 132 (constituted 2018)
+- Financial Stability and Development Council (FSDC): No statute — created by executive resolution, 2010
+- National Payments Corporation of India (NPCI): Section 8 not-for-profit company (2008), founded by RBI and IBA — not statutory
+
+## Data
+
+CSVs + DuckDB in the repository: data/regulators.csv, data/leadership.csv, data/events.csv.

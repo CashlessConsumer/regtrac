@@ -1,0 +1,176 @@
+# RegTrac — full text
+
+Leadership as of 12 Sep 2026. Built 2026-09-12 15:44 UTC.
+
+## Register
+
+### Reserve Bank of India (RBI)
+Type: Statutory regulator. Statute: Reserve Bank of India Act, 1934 (operational 1 Apr 1935). Established: 1935. Under: Autonomous (within Ministry of Finance architecture).
+Mandate: Banking, NBFCs, payment systems (PSS Act 2007), credit information companies, monetary policy, forex (FEMA 1999)
+Grievance: RBI Integrated Ombudsman Scheme — cms.rbi.org.in (free; escalate after 30 days of no reply from the regulated entity)
+Site: https://www.rbi.org.in
+
+### Securities and Exchange Board of India (SEBI)
+Type: Statutory regulator. Statute: SEBI Act, 1992 (statutory; existed as non-statutory body since 1988). Established: 1988. Under: Ministry of Finance.
+Mandate: Securities markets: brokers, mutual funds, AIFs, listed companies, FPIs, investment advisers, credit rating agencies
+Grievance: SCORES 2.0 — scores.gov.in; SMART ODR for online dispute resolution
+Site: https://www.sebi.gov.in
+
+### Insurance Regulatory and Development Authority of India (IRDAI)
+Type: Statutory regulator. Statute: IRDA Act, 1999. Established: 1999. Under: Ministry of Finance.
+Mandate: Insurers, intermediaries, web aggregators, TPAs; product oversight; policyholder protection
+Grievance: Bima Bharosa portal + Insurance Ombudsman (cioins.gov.in)
+Site: https://irdai.gov.in (HQ: Hyderabad)
+
+### Pension Fund Regulatory and Development Authority (PFRDA)
+Type: Statutory regulator. Statute: PFRDA Act, 2013 (statutory w.e.f. 1 Feb 2014; interim body since 2003). Established: 2003. Under: Ministry of Finance.
+Mandate: NPS and APY: pension funds, central recordkeeping agencies, points of presence, retirement advisers
+Grievance: NPS Ombudsman under PFRDA (Redressal of Subscriber Grievance) Regulations, 2015; CRA helplines
+Site: https://www.pfrda.org.in
+
+### Insolvency and Bankruptcy Board of India (IBBI)
+Type: Statutory regulator. Statute: Insolvency and Bankruptcy Code, 2016 (Board constituted 1 Oct 2016). Established: 2016. Under: Ministry of Finance.
+Mandate: Insolvency professionals, insolvency professional agencies, information utilities; CIRP and liquidation process oversight
+Grievance: Grievance and Complaint Handling Regulations, 2017 (amended Feb 2026)
+Site: https://www.ibbi.gov.in
+
+### International Financial Services Centres Authority (IFSCA)
+Type: Statutory regulator. Statute: IFSCA Act, 2019 (operational 1 Oct 2020). Established: 2020. Under: Ministry of Finance.
+Mandate: Unified regulator for GIFT IFSC: banking, capital markets, insurance, fintech sandbox, aircraft and ship leasing
+Grievance: IFSCA complaint channels for IFSC-registered entities
+Site: https://ifsca.gov.in
+
+### National Bank for Agriculture and Rural Development (NABARD)
+Type: Statutory regulator. Statute: NABARD Act, 1981 (established 12 Jul 1982). Established: 1982. Under: Ministry of Finance.
+Mandate: Refinance and development finance for agriculture and rural India; statutory supervisory role over cooperative banks and RRBs
+Grievance: Customers of supervised institutions use RBI Ombudsman route; NABARD itself handles institutional complaints
+Site: https://www.nabard.org
+
+### Deposit Insurance and Credit Guarantee Corporation (DICGC)
+Type: Statutory · adjacent. Statute: DICGC Act, 1961 (corporation constituted 1978). Established: 1978. Under: Reserve Bank of India (wholly owned).
+Mandate: Deposit insurance: Rs 5 lakh per depositor per bank per right (since 4 Feb 2020); insurer of last resort on bank failure
+Grievance: Claims routed via failed banks; RBI Ombudsman for related disputes
+Site: https://dicgc.org.in
+
+### National Housing Bank (NHB)
+Type: Statutory · adjacent. Statute: NHB Act, 1987 (established 9 Jul 1988). Established: 1988. Under: Reserve Bank of India (wholly owned).
+Mandate: Housing finance refinance and development; HFC regulation transferred to RBI on 9 Aug 2019
+Grievance: HFC complaints now under RBI Ombudsman
+Site: https://nhb.org.in
+
+### Small Industries Development Bank of India (SIDBI)
+Type: Statutory · adjacent. Statute: SIDBI Act, 1989 (began operations 2 Apr 1990). Established: 1990. Under: Ministry of Finance.
+Mandate: Development finance for MSMEs; fund of funds; refinancing; not a conduct regulator
+Grievance: Direct borrow customers: SIDBI grievance desk; otherwise lender's own channels
+Site: https://www.sidbi.in
+
+### National Financial Reporting Authority (NFRA)
+Type: Statutory · adjacent. Statute: Companies Act, 2013, section 132 (constituted 2018). Established: 2018. Under: Ministry of Corporate Affairs.
+Mandate: Audit oversight: auditors and audit firms of listed and large unlisted companies; enforcement of accounting and auditing standards
+Grievance: No retail grievance channel — enforcement-led
+Site: https://nfra.gov.in
+
+### Financial Stability and Development Council (FSDC)
+Type: Non-statutory · context. Statute: No statute — created by executive resolution, 2010. Established: 2010. Under: Chaired ex officio by the Union Finance Minister.
+Mandate: Apex coordination body: financial stability, inter-regulator issues, financial literacy and inclusion councils, cyber security forum
+Grievance: No direct public grievance channel; minutes largely unpublished
+Site: https://dea.gov.in
+
+### National Payments Corporation of India (NPCI)
+Type: Non-statutory · context. Statute: Section 8 not-for-profit company (2008), founded by RBI and IBA — not statutory. Established: 2008. Under: Not a government body.
+Mandate: Runs retail payment rails: UPI, IMPS, NACH, RuPay, AePS, NETC — as an RBI-authorised payment system operator under PSS Act 2007
+Grievance: Escalate: PSP/bank first, then NPCI, then RBI Ombudsman (covers UPI failures)
+Site: https://www.npci.org.in
+
+## Leadership
+
+- RBI Governor: Sanjay Malhotra since 2024-12 (26th Governor). Source: https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548
+- RBI Deputy Governor: Poonam Gupta since 2025-04 . Source: https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548
+- RBI Deputy Governor: Shirish Chandra Murmu since 2025-10 . Source: https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548
+- SEBI Chairperson: Tuhin Kanta Pandey since 2025-02 . Source: https://www.reuters.com/sustainability/boards-policy-regulation/india-watchdog-presses-banks-other-regulators-stricter-insider-trading-2026-03-02
+- SEBI Whole-Time Member: Sandip Pradhan since 2025-12 . Source: https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548
+- IRDAI Chairperson: Ajay Seth since 2025-07-24 (Former DEA Secretary). Source: https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548
+- IRDAI Whole-Time Member (Life): Swaminathan S Iyer since 2025 . Source: https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548
+- PFRDA Chairperson: Sivasubramanian Ramann since 2025-06-20 (Former Deputy CAG and CTO Office of CAG). Source: https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548
+- IBBI Chairperson: Ravi Mital since 2021-10 (Still in office as of Sep 2026 (gazette signatures May 2026; NCLAT order 8 Sep 2026); succession search opened Jun 2026). Source: https://www.businesstoday.in/latest/corporate/story/ibbi-initiates-search-for-next-chairperson-applications-open-as-succession-process-starts-early-535500-2026-06-08
+- IFSCA Chairperson: K. Rajaraman since 2023-09 (Tenure extended to Oct 2028 (Aug 2026)). Source: https://m.economictimes.com/news/india/govt-extends-ifsc-authority-chairman-k-rajaramans-tenure-till-oct-2028/articleshow/132770365.cms
+- NABARD Chairman: Shaji K V since 2022-12 (Confirmed in office as of Sep 2026). Source: https://guidely.in/current-affairs/daily-current-affairs-05-september-2026
+- FSDC Chairperson: Nirmala Sitharaman since 2019-05 (Ex officio as Union Finance Minister). Source: https://www.careerpower.in/blog/wp-content/uploads/2026/04/02191443/The-Hindu-Review-March-2026.pdf
+
+## Timeline
+
+- 2026-09-10 RBI: UFF recognised as second RBI SRO-FT (10 Sep 2026) — tracked in SROTrac
+- 2026-08-01 IFSCA: K. Rajaraman's IFSCA chair tenure extended till Oct 2028 (Aug 2026)
+- 2026-07-16 IBBI: Calcutta High Court holds IBBI Chairperson cannot act as the Disciplinary Committee under IBC
+- 2026-07-13 IBBI: Corporate Laws (Amendment) Bill, 2026 Clause 73 proposes IBBI as statutory valuation authority
+- 2026-06-08 IBBI: IBBI opens search for next Chairperson — succession process starts early under incumbent Ravi Mital
+- 2026-05-20 IBBI: IBC Amendment Act 2026 bars resolution professionals from acting as liquidators in the same matter
+- 2026-02-25 IBBI: IBBI Grievance and Complaint Handling (Amendment) Regulations, 2026 notified (25 Feb 2026)
+- 2025-12-01 SEBI: Sandip Pradhan inducted as SEBI Whole-Time Member (Dec 2025)
+- 2025-10-01 RBI: Shirish Chandra Murmu appointed RBI Deputy Governor (Oct 2025)
+- 2025-07-24 IRDAI: Ajay Seth appointed IRDAI Chairperson (24 Jul 2025), succeeding Debasish Panda
+- 2025-06-20 PFRDA: Sivasubramanian Ramann assumes charge as PFRDA Chairperson (20 Jun 2025)
+- 2025-04-01 RBI: Poonam Gupta appointed RBI Deputy Governor (Apr 2025)
+- 2025-02-06 SEBI: Tuhin Kanta Pandey appointed SEBI Chairperson (Feb 2025), succeeding Madhabi Puri Buch
+- 2024-08-28 RBI: FACE recognised as first RBI SRO-FT (28 Aug 2024) — tracked in SROTrac
+- 2024-01-31 RBI: RBI releases draft SRO framework for the fintech sector (Jan 2024) — tracked in SROTrac
+- 2020-10-01 IFSCA: IFSCA operational from 1 Oct 2020 (supersedes sectoral regulators inside the IFSC)
+- 2020-02-04 DICGC: Deposit insurance cover raised to Rs 5 lakh per depositor per bank (4 Feb 2020)
+- 2019-12-04 IFSCA: IFSCA Act, 2019 enacted — unified regulator for GIFT IFSC
+- 2019-08-09 NHB: HFC regulation moved from NHB to RBI (9 Aug 2019)
+- 2016-10-01 IBBI: IBBI constituted 1 Oct 2016
+- 2016-05-05 IBBI: Insolvency and Bankruptcy Code, 2016 enacted
+- 2013-12-18 PFRDA: PFRDA Act, 2013 enacted (statutory w.e.f. 1 Feb 2014)
+- 2010-02-25 FSDC: Financial Stability and Development Council created by executive resolution — non-statutory
+- 2008-12-18 NPCI: NPCI incorporated as Section 8 company by RBI and IBA
+- 2003-01-01 PFRDA: PFRDA set up as interim executive authority (GO)
+- 1999-12-28 IRDAI: IRDA Act, 1999 — insurance opened; IRDAI constituted 2000 (HQ Hyderabad)
+- 1992-04-12 SEBI: SEBI Act, 1992 — statutory powers granted after the 1992 securities scam
+- 1990-04-02 SIDBI: SIDBI began operations 2 Apr 1990
+- 1989-12-31 SIDBI: SIDBI Act, 1989 enacted
+- 1988-07-09 NHB: NHB established 9 Jul 1988
+- 1988-01-01 SEBI: SEBI set up as a non-statutory administrative body
+- 1987-12-30 NHB: National Housing Bank Act, 1987 enacted
+- 1982-07-12 NABARD: NABARD established (12 Jul 1982)
+- 1981-12-31 NABARD: NABARD Act, 1981 enacted
+- 1978-07-15 DICGC: DICGC constituted from merger of Deposit Insurance Corporation (1962) and Credit Guarantee Corporation (1971)
+- 1961-12-07 DICGC: Deposit Insurance and Credit Guarantee Corporation Act, 1961
+- 1949-03-01 RBI: Banking Companies Act, 1949 (renamed Banking Regulation Act, 1966) gives RBI licensing and supervision of banks
+- 1934-03-06 RBI: Reserve Bank of India Act, 1934 passed; bank operational 1 Apr 1935
+
+## Scope
+
+RegTrac tracks entities with statutory rule-writing power over India's financial sector: the seven core regulators (RBI, SEBI, IRDAI, PFRDA, IBBI, IFSCA, NABARD), adjacent statutory bodies (DICGC, NHB, SIDBI, NFRA), and non-statutory context entities that shape policy without a statute (FSDC, NPCI).
+
+Out of scope by design: self-regulatory organisations — those live in SROTrac. Ministry-level policy making (Department of Economic Affairs, Department of Financial Services, MCA) enters RegTrac only where it touches regulator appointments; the LobbyWatch layer will own it properly.
+
+## Method
+
+- The register is a small, auditable CSV — one row per entity — with the statute, establishing date, parent ministry, mandate and consumer grievance route.
+- Leadership rows are added only with an appointment date and a source URL. Claims without a source stay out.
+- The timeline is one row per event, same rule.
+- Everything is regenerated from data by a single build script; the site is static HTML with no trackers, no cookies, no JavaScript dependencies.
+
+## Caveats
+
+- Leadership positions are stated **as of 12 Sep 2026** and will drift; rows carry their source so the next refresh can re-verify.
+- "Statutory adjacent" bodies (DICGC, NHB, SIDBI, NFRA) are institutions with statutory foundations but narrower or shifted regulatory roles (e.g., HFC regulation moved from NHB to RBI in 2019).
+- FSDC and NPCI are listed as context precisely because they lack statutes — the most consequential coordination in Indian finance happens in a body with no statutory foundation, and the payment rails are run by an industry-owned company. Both facts belong on the record, not in a footnote.
+
+## The stack
+
+RegTrac is layer one of a three-layer sousveillance stack for Indian financial policy making:
+
+1. **RegTrac** (this site) — the *rule-writers*: statutory regulators, their powers, appointments, consultations and grievance machinery.
+2. **SROTrac** — the *rule-borrowers*: RBI-recognised self-regulatory organisations and — the part that matters — their member rosters, where industry consensus on fees and conduct actually forms.
+3. **LobbyWatch** (planned) — the *rule-buyers*: who submits on consultations, who meets whom, the revolving door between regulator and regulated, industry-association access to FSDC and ministries.
+
+The stack's promise is the join: a consultation submission on an RBI draft (LobbyWatch), cross-referenced against SRO membership (SROTrac), cross-referenced against the regulatory change that followed (RegTrac). Each layer alone is a directory; together they are a map of how financial policy gets made in India — and for whom.
+
+## Open data
+
+`data/regulators.csv`, `data/leadership.csv`, `data/events.csv` and a DuckDB database ship in the repository, plus an `llms.txt` for machine readers. Take it, fork it, build on it — attribution appreciated.
+
+## Colophon
+
+Built by CashlessConsumer — a consumer collective working on digital payments and fintech since 2016. Sister projects: [SROTrac](https://srotrac.cashlessconsumer.in), [DPI Watch](https://dpiwatch.in). Corrections: raise an issue on the repository.

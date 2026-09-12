@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — RegTrac</title>
+<meta name="description" content="Scope, method and caveats of RegTrac — the statutory-regulator layer of CashlessConsumer&#x27;s financial-sector sousveillance stack.">
+<link rel="canonical" href="https://regtrac.cashlessconsumer.in/about.html">
+<meta property="og:title" content="About — RegTrac">
+<meta property="og:description" content="Scope, method and caveats of RegTrac — the statutory-regulator layer of CashlessConsumer&#x27;s financial-sector sousveillance stack.">
+<meta property="og:url" content="https://regtrac.cashlessconsumer.in/about.html">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="css/style.css?v=2026-09-12 15:44 UTC">
+
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="eye">◉</span> RegTrac</a>
+    <nav><a href="index.html" >RegTrac</a><a href="regulators.html" >Register</a><a href="timeline.html" >Timeline</a><a href="about.html" class="active">About</a><a href="https://srotrac.cashlessconsumer.in"  target="_blank" rel="noopener">SROTrac ↗</a></nav>
+  </div>
+</header>
+<main>
+<h1>About</h1>
+<p class="dek">What RegTrac tracks, how, and why.</p>
+<h2>Scope</h2>
+<p>RegTrac tracks entities with statutory rule-writing power over India&#x27;s financial sector: the seven core regulators (RBI, SEBI, IRDAI, PFRDA, IBBI, IFSCA, NABARD), adjacent statutory bodies (DICGC, NHB, SIDBI, NFRA), and non-statutory context entities that shape policy without a statute (FSDC, NPCI).</p>
+<p>Out of scope by design: self-regulatory organisations — those live in SROTrac. Ministry-level policy making (Department of Economic Affairs, Department of Financial Services, MCA) enters RegTrac only where it touches regulator appointments; the LobbyWatch layer will own it properly.</p>
+<h2>Method</h2>
+<ul><li>The register is a small, auditable CSV — one row per entity — with the statute, establishing date, parent ministry, mandate and consumer grievance route.</li><li>Leadership rows are added only with an appointment date and a source URL. Claims without a source stay out.</li><li>The timeline is one row per event, same rule.</li><li>Everything is regenerated from data by a single build script; the site is static HTML with no trackers, no cookies, no JavaScript dependencies.</li></ul>
+<h2>Caveats</h2>
+<ul><li>Leadership positions are stated <strong>as of 12 Sep 2026</strong> and will drift; rows carry their source so the next refresh can re-verify.</li><li>&quot;Statutory adjacent&quot; bodies (DICGC, NHB, SIDBI, NFRA) are institutions with statutory foundations but narrower or shifted regulatory roles (e.g., HFC regulation moved from NHB to RBI in 2019).</li><li>FSDC and NPCI are listed as context precisely because they lack statutes — the most consequential coordination in Indian finance happens in a body with no statutory foundation, and the payment rails are run by an industry-owned company. Both facts belong on the record, not in a footnote.</li></ul>
+<h2>The stack</h2>
+<p>RegTrac is layer one of a three-layer sousveillance stack for Indian financial policy making:</p>
+<p>1. <strong>RegTrac</strong> (this site) — the *rule-writers*: statutory regulators, their powers, appointments, consultations and grievance machinery.</p>
+<p>2. <strong>SROTrac</strong> — the *rule-borrowers*: RBI-recognised self-regulatory organisations and — the part that matters — their member rosters, where industry consensus on fees and conduct actually forms.</p>
+<p>3. <strong>LobbyWatch</strong> (planned) — the *rule-buyers*: who submits on consultations, who meets whom, the revolving door between regulator and regulated, industry-association access to FSDC and ministries.</p>
+<p>The stack&#x27;s promise is the join: a consultation submission on an RBI draft (LobbyWatch), cross-referenced against SRO membership (SROTrac), cross-referenced against the regulatory change that followed (RegTrac). Each layer alone is a directory; together they are a map of how financial policy gets made in India — and for whom.</p>
+<h2>Open data</h2>
+<p>`data/regulators.csv`, `data/leadership.csv`, `data/events.csv` and a DuckDB database ship in the repository, plus an `llms.txt` for machine readers. Take it, fork it, build on it — attribution appreciated.</p>
+<h2>Colophon</h2>
+<p>Built by CashlessConsumer — a consumer collective working on digital payments and fintech since 2016. Sister projects: <a href="https://srotrac.cashlessconsumer.in" rel="noopener">SROTrac</a>, <a href="https://dpiwatch.in" rel="noopener">DPI Watch</a>. Corrections: raise an issue on the repository.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>RegTrac</strong> — statutory financial regulators of India, tracked by <a href="https://cashlessconsumer.in" rel="noopener">CashlessConsumer</a>.</p>
+    <p>Layer 1 of the sousveillance stack: <a href="https://regtrac.cashlessconsumer.in">RegTrac</a> (rule-writers) · <a href="https://srotrac.cashlessconsumer.in">SROTrac</a> (rule-borrowers) · LobbyWatch (rule-buyers — planned). Open data: <code>data/*.csv</code> in the repo. Built 2026-09-12 15:44 UTC; leadership positions as of 12 Sep 2026.</p>
+  </div>
+</footer>
+</body>
+</html>

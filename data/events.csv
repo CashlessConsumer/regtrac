@@ -1,0 +1,39 @@
+date,actor,type,title,source_url
+1934-03-06,rbi,statute,"Reserve Bank of India Act, 1934 passed; bank operational 1 Apr 1935",
+1949-03-01,rbi,statute,"Banking Companies Act, 1949 (renamed Banking Regulation Act, 1966) gives RBI licensing and supervision of banks",
+1961-12-07,dicgc,statute,"Deposit Insurance and Credit Guarantee Corporation Act, 1961",
+1978-07-15,dicgc,establishment,"DICGC constituted from merger of Deposit Insurance Corporation (1962) and Credit Guarantee Corporation (1971)",
+1981-12-31,nabard,statute,"NABARD Act, 1981 enacted",
+1982-07-12,nabard,establishment,"NABARD established (12 Jul 1982)",
+1987-12-30,nhb,statute,"National Housing Bank Act, 1987 enacted",
+1988-07-09,nhb,establishment,"NHB established 9 Jul 1988",
+1988-01-01,sebi,establishment,"SEBI set up as a non-statutory administrative body",
+1989-12-31,sidbi,statute,"SIDBI Act, 1989 enacted",
+1990-04-02,sidbi,establishment,"SIDBI began operations 2 Apr 1990",
+1992-04-12,sebi,statute,"SEBI Act, 1992 — statutory powers granted after the 1992 securities scam",
+1999-12-28,irdai,statute,"IRDA Act, 1999 — insurance opened; IRDAI constituted 2000 (HQ Hyderabad)",
+2003-01-01,pfrda,establishment,"PFRDA set up as interim executive authority (GO)",
+2008-12-18,npci,establishment,"NPCI incorporated as Section 8 company by RBI and IBA",
+2010-02-25,fsdc,establishment,"Financial Stability and Development Council created by executive resolution — non-statutory",
+2013-12-18,pfrda,statute,"PFRDA Act, 2013 enacted (statutory w.e.f. 1 Feb 2014)",
+2016-05-05,ibbi,statute,"Insolvency and Bankruptcy Code, 2016 enacted",
+2016-10-01,ibbi,establishment,"IBBI constituted 1 Oct 2016",
+2019-08-09,nhb,transfer,"HFC regulation moved from NHB to RBI (9 Aug 2019)",
+2019-12-04,ifsca,statute,"IFSCA Act, 2019 enacted — unified regulator for GIFT IFSC",
+2020-10-01,ifsca,establishment,"IFSCA operational from 1 Oct 2020 (supersedes sectoral regulators inside the IFSC)",
+2020-02-04,dicgc,reform,"Deposit insurance cover raised to Rs 5 lakh per depositor per bank (4 Feb 2020)",
+2024-01-31,rbi,sro_framework,"RBI releases draft SRO framework for the fintech sector (Jan 2024) — tracked in SROTrac",https://srotrac.cashlessconsumer.in
+2024-08-28,rbi,sro_framework,"FACE recognised as first RBI SRO-FT (28 Aug 2024) — tracked in SROTrac",https://srotrac.cashlessconsumer.in
+2025-02-06,sebi,leadership,"Tuhin Kanta Pandey appointed SEBI Chairperson (Feb 2025), succeeding Madhabi Puri Buch",https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548
+2025-04-01,rbi,leadership,"Poonam Gupta appointed RBI Deputy Governor (Apr 2025)",https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548
+2025-06-20,pfrda,leadership,"Sivasubramanian Ramann assumes charge as PFRDA Chairperson (20 Jun 2025)",https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548
+2025-07-24,irdai,leadership,"Ajay Seth appointed IRDAI Chairperson (24 Jul 2025), succeeding Debasish Panda",https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548
+2025-10-01,rbi,leadership,"Shirish Chandra Murmu appointed RBI Deputy Governor (Oct 2025)",https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548
+2025-12-01,sebi,leadership,"Sandip Pradhan inducted as SEBI Whole-Time Member (Dec 2025)",https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548
+2026-02-25,ibbi,reform,"IBBI Grievance and Complaint Handling (Amendment) Regulations, 2026 notified (25 Feb 2026)",https://ibbi.gov.in/uploads/whatsnew/2b9fe26449e9960a2dadf081cb3d2dd3.pdf
+2026-05-20,ibbi,reform,"IBC Amendment Act 2026 bars resolution professionals from acting as liquidators in the same matter",https://knnindia.co.in/news/newsdetails/sectors/ibc-amendment-act-2026-bars-resolution-professionals-from-acting-as-liquidators
+2026-06-08,ibbi,leadership,"IBBI opens search for next Chairperson — succession process starts early under incumbent Ravi Mital",https://www.businesstoday.in/latest/corporate/story/ibbi-initiates-search-for-next-chairperson-applications-open-as-succession-process-starts-early-535500-2026-06-08
+2026-07-16,ibbi,reform,"Calcutta High Court holds IBBI Chairperson cannot act as the Disciplinary Committee under IBC",https://www.livelawbiz.com/high-court/calcutta-high-court/calcutta-high-court-ibbi-chairperson-cannot-act-as-disciplinary-committee-under-insolvency-and-bankruptcy-code-sashi-agarwal-541570
+2026-07-13,ibbi,proposal,"Corporate Laws (Amendment) Bill, 2026 Clause 73 proposes IBBI as statutory valuation authority",https://corporate.cyrilamarchandblogs.com/2026/07/an-insolvency-regulator-as-valuation-authority-rethinking-clause-73-of-corporate-laws-amendment-bill-2026
+2026-08-01,ifsca,leadership,"K. Rajaraman's IFSCA chair tenure extended till Oct 2028 (Aug 2026)",https://m.economictimes.com/news/india/govt-extends-ifsc-authority-chairman-k-rajaramans-tenure-till-oct-2028/articleshow/132770365.cms
+2026-09-10,rbi,sro_framework,"UFF recognised as second RBI SRO-FT (10 Sep 2026) — tracked in SROTrac",https://srotrac.cashlessconsumer.in
