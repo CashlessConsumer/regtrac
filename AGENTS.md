@@ -21,3 +21,21 @@ Layer 1 (rule-writers) of the sousveillance stack: RegTrac (this) + SROTrac (`Pr
 - Consumer-first ("For the person paying" section on every entity page — grievance routes with escalation steps).
 - Watchpoints name the accountability gap in plain language (ACC appointments, unpublished consultation comments, Calcutta HC ruling on IBBI Chairperson acting as Disciplinary Committee, etc.).
 - Every number sourced; if a figure is unsourced, leave it out.
+
+## Editorial pipeline (persona swarm → gate → publication test)
+
+Three scripts, one direction: the swarm proposes, the managing editor disposes, the test proves the result shipped.
+
+| Stage | Command | Output |
+| --- | --- | --- |
+| compose | `python3 scripts/swarm.py --all [--only-changed]` | `blog/posts/brief-<id>.md`, one per regulator, `status: review`, six personas credited |
+| gate | `python3 scripts/editorial.py check [--strict] [--coverage] [--promote] [--summary FILE]` | pass/fail per post + a markdown report; `--promote` flips clean drafts to `published` |
+| render | `python3 scripts/build.py && python3 scripts/bloggen.py` | blog pages, per-regulator streams, `feed.xml`, sitemap, duckdb |
+| test | `python3 tests/test_publication.py [--regulator ID] [--markdown FILE]` | per-regulator matrix: brief reachable from every surface |
+
+- Supporting modules: `frontmatter.py` (front-matter reader/writer), `blog_content.py` (editorial-desk notes for entities with no deep-dive page, plus layer links).
+- Personas credited per brief: tracker · evidence · advocate · institutional · mapper · skeptic · editor. The editor is `scripts/editorial.py`.
+- Gate rules: every `What changed` / `Who is affected` / `What to watch` bullet that carries a figure needs a source link in that section; sources declared in front matter must survive into the rendered page; no bare `Rs`/`crore`/`per cent` without attribution.
+- `--coverage` requires a published brief for every regulator in `data/regulators.csv`; `--strict` makes drafts with errors block the run. Use both in CI, plus `--promote` only on `main`.
+- **CI ownership:** `editorial.yml` owns compose + gate + test, and on `main` it commits promoted artifacts but never deploys. `deploy.yml` owns the `pages-*` concurrency group and is the single publisher. Never give the two workflows the same concurrency group — that made them cancel each other on every push.
+- CI entry points: `editorial.yml` (PR gate + comment, `main` publish, `workflow_dispatch` with an optional `regulator` input) and `deploy.yml` (build + Pages). Both were exercised green on 2026-09-13.

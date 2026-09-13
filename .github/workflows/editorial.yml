@@ -6,9 +6,12 @@ name: Editorial
 #                    editorial gate and the per-regulator publication test,
 #                    post both reports on the PR. Nothing is published.
 #   push to main  -> publish. Promote clean drafts, rebuild every generated
-#                    surface, commit the artifacts, then deploy Pages (bot
-#                    pushes do not re-trigger other workflows, so the deploy
-#                    runs here rather than in deploy.yml).
+#                    surface, commit the artifacts and push them. Deploying is
+#                    left to deploy.yml: it owns the pages-* concurrency group
+#                    and is the single publisher, so this workflow never races
+#                    it. The follow-up deploy.yml run on the bot push picks up
+#                    the promoted briefs; the follow-up run of this workflow
+#                    finds nothing left to promote and stops.
 #   dispatch      -> same as push to main, optionally for a single regulator.
 #
 # Composed posts land as `status: draft`; only the gate promotes them.
@@ -18,17 +21,19 @@ on:
     branches: [main]
     types: [opened, synchronize, reopened]
     paths:
+      - ".github/**"
+      - "blog/**"
       - "content/**"
       - "data/**"
-      - "blog/**"
       - "scripts/**"
       - "tests/**"
   push:
     branches: [main]
     paths:
+      - ".github/**"
+      - "blog/posts/**"
       - "content/**"
       - "data/**"
-      - "blog/posts/**"
       - "scripts/**"
       - "tests/**"
   workflow_dispatch:
@@ -43,7 +48,9 @@ permissions:
   pull-requests: write
 
 concurrency:
-  group: pages-${{ github.ref_name }}
+  # Deliberately not the pages-* group: sharing it with deploy.yml made the two
+  # workflows cancel each other on every push to main.
+  group: editorial-${{ github.ref_name }}
   cancel-in-progress: true
 
 env:
@@ -130,11 +137,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -173,18 +175,7 @@ jobs:
             git push
           fi
 
-      - name: Prepare site
+      - name: Report
+        if: always()
         run: |
-          mkdir -p _site
-          shopt -s nullglob
-          for f in *.html; do cp "$f" _site/; done
-          cp -r css data content blog CNAME _site/ 2>/dev/null || true
-          cp -f robots.txt sitemap.xml llms.txt llms-full.txt og.png _site/ 2>/dev/null || true
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          echo "editorial: promoted briefs committed; deploy.yml publishes them."
