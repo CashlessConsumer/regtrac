@@ -10,6 +10,7 @@ Part of a three-layer sousveillance stack: RegTrac (rule-writers), SROTrac (rule
 - [Register](https://regtrac.cashlessconsumer.in/regulators.html): all 13 entities with type filters
 - [Timeline](https://regtrac.cashlessconsumer.in/timeline.html): 38 sourced events
 - [About](https://regtrac.cashlessconsumer.in/about.html): scope, method, caveats, the stack
+- [Briefs](https://regtrac.cashlessconsumer.in/blog/index.html): per-regulator briefs from the editorial swarm (what changed, why it matters, who is affected, what to watch, evidence)
 
 ## Register
 

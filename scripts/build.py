@@ -4,6 +4,8 @@ import csv, html, json, os, re, sqlite3, sys
 from datetime import datetime, timezone
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import frontmatter  # noqa: E402
 BASE = "https://regtrac.cashlessconsumer.in"
 AS_OF = "12 Sep 2026"
 BUILD_UTC = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
@@ -69,24 +71,27 @@ def md_to_html(md, page_id):
 
 def inline(t):
     t = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", t)
+    t = re.sub(r"(?<![\w*])\*([^*\n]+?)\*(?![\w*])", r"<em>\1</em>", t)
     t = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2" rel="noopener">\1</a>', t)
     return t
 
 def esc(s):
     return html.escape(s or "", quote=True)
 
-def nav(active):
+def nav(active, depth=0):
+    pre = "../" * depth
     links = [("index.html", "RegTrac"), ("regulators.html", "Register"),
-             ("timeline.html", "Timeline"), ("about.html", "About"),
+             ("timeline.html", "Timeline"), ("blog/index.html", "Briefs"),
+             ("about.html", "About"),
              ("https://srotrac.cashlessconsumer.in", "SROTrac ↗")]
     items = "".join(
-        f'<a href="{u}" {"class=\"active\"" if u == active else ""}'
+        f'<a href="{u if u.startswith("http") else pre + u}" {"class=\"active\"" if u == active else ""}'
         f'{" target=\"_blank\" rel=\"noopener\"" if u.startswith("http") else ""}>{esc(t)}</a>'
         for u, t in links)
     return f'''
 <header>
   <div class="wrap nav">
-    <a class="brand" href="index.html"><span class="eye">◉</span> RegTrac</a>
+    <a class="brand" href="{pre}index.html"><span class="eye">◉</span> RegTrac</a>
     <nav>{items}</nav>
   </div>
 </header>'''
@@ -100,7 +105,7 @@ def footer():
   </div>
 </footer>'''
 
-def page(title, desc, body, active, extra_head=""):
+def page(title, desc, body, active, extra_head="", depth=0):
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -113,11 +118,11 @@ def page(title, desc, body, active, extra_head=""):
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{BASE}/{active}">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="css/style.css?v={BUILD_UTC}">
+<link rel="stylesheet" href="{"../" * depth}css/style.css?v={BUILD_UTC}">
 {extra_head}
 </head>
 <body>
-{nav(active)}
+{nav(active, depth)}
 <main>
 {body}
 </main>
@@ -146,6 +151,41 @@ def leadership_table(reg_id):
 <tbody>{trs}</tbody></table></div>
 <p class="asof">Appointments as of {AS_OF}. Sources attached per row.</p>'''
 
+def load_briefs():
+    """Published/review briefs, newest first — used for the on-page brief links."""
+    out = []
+    pdir = os.path.join(ROOT, "blog", "posts")
+    if not os.path.isdir(pdir):
+        return out
+    for name in sorted(os.listdir(pdir)):
+        if not name.endswith(".md"):
+            continue
+        meta, _ = frontmatter.parse(os.path.join(pdir, name))
+        if str(meta.get("status", "draft")) == "draft":
+            continue
+        out.append({"slug": name[:-3], "regulator": str(meta.get("regulator", "")),
+                    "title": str(meta.get("title", name[:-3])),
+                    "date": str(meta.get("date", ""))})
+    out.sort(key=lambda b: (b["date"], b["slug"]), reverse=True)
+    return out
+
+
+BRIEFS = load_briefs()
+
+
+def briefs_block(rid):
+    rows = [b for b in BRIEFS if b["regulator"] == rid]
+    link = (f'<p><a href="blog/reg-{rid}.html">All {len(rows)} brief(s) for this regulator →</a>' if rows
+            else f'<p><a href="blog/reg-{rid}.html">Briefs stream →</a>')
+    if not rows:
+        return ('<h2>Briefs</h2><p class="asof">No brief published yet — the editorial swarm composes '
+                'one per regulator from the register.</p>' + link)
+    items = "".join(
+        f'<li><strong>{esc(b["date"])}</strong> — <a href="blog/{esc(b["slug"])}.html">{esc(b["title"])}</a></li>'
+        for b in rows[:5])
+    return f'<h2>Briefs</h2><ul>{items}</ul>{link}'
+
+
 def reg_page(r):
     rid, name = r["id"], r["name"]
     md = read_md(rid)
@@ -168,7 +208,7 @@ def reg_page(r):
 <span class="badge b-{r["type"].replace("_", "-")}">{esc(badge)}</span>
 <h1>{esc(name)}</h1>
 <p class="dek">{esc(r["statute"])}</p>'''
-    body = head + facts + leadership_table(rid) + body_md
+    body = head + facts + leadership_table(rid) + body_md + briefs_block(rid)
     body += reg_crosslink(rid)
     return page(f"{name} — RegTrac",
                 f"{name}: statute, powers, leadership, grievance routes and accountability watchpoints — tracked by RegTrac.",
@@ -180,6 +220,18 @@ def reg_crosslink(rid):
     if rid == "sebi":
         return '''<h2>Layer link</h2><p>SEBI-recognised SROs (AMFI, ANMI, BASL) are in SROTrac's future scope: <a href="https://srotrac.cashlessconsumer.in" target="_blank" rel="noopener">SROTrac</a>.</p>'''
     return ""
+
+def briefs_section():
+    if not BRIEFS:
+        return ""
+    items = "".join(
+        f'<li><span class="chip">{esc(REG_BY_ID[b["regulator"]]["abbr"] if b["regulator"] in REG_BY_ID else b["regulator"])}</span> '
+        f'<strong>{esc(b["date"])}</strong> — <a href="blog/{esc(b["slug"])}.html">{esc(b["title"])}</a></li>'
+        for b in BRIEFS[:5])
+    return f'''<h2>Latest briefs</h2>
+<ul class="brief-list">{items}</ul>
+<p><a href="blog/index.html">All briefs →</a></p>'''
+
 
 def index_page():
     core = [r for r in REGS if r["type"] == "statutory_core"]
@@ -223,6 +275,9 @@ def index_page():
   <h2>Recent</h2>
   <ul class="recent">{recent}</ul>
   <p><a href="timeline.html">Full timeline →</a></p>
+</section>
+<section>
+  {briefs_section()}
 </section>'''
     return page("RegTrac — India's financial regulators, tracked",
                 "RegTrac: a public register of India's statutory financial regulators — RBI, SEBI, IRDAI, PFRDA, IBBI, IFSCA, NABARD — statutes, leadership, powers and accountability gaps. A CashlessConsumer sousveillance project.",
@@ -349,7 +404,10 @@ def write_static():
     with open(os.path.join(ROOT, "robots.txt"), "w") as f:
         f.write("User-agent: *\nAllow: /\n\nSitemap: " + BASE + "/sitemap.xml\n")
     ids = [r["id"] for r in REGS]
-    pages = ["index.html", "regulators.html", "timeline.html", "about.html"] + [f"reg-{i}.html" for i in ids]
+    pages = ["index.html", "regulators.html", "timeline.html", "about.html",
+             "blog/index.html", "blog/feed.xml"] + [f"reg-{i}.html" for i in ids]
+    pages += [f"blog/reg-{i}.html" for i in ids]
+    pages += [f"blog/{b['slug']}.html" for b in BRIEFS]
     with open(os.path.join(ROOT, "sitemap.xml"), "w") as f:
         f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
         for p in pages:
@@ -369,6 +427,7 @@ Part of a three-layer sousveillance stack: RegTrac (rule-writers), SROTrac (rule
 - [Register]({BASE}/regulators.html): all {len(REGS)} entities with type filters
 - [Timeline]({BASE}/timeline.html): {len(EVENTS)} sourced events
 - [About]({BASE}/about.html): scope, method, caveats, the stack
+- [Briefs]({BASE}/blog/index.html): per-regulator briefs from the editorial swarm (what changed, why it matters, who is affected, what to watch, evidence)
 
 ## Register
 
