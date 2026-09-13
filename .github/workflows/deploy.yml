@@ -24,7 +24,7 @@ jobs:
           mkdir -p _site
           shopt -s nullglob
           for f in *.html; do cp "$f" _site/; done
-          cp -r css data content CNAME _site/ 2>/dev/null || true
+          cp -r css data content blog CNAME _site/ 2>/dev/null || true
           cp -f robots.txt sitemap.xml llms.txt llms-full.txt og.png _site/ 2>/dev/null || true
 
       - name: Upload Pages artifact

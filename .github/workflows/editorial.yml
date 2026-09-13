@@ -1,0 +1,190 @@
+name: Editorial
+
+# The managing-editor pipeline for RegTrac briefs.
+#
+#   pull_request  -> gate only. Compose briefs from the register, run the
+#                    editorial gate and the per-regulator publication test,
+#                    post both reports on the PR. Nothing is published.
+#   push to main  -> publish. Promote clean drafts, rebuild every generated
+#                    surface, commit the artifacts, then deploy Pages (bot
+#                    pushes do not re-trigger other workflows, so the deploy
+#                    runs here rather than in deploy.yml).
+#   dispatch      -> same as push to main, optionally for a single regulator.
+#
+# Composed posts land as `status: draft`; only the gate promotes them.
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+    paths:
+      - "content/**"
+      - "data/**"
+      - "blog/**"
+      - "scripts/**"
+      - "tests/**"
+  push:
+    branches: [main]
+    paths:
+      - "content/**"
+      - "data/**"
+      - "blog/posts/**"
+      - "scripts/**"
+      - "tests/**"
+  workflow_dispatch:
+    inputs:
+      regulator:
+        description: "Limit the run to one regulator id (blank = all)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: pages-${{ github.ref_name }}
+  cancel-in-progress: true
+
+env:
+  PYTHONUNBUFFERED: "1"
+
+jobs:
+  gate:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compose briefs from the register
+        run: python3 scripts/swarm.py --all
+
+      - name: Managing-editor gate (strict)
+        id: editorial
+        continue-on-error: true
+        run: |
+          python3 scripts/editorial.py check --strict --summary editorial-report.md
+
+      - name: Rebuild generated surfaces
+        run: |
+          python3 scripts/build.py
+          python3 scripts/bloggen.py
+
+      - name: Publication test (per regulator)
+        id: publication
+        continue-on-error: true
+        run: python3 tests/test_publication.py --markdown publication-report.md
+
+      - name: Comment on the pull request
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require("fs");
+            const read = (p, fallback) => {
+              try { return fs.readFileSync(p, "utf8"); } catch { return fallback; }
+            };
+            const marker = "<!-- regtrac-editorial -->";
+            const body = [
+              marker,
+              "## RegTrac editorial report",
+              "",
+              `- editorial gate: \`${{ steps.editorial.outcome }}\``,
+              `- publication test: \`${{ steps.publication.outcome }}\``,
+              "",
+              "<details><summary>Managing-editor gate</summary>",
+              "",
+              read("editorial-report.md", "_no report_"),
+              "",
+              "</details>",
+              "",
+              "<details><summary>Per-regulator publication test</summary>",
+              "",
+              read("publication-report.md", "_no report_"),
+              "",
+              "</details>",
+            ].join("\n");
+
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number, per_page: 100,
+            });
+            const existing = comments.find((c) => c.body?.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number, body });
+            }
+
+      - name: Fail if either check failed
+        if: steps.editorial.outcome != 'success' || steps.publication.outcome != 'success'
+        run: exit 1
+
+  publish:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compose briefs from the register
+        run: |
+          if [ -n "${{ github.event.inputs.regulator }}" ]; then
+            python3 scripts/swarm.py --regulator "${{ github.event.inputs.regulator }}"
+          else
+            python3 scripts/swarm.py --all --only-changed
+          fi
+
+      - name: Promote clean drafts and gate
+        run: python3 scripts/editorial.py check --coverage --strict --promote
+
+      - name: Rebuild generated surfaces
+        run: |
+          python3 scripts/build.py
+          python3 scripts/bloggen.py
+
+      - name: Publication test (per regulator)
+        run: python3 tests/test_publication.py
+
+      - name: Commit generated artifacts
+        run: |
+          git config user.name "regtrac-editorial[bot]"
+          git config user.email "regtrac-editorial@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "editorial: nothing to publish"
+          else
+            git commit -m "editorial: publish briefs from the register"
+            git push
+          fi
+
+      - name: Prepare site
+        run: |
+          mkdir -p _site
+          shopt -s nullglob
+          for f in *.html; do cp "$f" _site/; done
+          cp -r css data content blog CNAME _site/ 2>/dev/null || true
+          cp -f robots.txt sitemap.xml llms.txt llms-full.txt og.png _site/ 2>/dev/null || true
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
