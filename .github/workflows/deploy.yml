@@ -3,6 +3,7 @@ name: Build & Deploy
 on:
   push:
     branches: [main]
+  workflow_dispatch:
   pull_request:
     branches: [main]
     types: [opened, synchronize, reopened]
@@ -45,3 +46,24 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  smoke:
+    # Proves the deployed site actually serves every regulator's brief, not just
+    # that the files exist in the repo. Non-blocking: a Pages propagation delay is
+    # not a content failure, and re-running the check is one click.
+    if: github.ref_name == 'main'
+    needs: deploy
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Wait for Pages propagation
+        run: sleep 30
+
+      - name: Live per-regulator publication check
+        run: python3 tests/test_live.py

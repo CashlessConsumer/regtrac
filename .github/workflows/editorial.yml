@@ -137,6 +137,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      actions: write
     steps:
       - uses: actions/checkout@v4
 
@@ -178,4 +179,13 @@ jobs:
       - name: Report
         if: always()
         run: |
-          echo "editorial: promoted briefs committed; deploy.yml publishes them."
+          echo "editorial: promoted briefs committed."
+
+      # Pushes made with the default GITHUB_TOKEN do not trigger other
+      # workflows, so a commit here would not reach Pages on its own.
+      # Dispatch deploy.yml explicitly rather than duplicating its steps.
+      - name: Dispatch the deploy workflow
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run deploy.yml --ref main
