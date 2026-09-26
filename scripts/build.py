@@ -99,7 +99,7 @@ def nav(active, depth=0):
     pre = "../" * depth
     links = [("regulators.html", "Register"), ("timeline.html", "Timeline"),
              ("activity.html", "Activity"), ("social.html", "Social"),
-             ("blog/index.html", "Briefs"), ("about.html", "About")]
+             ("blog/index.html", "Blog"), ("about.html", "About")]
     items = "".join(
         f'<a href="{pre + u}" {"class=\"active\"" if u == active else ""}>{esc(t)}</a>'
         for u, t in links)
@@ -217,12 +217,12 @@ def briefs_block(rid):
     link = (f'<p><a href="blog/reg-{rid}.html">All {len(rows)} brief(s) for this regulator →</a>' if rows
             else f'<p><a href="blog/reg-{rid}.html">Briefs stream →</a>')
     if not rows:
-        return ('<h2>Briefs</h2><p class="asof">No brief published yet — the editorial swarm composes '
+        return ('<h2>Blog</h2><p class="asof">No brief published yet — the editorial swarm composes '
                 'one per regulator from the register.</p>' + link)
     items = "".join(
         f'<li><strong>{esc(b["date"])}</strong> — <a href="blog/{esc(b["slug"])}.html">{esc(b["title"])}</a></li>'
         for b in rows[:5])
-    return f'<h2>Briefs</h2><ul>{items}</ul>{link}'
+    return f'<h2>Blog</h2><ul>{items}</ul>{link}'
 
 
 def acct_chip(r):

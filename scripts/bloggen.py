@@ -99,7 +99,7 @@ def reg_label(rid):
 
 def card(p):
     rid = p["regulator"]
-    badge = f'<span class="reg">{esc(reg_label(rid))}</span>'
+    badge = f'<span class="reg">{esc(reg_label(rid))}</span>' if rid else ""
     sb = ("" if p["status"] == "published"
           else f'<span class="sbadge s-{esc(p["status"])}">{esc(p["status"])}</span>')
     return f'''<article class="brief-card">
@@ -121,14 +121,14 @@ def index(posts):
         f'<a class="fchip" href="reg-{esc(r["id"])}.html">{esc(r["abbr"])}</a>' for r in REGS)
     body = f'''<section class="page-head">
 <p class="crumbs"><a href="../index.html">← RegTrac</a></p>
-<h1>RegTrac Briefs</h1>
-<p class="lede">One brief per regulator, composed from the register: what changed, why it
-matters, who it affects, what to watch — every line carrying its own source. Written by the
-editorial swarm, gated by the managing editor before publication.</p>
+<h1>RegTrac Blog</h1>
+<p class="lede">A weekly edition from the desk on the most consequential development across the
+register, plus one brief per regulator: what changed, why it matters, who it affects, what to
+watch — every line carrying its own source. Gated before publication.</p>
 <div class="chips" style="margin:14px 0 4px">{chips}</div>
 </section>
 {stream(posts)}'''
-    return page("Briefs — RegTrac",
+    return page("Blog — RegTrac",
                 "Per-regulator briefs from the RegTrac editorial swarm: what changed, why it matters, who is affected, what to watch, and the evidence.",
                 body, "blog/index.html", depth=1)
 
@@ -153,12 +153,13 @@ def post_page(p):
     if not isinstance(personas, list):
         personas = [personas]
     signoffs = " · ".join(f"{esc(x)} ✓" for x in personas) if personas else "—"
-    crumb_reg = (f'<a href="reg-{esc(rid)}.html">{esc(reg_label(rid))} briefs</a>'
+    crumb_reg = (f'<a href="reg-{esc(rid)}.html">{esc(reg_label(rid))} briefs</a> &middot; '
+                 f'<a href="../reg-{esc(rid)}.html">register entry</a>'
                  if r else '<a href="index.html">Briefs</a>')
     sb = ("" if p["status"] == "published"
           else f'<span class="sbadge s-{esc(p["status"])}">{esc(p["status"])}</span>')
     body = f'''<article class="post-full">
-<p class="crumbs">{crumb_reg} · <a href="../reg-{esc(rid)}.html">register entry</a></p>
+<p class="crumbs">{crumb_reg}</p>
 <div class="meta">{esc(p["date"])} · {esc(str(p["meta"].get("event_type", "")))} {sb}</div>
 {p["html"]}
 <p class="personas">Editorial swarm: {signoffs} · gated by <code>scripts/editorial.py</code> on {BUILD_UTC}.</p>
@@ -185,7 +186,7 @@ def feed(posts):
                   f"    <description>{xesc(str(p['meta'].get('summary', '')))}</description>\n  </item>")
     return f'''<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"><channel>
-  <title>RegTrac Briefs</title>
+  <title>RegTrac Blog</title>
   <link>{BASE}/blog/</link>
   <description>Per-regulator briefs on India's statutory financial regulators.</description>
   <language>en-in</language>
