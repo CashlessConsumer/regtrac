@@ -53,3 +53,7 @@ duckdb data/regtrac.duckdb -c "SELECT * FROM events WHERE type='statute'"
 
 ---
 CashlessConsumer · consumer collective for digital payments & fintech · *surveillance is watching citizens; sousveillance is citizens watching back.*
+
+## License
+
+Code: MIT (see `LICENSE`). Data (`data/*.csv`, leadership facts, timeline): [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — copy, remix and republish with attribution to "RegTrac / CashlessConsumer".

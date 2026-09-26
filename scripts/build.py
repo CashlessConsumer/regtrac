@@ -80,28 +80,39 @@ def esc(s):
 
 def nav(active, depth=0):
     pre = "../" * depth
-    links = [("index.html", "RegTrac"), ("regulators.html", "Register"),
-             ("timeline.html", "Timeline"), ("blog/index.html", "Briefs"),
-             ("about.html", "About"),
-             ("https://srotrac.cashlessconsumer.in", "SROTrac ↗")]
+    links = [("regulators.html", "Register"), ("timeline.html", "Timeline"),
+             ("blog/index.html", "Briefs"), ("about.html", "About")]
     items = "".join(
-        f'<a href="{u if u.startswith("http") else pre + u}" {"class=\"active\"" if u == active else ""}'
-        f'{" target=\"_blank\" rel=\"noopener\"" if u.startswith("http") else ""}>{esc(t)}</a>'
+        f'<a href="{pre + u}" {"class=\"active\"" if u == active else ""}>{esc(t)}</a>'
         for u, t in links)
     return f'''
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="{pre}index.html"><span class="eye">◉</span> RegTrac</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="{pre}index.html">Reg<em>Trac</em><small>A CashlessConsumer Register</small></a>
     <nav>{items}</nav>
   </div>
 </header>'''
+def stack_band(depth=0):
+    return f"""
+<section class="stack">
+  <div class="wrap">
+    <p class="stack-kicker"><b>The sousveillance stack</b> &mdash; who writes, borrows and buys the rules of Indian finance</p>
+    <div class="stack-row">
+      <a href="https://regtrac.cashlessconsumer.in"><i>Layer 1</i><b>RegTrac</b><span>Rule-writers &mdash; statutory financial regulators</span><em class="here">You are here</em></a>
+      <a href="https://srotrac.cashlessconsumer.in" rel="noopener"><i>Layer 2</i><b>SROTrac</b><span>Rule-borrowers &mdash; RBI-recognised SROs and their rosters</span><em>Live</em></a>
+      <span class="planned"><i>Layer 3</i><b>LobbyWatch</b><span>Rule-buyers &mdash; consultations, access, revolving doors</span><em>Planned</em></span>
+    </div>
+  </div>
+</section>"""
 
 def footer():
     return f'''
-<footer>
+<footer class="site-footer">
   <div class="wrap">
-    <p><strong>RegTrac</strong> — statutory financial regulators of India, tracked by <a href="https://cashlessconsumer.in" rel="noopener">CashlessConsumer</a>.</p>
-    <p>Layer 1 of the sousveillance stack: <a href="https://regtrac.cashlessconsumer.in">RegTrac</a> (rule-writers) · <a href="https://srotrac.cashlessconsumer.in">SROTrac</a> (rule-borrowers) · LobbyWatch (rule-buyers — planned). Open data: <code>data/*.csv</code> in the repo. Built {BUILD_UTC}; leadership positions as of {AS_OF}.</p>
+    <p><strong>RegTrac</strong> — statutory financial regulators of India, tracked by <a href="https://cashlessconsumer.in" rel="noopener">CashlessConsumer</a>. Not affiliated with any regulator; every leadership fact is sourced per entry.</p>
+    <p><a href="https://regtrac.cashlessconsumer.in/about.html">Methodology</a> · <a href="https://regtrac.cashlessconsumer.in/llms.txt">llms.txt</a> · <a href="https://github.com/CashlessConsumer/regtrac" rel="noopener">Data &amp; code: GitHub</a></p>
+    <p><strong>Data: CC BY 4.0</strong> — attribution “RegTrac / CashlessConsumer”. Code: MIT.</p>
+    <p class="colophon">Layer 1 of the sousveillance stack: RegTrac (rule-writers) · <a href="https://srotrac.cashlessconsumer.in">SROTrac</a> (rule-borrowers) · LobbyWatch (rule-buyers, planned) · leadership as of {AS_OF} · built {BUILD_UTC}</p>
   </div>
 </footer>'''
 
@@ -118,6 +129,15 @@ def page(title, desc, body, active, extra_head="", depth=0):
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{BASE}/{active}">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="RegTrac">
+<meta property="og:image" content="{BASE}/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{BASE}/og.png">
+<meta name="theme-color" content="#ededf0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231d4ed8'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='36' font-weight='700' fill='%23f8f8fa' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="{"../" * depth}css/style.css?v={BUILD_UTC}">
 {extra_head}
 </head>
@@ -126,6 +146,7 @@ def page(title, desc, body, active, extra_head="", depth=0):
 <main>
 {body}
 </main>
+{stack_band(depth)}
 {footer()}
 </body>
 </html>'''
@@ -255,14 +276,6 @@ def index_page():
   <h1>The watchers,<br>watched.</h1>
   <p class="dek">RegTrac tracks the statutory regulators of India's financial sector — their statutes, powers, leadership appointments, grievance machinery and accountability gaps. Surveillance is watching citizens; <em>sousveillance</em> is citizens watching back.</p>
   {stats}
-</section>
-<section>
-  <h2>The sousveillance stack</h2>
-  <div class="layers">
-    <a class="layer live" href="https://regtrac.cashlessconsumer.in"><b>RegTrac</b><span>Rule-writers — statutory regulators</span><em>live</em></a>
-    <a class="layer live" href="https://srotrac.cashlessconsumer.in" target="_blank" rel="noopener"><b>SROTrac</b><span>Rule-borrowers — recognised SROs and their rosters</span><em>live</em></a>
-    <a class="layer planned" href="about.html#stack"><b>LobbyWatch</b><span>Rule-buyers — consultations, access, revolving doors</span><em>planned</em></a>
-  </div>
 </section>
 <section>
   <h2>Register — statutory regulators</h2>

@@ -45,6 +45,8 @@ Three scripts, one direction: the swarm proposes, the managing editor disposes, 
 - CI entry points: `editorial.yml` (PR gate + one sticky PR comment, `main` publish, `workflow_dispatch` with an optional `regulator` input) and `deploy.yml` (build + Pages, `workflow_dispatch` enabled). Both exercised green on 2026-09-13.
 - `deploy.yml` ends with a non-blocking `smoke` job (`tests/test_live.py`) that fetches every regulator's entity page, stream and briefs over HTTP from https://cashlessconsumer.github.io/regtrac after a 30 s propagation wait. Point it anywhere with `python3 tests/test_live.py --base <url>`; the branded domain is skipped until its DNS CNAME lands.
 
-## Design language (decision 2026-09-26)
+## Design language (decision 2026-09-26, synchronised)
 
-Separate design language per sousveillance layer: RegTrac = dark intelligence-brief (navy/amber), SROTrac = light gazette/ledger (seal blue, stamps). Keep them distinct. Shared structural contract: 1080px wrap, sticky masthead, kicker/dek, stats grid, stack band + footer layer line on every page. RegTrac carries its layer strip in index.html `.layers`; keep it in sync if SROTrac/LobbyWatch gain pages.
+One shared design language for the sousveillance stack: the SROTrac gazette/ledger skin (paper #ededf0, ruled lines + grain, seal blue #1d4ed8, Fraunces/Newsreader/IBM Plex Mono, ledger tables, stack band + gazette footer on every page). This supersedes the earlier separate-skins decision — the user called for synchronised UI/UX. RegTrac was ported from the old dark navy/amber brief to the gazette language on 2026-09-26; SROTrac is the reference implementation (its `scripts/site.py` CSS + masthead/footer/band are the source of truth).
+
+Shared contract: `.stack` band markup identical on both (same classes, "You are here" on the live layer); same masthead anatomy (brand em + mono uppercase nav); same 4-paragraph site-footer. Site-specific content components (regulator tables, leadership grids, briefs stream) keep RegTrac's classes but are styled from SROTrac's patterns — when SROTrac's design moves, port it here.
