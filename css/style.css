@@ -162,3 +162,27 @@ ul.recent li strong{font-family:var(--mono);font-weight:500;font-size:.8rem;colo
   dl.facts dt{padding-top:.5rem}
 }
 @media print{body{background:var(--paper-hi)}body::after{display:none}.site-header{position:static}}
+
+/* ---------- official accounts (social register, synchronised with SROTrac) ---------- */
+.acct-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;margin-top:8px}
+.acct-card{border:1px solid var(--line);background:var(--card);border-top:3px solid var(--seal);padding:16px 18px;border-radius:6px}
+.acct-card h3{font-family:var(--serif);font-size:1.25rem;margin:0 0 2px}
+.acct-card .sector{margin:0 0 10px}
+.acct-row{display:flex;flex-wrap:wrap;gap:8px}
+.acct{display:flex;flex-direction:column;gap:2px;border:1px solid var(--line);border-radius:6px;padding:8px 12px;text-decoration:none;background:var(--bg2)}
+.acct:hover{border-color:var(--seal)}
+.acct .pf{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.acct .hd{font-size:.88rem;color:var(--ink);font-weight:600}
+.acct .ok{color:var(--good)}
+.acct .ann{color:var(--accent)}
+.acct-card .absent{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);margin:10px 0 0}
+.drift-bad{color:#b42318}
+.reg-social{margin-top:26px;padding-top:18px;border-top:1px solid var(--line)}
+.reg-social h2{font-size:1.15rem;margin:0 0 10px}
+/* ---------- activity feed ---------- */
+.feed{display:flex;flex-direction:column}
+.feed-item{border-bottom:1px solid var(--line);padding:16px 0}
+.feed-item h3{font-family:var(--serif);font-size:1.18rem;margin:4px 0 0;max-width:760px}
+.feed-meta{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin:0}
+.feed-meta a{color:var(--seal);text-decoration:none}
+.feed-sum{color:var(--muted);font-size:.9rem;margin:4px 0 0;max-width:720px}

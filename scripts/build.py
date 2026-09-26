@@ -28,6 +28,23 @@ def read_csv(name):
 REGS = read_csv("regulators.csv")
 LEAD = read_csv("leadership.csv")
 EVENTS = read_csv("events.csv")
+
+def _load(name, default):
+    try:
+        return read_csv(name)
+    except (OSError, csv.Error):
+        return default
+
+SOCIAL = _load("social.csv", [])
+try:
+    with open(os.path.join(ROOT, "data", "social_check.json"), encoding="utf-8") as _f:
+        SOCIAL_CHECK = json.load(_f)
+except (OSError, ValueError):
+    SOCIAL_CHECK = None
+
+ACCT_LABEL = {"x": "X (Twitter)", "linkedin": "LinkedIn", "youtube": "YouTube",
+              "facebook": "Facebook", "instagram": "Instagram"}
+ACCT_ORDER = {k: i for i, k in enumerate(["x", "linkedin", "youtube", "facebook", "instagram"])}
 EVENTS.sort(key=lambda e: e["date"], reverse=True)
 REG_BY_ID = {r["id"]: r for r in REGS}
 
@@ -81,6 +98,7 @@ def esc(s):
 def nav(active, depth=0):
     pre = "../" * depth
     links = [("regulators.html", "Register"), ("timeline.html", "Timeline"),
+             ("activity.html", "Activity"), ("social.html", "Social"),
              ("blog/index.html", "Briefs"), ("about.html", "About")]
     items = "".join(
         f'<a href="{pre + u}" {"class=\"active\"" if u == active else ""}>{esc(t)}</a>'
@@ -207,6 +225,156 @@ def briefs_block(rid):
     return f'<h2>Briefs</h2><ul>{items}</ul>{link}'
 
 
+def acct_chip(r):
+    label = ACCT_LABEL.get(r["platform"], r["platform"].title())
+    if r.get("source") == "official site":
+        mark = '<span class="ok" title="Linked from the entity\'s own website">&#10003;</span>'
+    else:
+        mark = '<span class="ann" title="Verified via announcement or platform lookup">&#9998;</span>'
+    tip = (r.get("notes") or "").replace('"', "&quot;")
+    title = f' title="{tip}"' if tip else ""
+    return (f'<a class="acct" href="{esc(r["url"])}" rel="noopener"{title}>'
+            f'<span class="pf">{esc(label)}</span>'
+            f'<span class="hd">{mark} {esc(r["handle"])}</span></a>')
+
+
+def social_strip(rid):
+    rows = sorted((r for r in SOCIAL if r["entity"] == rid),
+                  key=lambda r: ACCT_ORDER.get(r["platform"], 9))
+    if not rows:
+        return ""
+    chips = "".join(acct_chip(r) for r in rows)
+    return (f'<section class="reg-social"><h2>Official accounts</h2>'
+            f'<div class="acct-row">{chips}</div></section>')
+
+
+def build_activity_page():
+    """Reverse-chronological feed: leadership appointments + tracked events."""
+    feed = []
+    for l in LEAD:
+        r = REG_BY_ID.get(l["regulator"], {})
+        feed.append({
+            "date": (l["since"] + "-01")[:10],
+            "actor": l["regulator"],
+            "type": "appointment",
+            "title": f'{l["name"]} appointed {l["role"]} of {r.get("name", l["regulator"])}',
+            "summary": f'Appointing authority: {l["appointing_authority"] or "—"}.'.strip(),
+            "url": l["source_url"],
+        })
+    for e in EVENTS:
+        feed.append({
+            "date": e["date"], "actor": e["actor"], "type": e["type"],
+            "title": e["title"], "summary": "", "url": e["source_url"],
+        })
+    feed.sort(key=lambda x: x["date"], reverse=True)
+
+    counts = {}
+    for item in feed:
+        counts[item["type"]] = counts.get(item["type"], 0) + 1
+    labels = dict(EVENT_TYPE_LABELS)
+    labels["appointment"] = "Leadership appointment"
+    chips = '<button class="fchip on" data-f="all" onclick="filterFeed(this)">All</button>'
+    for t in sorted(counts, key=lambda k: -counts[k]):
+        chips += (f'<button class="fchip" data-f="{esc(t)}" onclick="filterFeed(this)">'
+                  f'{esc(labels.get(t, t))} ({counts[t]})</button>')
+
+    items = ""
+    for item in feed:
+        src = f' <a href="{esc(item["url"])}" rel="noopener">&#8599;</a>' if item["url"] else ""
+        abbr = REG_BY_ID.get(item["actor"], {}).get("abbr", item["actor"])
+        summ = f'<p class="feed-sum">{esc(item["summary"])}</p>' if item["summary"] else ""
+        items += (f'<article class="feed-item" data-t="{esc(item["type"])}">'
+                  f'<p class="feed-meta"><a href="reg-{esc(item["actor"])}.html">{esc(abbr)}</a>'
+                  f' &middot; {item["date"]} &middot; {esc(labels.get(item["type"], item["type"]))}{src}</p>'
+                  f'<h3>{esc(item["title"])}</h3>{summ}</article>')
+
+    body = f"""
+<h1>Activity</h1>
+<p class="dek">Newest first — every tracked leadership change and event across the {len(REGS)} entities, with per-type filters. The full history view lives in the <a href="timeline.html">Timeline</a>.</p>
+<div class="chips">{chips}</div>
+<div class="feed" id="feed">{items}</div>
+<script>
+function filterFeed(btn){{
+  document.querySelectorAll('.fchip').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  const f=btn.dataset.f;
+  document.querySelectorAll('#feed .feed-item').forEach(el=>{{
+    el.style.display = (f==='all'||el.dataset.t===f)?'':'none';
+  }});
+}}
+</script>"""
+    return page("Activity — RegTrac",
+                "Newest-first feed of leadership appointments and tracked events across India's statutory financial regulators.",
+                body, "activity.html")
+
+
+def build_social_page():
+    by_ent = {}
+    for r in SOCIAL:
+        by_ent.setdefault(r["entity"], []).append(r)
+    for rows in by_ent.values():
+        rows.sort(key=lambda r: ACCT_ORDER.get(r["platform"], 9))
+
+    total = len(SOCIAL)
+    n_x = sum(1 for r in SOCIAL if r["platform"] == "x")
+    with_x = sum(1 for rid in REG_BY_ID if any(r["platform"] == "x" for r in by_ent.get(rid, [])))
+    n_li = sum(1 for r in SOCIAL if r["platform"] == "linkedin")
+
+    cards = ""
+    for r in REGS:
+        rows = by_ent.get(r["id"], [])
+        chips = "".join(acct_chip(x) for x in rows) or '<p class="muted small">No official accounts found.</p>'
+        absent = ""
+        if rows:
+            have = {x["platform"] for x in rows}
+            bits = (["No X account"] if "x" not in have else []) + (["No YouTube"] if "youtube" not in have else [])
+            if bits:
+                absent = f'<p class="absent">{" &middot; ".join(bits)}</p>'
+        cards += f"""
+    <div class="acct-card">
+      <h3><a href="reg-{r['id']}.html" style="color:inherit;text-decoration:none">{esc(r['abbr'])}</a></h3>
+      <p class="sector muted small">{esc(r['name'])}</p>
+      {chips}
+      {absent}
+    </div>"""
+
+    if SOCIAL_CHECK and SOCIAL_CHECK.get("official_site_accounts"):
+        miss = SOCIAL_CHECK.get("missing_from_site") or []
+        drift = (f"Last drift check {esc(SOCIAL_CHECK.get('checked', '?'))}: "
+                 f"{SOCIAL_CHECK.get('still_linked', 0)}/{SOCIAL_CHECK.get('official_site_accounts', 0)} "
+                 "official-site links still live.")
+        if miss:
+            drift += f' <strong class="drift-bad">&#9888; No longer linked: {esc(", ".join(miss))}</strong>'
+    else:
+        drift = "Drift check has not run yet."
+
+    body = f"""
+<h1>Where the regulators <em>post</em></h1>
+<p class="dek">Notifications, consultation teasers and consumer alerts often surface first on an official channel. Every account below is verified against the entity's own website (or an official announcement), and the daily refresh re-checks each &#10003;-marked link. <strong>&#10003;</strong> = still linked from the official site &middot; <strong>&#9998;</strong> = verified via announcement or platform lookup.</p>
+<div class="stats">
+  <div><strong>{total}</strong><span>official accounts tracked</span></div>
+  <div><strong>{n_x}</strong><span>handles on X</span></div>
+  <div><strong>{with_x} of {len(REGS)}</strong><span>entities reachable on X</span></div>
+  <div><strong>{n_li}</strong><span>LinkedIn pages</span></div>
+</div>
+<h2>The accounts</h2>
+<p class="dek">One card per entity. Hover a handle for notes; click through to follow.</p>
+<div class="acct-grid">{cards}
+</div>
+<div class="callout">
+  <h2>How this is monitored</h2>
+  <ul class="ticks">
+    <li>The daily refresh re-fetches the entities' own sites, then a drift check (<code>scripts/social_check.py</code>) confirms every &#10003;-marked account is still linked. {drift}</li>
+    <li>X, LinkedIn, Facebook and Instagram block robots, so follower counts are not scraped here — links are curated, dated and re-verified in the direction platforms can't block.</li>
+    <li>A handle vanishing from an official site is the cheapest early signal of a rebrand, a takeover or a quietly deleted account — it shows here as a &#9888; flag.</li>
+    <li>Spotted a new or dead handle? One-row fix in <a href="https://github.com/CashlessConsumer/regtrac">data/social.csv</a> (CC BY 4.0). FSDC publishes no accounts — it is a coordination council, not an operator.</li>
+  </ul>
+</div>"""
+    return page("Official accounts — RegTrac",
+                "Every verified official social-media account of India's statutory financial regulators, with a daily drift check.",
+                body, "social.html")
+
+
 def reg_page(r):
     rid, name = r["id"], r["name"]
     md = read_md(rid)
@@ -230,6 +398,7 @@ def reg_page(r):
 <h1>{esc(name)}</h1>
 <p class="dek">{esc(r["statute"])}</p>'''
     body = head + facts + leadership_table(rid) + body_md + briefs_block(rid)
+    body += social_strip(rid)
     body += reg_crosslink(rid)
     return page(f"{name} — RegTrac",
                 f"{name}: statute, powers, leadership, grievance routes and accountability watchpoints — tracked by RegTrac.",
@@ -513,7 +682,8 @@ def build_db():
 
 def main():
     pages = {"index.html": index_page(), "regulators.html": regulators_page(),
-             "timeline.html": timeline_page(), "about.html": about_page()}
+             "timeline.html": timeline_page(), "activity.html": build_activity_page(),
+             "social.html": build_social_page(), "about.html": about_page()}
     for r in REGS:
         pages[f"reg-{r['id']}.html"] = reg_page(r)
     for name, content in pages.items():

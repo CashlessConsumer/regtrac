@@ -1,0 +1,41 @@
+entity,platform,handle,url,source,verified,notes
+rbi,x,@RBI,https://twitter.com/RBI,official site,2026-09-26,
+rbi,instagram,reservebankofindia,https://instagram.com/reservebankofindia,official site,2026-09-26,
+rbi,facebook,RBIsays,https://www.facebook.com/RBIsays,official site,2026-09-26,
+rbi,linkedin,company/reservebankofindia,https://www.linkedin.com/company/reservebankofindia,official site,2026-09-26,
+rbi,youtube,UCIfCOl43tunZVNYafeC4RQA,https://www.youtube.com/channel/UCIfCOl43tunZVNYafeC4RQA,official site,2026-09-26,
+sebi,x,@SEBI_updates,https://x.com/SEBI_updates,platform lookup,2026-09-26,Launched 4 Apr 2025 per SEBI press release
+sebi,x,@SEBI_India,https://x.com/SEBI_India,platform lookup,2026-09-26,Investor-education handle per SEBI social-media disclaimer page
+irdai,x,@irdaindia,https://x.com/irdaindia,platform lookup,2026-09-26,Replies route to pgportal grievance; site footer is JS-rendered
+irdai,youtube,@IRD AI Connects,https://www.youtube.com/channel/UC6qNTPlQezql3joOg-ROknA,platform lookup,2026-09-26,Official channel 'IRDAI Connects'
+pfrda,x,@PFRDAOfficial,https://x.com/PFRDAOfficial,official site,2026-09-26,
+pfrda,instagram,pfrdaofficial,https://www.instagram.com/pfrdaofficial/,official site,2026-09-26,
+pfrda,youtube,@PFRDAOFFICIAL,https://www.youtube.com/@PFRDAOFFICIAL,official site,2026-09-26,
+pfrda,linkedin,company/pfrda,https://in.linkedin.com/company/pfrda,official site,2026-09-26,
+ibbi,x,@IBBIlive,https://twitter.com/IBBIlive,official site,2026-09-26,
+ibbi,youtube,@ibbichannel9450,https://www.youtube.com/@ibbichannel9450,official site,2026-09-26,
+ifsca,x,@ifsca_official,https://twitter.com/ifsca_official,official site,2026-09-26,
+ifsca,linkedin,showcase/ifscaofficial,https://www.linkedin.com/showcase/ifscaofficial,official site,2026-09-26,
+ifsca,youtube,UCJDOlW0d0VhtRUNt3rMg7Aw,https://www.youtube.com/channel/UCJDOlW0d0VhtRUNt3rMg7Aw,official site,2026-09-26,
+dicgc,instagram,dicgc.india,https://www.instagram.com/dicgc.india,official site,2026-09-26,
+dicgc,youtube,@dicgcindia,https://www.youtube.com/@dicgcindia,official site,2026-09-26,
+nhb,x,@nhbindia,https://twitter.com/nhbindia,official site,2026-09-26,
+nhb,linkedin,company/national-housing-bank,https://www.linkedin.com/company/national-housing-bank,official site,2026-09-26,
+sidbi,x,@sidbiofficial,https://twitter.com/sidbiofficial,official site,2026-09-26,
+sidbi,facebook,SIDBIOfficial,https://www.facebook.com/SIDBIOfficial/,official site,2026-09-26,
+sidbi,instagram,sidbiofficial,https://www.instagram.com/sidbiofficial/,official site,2026-09-26,
+sidbi,linkedin,company/sidbi-small-industries-development-bank-of-india-,https://www.linkedin.com/company/sidbi-small-industries-development-bank-of-india-,official site,2026-09-26,
+sidbi,youtube,UCFp0C2eaU3QQSGbrMK-AU8w,https://www.youtube.com/channel/UCFp0C2eaU3QQSGbrMK-AU8w,official site,2026-09-26,
+nfra,x,@nfrasocial,https://twitter.com/nfrasocial,official site,2026-09-26,
+nfra,facebook,MCANFRA,https://www.facebook.com/MCANFRA,official site,2026-09-26,
+nfra,linkedin,company/national-financial-reporting-authority-nfra,https://www.linkedin.com/company/national-financial-reporting-authority-nfra/,official site,2026-09-26,
+nfra,youtube,UC17ZCq4IG0emSDhHs9iK8zw,https://www.youtube.com/channel/UC17ZCq4IG0emSDhHs9iK8zw,official site,2026-09-26,
+nabard,x,@NABARDOnline,https://x.com/NABARDOnline,platform lookup,2026-09-26,Bio links nabard.org; site blocks automated fetch
+nabard,instagram,nabardonline,https://www.instagram.com/nabardonline,platform lookup,2026-09-26,'Official Instagram Page of NABARD' in bio
+nabard,facebook,nabardonline,https://www.facebook.com/nabardonline,platform lookup,2026-09-26,Official Facebook Page of NABARD
+nabard,linkedin,company/nabard,https://in.linkedin.com/company/nabard,platform lookup,2026-09-26,'Official LinkedIn Page of NABARD' in about
+npci,x,@NPCI_NPCI,https://x.com/NPCI_NPCI,official site,2026-09-26,Fetched via browser; curl blocked by Akamai
+npci,facebook,NPCI.org.in,https://www.facebook.com/NPCI.org.in/,official site,2026-09-26,Linked verbatim from npci.org.in
+npci,linkedin,company/npci,https://www.linkedin.com/company/npci/,official site,2026-09-26,
+npci,youtube,UCF3QKWw5HX5pHYlUM_OjiEw,https://www.youtube.com/channel/UCF3QKWw5HX5pHYlUM_OjiEw,official site,2026-09-26,
+npci,instagram,npcigroup,https://www.instagram.com/npcigroup,official site,2026-09-26,
