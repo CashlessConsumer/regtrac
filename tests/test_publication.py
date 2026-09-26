@@ -10,6 +10,7 @@ offers — and that generated pages carry no unrendered template or markdown.
   python3 tests/test_publication.py --markdown report.md   # also write the matrix
 """
 import argparse
+import html
 import csv
 import os
 import re
@@ -90,7 +91,7 @@ def main():
             if not os.path.exists(page_path):
                 problems.append(f"{slug}: post page not rendered")
                 continue
-            body = read(page_path)
+            body = html.unescape(read(page_path))
             if title not in body:
                 problems.append(f"{slug}: post page missing its title")
             for marker in BAD_MARKERS:
