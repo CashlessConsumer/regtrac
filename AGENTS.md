@@ -44,3 +44,7 @@ Three scripts, one direction: the swarm proposes, the managing editor disposes, 
 - On `main`, the editorial job commits promoted artifacts and then **dispatches `deploy.yml` explicitly** — a push made with the default `GITHUB_TOKEN` does not trigger other workflows, so a bot commit alone would leave the promoted briefs unpublished.
 - CI entry points: `editorial.yml` (PR gate + one sticky PR comment, `main` publish, `workflow_dispatch` with an optional `regulator` input) and `deploy.yml` (build + Pages, `workflow_dispatch` enabled). Both exercised green on 2026-09-13.
 - `deploy.yml` ends with a non-blocking `smoke` job (`tests/test_live.py`) that fetches every regulator's entity page, stream and briefs over HTTP from https://cashlessconsumer.github.io/regtrac after a 30 s propagation wait. Point it anywhere with `python3 tests/test_live.py --base <url>`; the branded domain is skipped until its DNS CNAME lands.
+
+## Design language (decision 2026-09-26)
+
+Separate design language per sousveillance layer: RegTrac = dark intelligence-brief (navy/amber), SROTrac = light gazette/ledger (seal blue, stamps). Keep them distinct. Shared structural contract: 1080px wrap, sticky masthead, kicker/dek, stats grid, stack band + footer layer line on every page. RegTrac carries its layer strip in index.html `.layers`; keep it in sync if SROTrac/LobbyWatch gain pages.
