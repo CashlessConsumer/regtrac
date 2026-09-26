@@ -16,6 +16,10 @@ Layer 1 (rule-writers) of the sousveillance stack: RegTrac (this) + SROTrac (`Pr
 - duckdb ≥1.4 requires explicit column types in CREATE TABLE — build.py already emits `VARCHAR`; keep that pattern.
 - Per-rule: always pass explicit absolute output paths to any CLI that writes files (agent-browser screenshot takes `--full`, not `--full-page`).
 
+## Blog / weekly edition
+
+Nav label is **Blog** (synced with SROTrac; the old "Briefs" label is retired). `scripts/bloggen.py` renders every `blog/posts/*.md` into `blog/` — per-regulator briefs carry `regulator: <id>`, weekly editions (`event_type: weekly`) omit it and surface on the index + feed only. The **RegTrac Weekly agent** (Zo automation, Mondays 09:20 IST, posts to Discord #policy-research) researches the week's most consequential development across the register, writes a sourced post, rebuilds, tests (test_publication.py must ALL PASS), and pushes. Inaugural post: `2026-09-26-ibbi-succession-watch.md`.
+
 ## Content voice
 
 - Consumer-first ("For the person paying" section on every entity page — grievance routes with escalation steps).
