@@ -112,13 +112,13 @@ def nav(active, depth=0):
 </header>'''
 def stack_band(depth=0):
     return f"""
-<section class="stack">
+<section class="stack" aria-label="The sousveillance stack">
   <div class="wrap">
-    <p class="stack-kicker"><b>The sousveillance stack</b> &mdash; who writes, borrows and buys the rules of Indian finance</p>
+    <p class="stack-kicker"><b>The Sousveillance Stack</b> — who writes, borrows and buys the rules</p>
     <div class="stack-row">
-      <a href="https://regtrac.cashlessconsumer.in"><i>Layer 1</i><b>RegTrac</b><span>Rule-writers &mdash; statutory financial regulators</span><em class="here">You are here</em></a>
-      <a href="https://srotrac.cashlessconsumer.in" rel="noopener"><i>Layer 2</i><b>SROTrac</b><span>Rule-borrowers &mdash; RBI-recognised SROs and their rosters</span><em>Live</em></a>
-      <a href="https://lobbywatch.cashlessconsumer.in"><i>Layer 3</i><b>LobbyWatch</b><span>Rule-buyers &mdash; consultations, access, revolving doors</span><em>Live</em></a>
+      <a href="https://regtrac.cashlessconsumer.in/"><i>Layer 1 · rule-writers</i><b>RegTrac</b><span>India's statutory financial regulators</span><em class="here">you are here</em></a>
+      <a href="https://srotrac.cashlessconsumer.in/"><i>Layer 2 · rule-borrowers</i><b>SROTrac</b><span>India's financial-sector self-regulatory organisations</span><em>live</em></a>
+      <a href="https://lobbywatch.cashlessconsumer.in/"><i>Layer 3 · rule-buyers</i><b>LobbyWatch</b><span>consultations, access, revolving doors</span><em>live</em></a>
     </div>
   </div>
 </section>"""
@@ -128,9 +128,10 @@ def footer():
 <footer class="site-footer">
   <div class="wrap">
     <p><strong>RegTrac</strong> — statutory financial regulators of India, tracked by <a href="https://cashlessconsumer.in" rel="noopener">CashlessConsumer</a>. Not affiliated with any regulator; every leadership fact is sourced per entry.</p>
+    <p class="colophon">Layer 1 of the sousveillance stack: RegTrac (rule-writers) · <a href="https://srotrac.cashlessconsumer.in">SROTrac</a> (rule-borrowers) · <a href="https://lobbywatch.cashlessconsumer.in">LobbyWatch</a> (rule-buyers) · leadership as of {AS_OF} · built {BUILD_UTC}</p>
     <p><a href="https://regtrac.cashlessconsumer.in/about.html">Methodology</a> · <a href="https://regtrac.cashlessconsumer.in/llms.txt">llms.txt</a> · <a href="https://github.com/CashlessConsumer/regtrac" rel="noopener">Data &amp; code: GitHub</a></p>
     <p><strong>Data: CC BY 4.0</strong> — attribution “RegTrac / CashlessConsumer”. Code: MIT.</p>
-    <p class="colophon">Layer 1 of the sousveillance stack: RegTrac (rule-writers) · <a href="https://srotrac.cashlessconsumer.in">SROTrac</a> (rule-borrowers) · <a href="https://lobbywatch.cashlessconsumer.in">LobbyWatch</a> (rule-buyers) · leadership as of {AS_OF} · built {BUILD_UTC}</p>
+    <p>Watch the watchers — every appointment, power and grievance route is cited to a public record; corrections welcome via GitHub.</p>
   </div>
 </footer>'''
 
