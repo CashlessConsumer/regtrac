@@ -17,7 +17,8 @@ India's financial sector policy is made in three rooms. Each room now has a watc
 │   FACE, UFF (fintech), FIDC, MFIN, Sa-Dhan, SRPA, FEDAI,          │
 │   Sahamati. Watched: rosters, who the members are, governance.    │
 ├────────────────────────────────────────────────────────────────────┤
-│ Room 3: Rule-BUYERS  →  LobbyWatch      (planned)                  │
+│ Room 3: Rule-BUYERS  →  LobbyWatch      (live)                     │
+│   lobbywatch.cashlessconsumer.in                                  │
 │   Watched (to build):                                             │
 │   • Consultation papers — who commented, and did the final rule   │
 │     move toward the comments? (Regulators publish comments        │
@@ -57,7 +58,7 @@ The capture story only becomes visible when the layers join:
 5. No insinuation without a paper trail — access and influence are documented
    through meetings, minutes, comment letters and appointment orders, not vibes.
 
-## LobbyWatch build order (when picked up)
+## LobbyWatch build order (v1 shipped 2026-09-26: repo `Projects/lobbywatch/` — registers + scorecard + doors + RTI templates; items 1 scraper, 3 diff engine and the comments corpus remain open)
 
 1. Scraper: consultation-paper indexes of RBI, SEBI, IRDAI, PFRDA, IBBI, IFSCA
    (each has a "consultations" section; formats vary wildly).
@@ -70,4 +71,4 @@ The capture story only becomes visible when the layers join:
 5. Publish: one page per consultation, timeline of access, scorecard per regulator
    on comment transparency.
 
-*RegTrac and SROTrac are live; this document is the contract for the third layer.*
+*All three layers are live; this document remains the contract for deepening the third layer.*
