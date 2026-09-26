@@ -1,6 +1,6 @@
 # RegTrac — full text
 
-Leadership as of 12 Sep 2026. Built 2026-09-26 04:19 UTC.
+Leadership as of 12 Sep 2026. Built 2026-09-26 08:28 UTC.
 
 ## Register
 
@@ -165,7 +165,7 @@ RegTrac is layer one of a three-layer sousveillance stack for Indian financial p
 
 1. **RegTrac** (this site) — the *rule-writers*: statutory regulators, their powers, appointments, consultations and grievance machinery.
 2. **SROTrac** — the *rule-borrowers*: RBI-recognised self-regulatory organisations and — the part that matters — their member rosters, where industry consensus on fees and conduct actually forms.
-3. **LobbyWatch** (planned) — the *rule-buyers*: who submits on consultations, who meets whom, the revolving door between regulator and regulated, industry-association access to FSDC and ministries.
+3. **LobbyWatch** (live at https://lobbywatch.cashlessconsumer.in) — the *rule-buyers*: who submits on consultations, who meets whom, the revolving door between regulator and regulated, industry-association access to FSDC and ministries.
 
 The stack's promise is the join: a consultation submission on an RBI draft (LobbyWatch), cross-referenced against SRO membership (SROTrac), cross-referenced against the regulatory change that followed (RegTrac). Each layer alone is a directory; together they are a map of how financial policy gets made in India — and for whom.
 
