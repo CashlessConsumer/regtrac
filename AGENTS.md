@@ -64,3 +64,7 @@ Shared contract: `.stack` band markup identical on both (same classes, "You are 
 - NPCI (Akamai) and NABARD block curl: refresh logs FETCH FAIL (stale snapshot, non-fatal). Re-capture `data/raw/npci.html` via agent-browser when its accounts look stale.
 
 2026-09-26 pipeline parity: RegTrac now mirrors SROTrac's content pipeline — activity.html (reverse-chron feed), social.html (official-accounts register with per-entity cards + drift check via scripts/social_check.py against data/raw/ snapshots), scripts/refresh.sh daily (07:45 IST automation, #policy-research). When a shared pipeline component moves, land it in both repos same-day.
+
+## Blog archive layer (2026-09-27)
+
+`scripts/bloggen.py` now also renders `blog/archive.html` (all posts grouped year → month with event_type chips + filter) and `blog/<year>.html` per year; `blog/index.html` is capped to the latest 12 with year navigation, and archive/year URLs are patched into `sitemap.xml`. Categories on this desk = the posts' `event_type` (weekly/leadership/reform/…). The weekly agent (`500c6e1b`) is instructed to write the annual review edition ("The year in regulation <YYYY>") on the first Monday of January.
