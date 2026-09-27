@@ -21,6 +21,9 @@ EVENT_TYPE_LABELS = {
     "sro_framework": "SRO framework",
 }
 
+FORTY = '<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<meta name="robots" content="noindex">\n<title>Page not found — RegTrac</title>\n<style>body{{margin:0;background:#ededf0;color:#1c1d22;font-family:Georgia,\'Times New Roman\',serif;display:flex;min-height:100vh;align-items:center;justify-content:center}}main{{max-width:34rem;padding:2rem;text-align:center}}.kicker{{font-family:\'IBM Plex Mono\',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#1d4ed8}}h1{{font-size:2rem;margin:.4rem 0 .8rem}}p{{line-height:1.6;color:#44454f}}a{{color:#1d4ed8}}</style>\n</head>\n<body><main>\n<div class="kicker">REG TRAC · a cashlessconsumer register</div>\n<h1>Page not found</h1>\n<p>The ledger has no page at this address. Start from the <a href="/">register</a> or search the full sousveillance stack at <a href="/search.html">/search</a>.</p>\n</main></body>\n</html>\n'
+
+
 def read_csv(name):
     with open(os.path.join(ROOT, "data", name), newline="", encoding="utf-8") as f:
         return list(csv.DictReader(f))
@@ -181,6 +184,14 @@ def write_json_exports(pages):
         _json.dump(dict(meta, regulators=REGS, leadership=LEAD, events=EVENTS), f, ensure_ascii=False)
     print("wrote search-index.json + regtrac.json")
 
+
+
+
+PAGE404_BODY = '<section class="wrap" style="padding:3rem 1rem;min-height:40vh">\n  <p class="stack-kicker"><b>404</b></p>\n  <h1 style="font-size:2rem;margin:.2em 0">Page not found</h1>\n  <p style="max-width:38em;line-height:1.6">This register never had a page at this address — or it moved.\n  Try the <a href="/index.html">homepage</a>, the <a href="/search.html">search</a>, or the <a href="/sitemap.xml">sitemap</a>.</p>\n</section>'
+
+
+def build_404():
+    return ('<meta name="robots" content="noindex">' + PAGE404_BODY)
 
 def page(title, desc, body, active, extra_head="", depth=0):
     return f'''<!doctype html>
@@ -472,6 +483,15 @@ def briefs_section():
 
 
 def index_page():
+
+    ld = ('<script type="application/ld+json">{"@context":"https://schema.org","@graph":['
+          '{"@type":"Organization","name":"RegTrac","url":"https://regtrac.cashlessconsumer.in/",'
+          '"description":"A public register of India\'s statutory financial regulators: statutes, leadership, powers and accountability gaps.",'
+          '"publisher":{"@type":"Organization","name":"CashlessConsumer"}},'
+          '{"@type":"WebSite","name":"RegTrac","url":"https://regtrac.cashlessconsumer.in/"},'
+          '{"@type":"Dataset","name":"RegTrac regulator register","url":"https://regtrac.cashlessconsumer.in/regulators.html",'
+          '"description":"Leadership, statutory powers and accountability data for RBI, SEBI, IRDAI, PFRDA, IBBI, IFSCA and NABARD.",'
+          '"license":"https://creativecommons.org/licenses/by/4.0/","creator":{"@type":"Organization","name":"CashlessConsumer"}}]}</script>')
     core = [r for r in REGS if r["type"] == "statutory_core"]
     rows = "".join(
         f'<tr><td><a href="reg-{r["id"]}.html"><strong>{esc(r["abbr"])}</strong></a></td>'
@@ -511,7 +531,7 @@ def index_page():
 </section>'''
     return page("RegTrac — India's financial regulators, tracked",
                 "RegTrac: a public register of India's statutory financial regulators — RBI, SEBI, IRDAI, PFRDA, IBBI, IFSCA, NABARD — statutes, leadership, powers and accountability gaps. A CashlessConsumer sousveillance project.",
-                body, "index.html")
+                body, "index.html", extra_head=ld)
 
 def regulators_page():
     chips = [("all", "All", True)] + [(t, l, False) for t, l in TYPE_LABELS.items()]
@@ -632,7 +652,11 @@ def about_page():
 
 def write_static():
     with open(os.path.join(ROOT, "robots.txt"), "w") as f:
-        f.write("User-agent: *\nAllow: /\n\nSitemap: " + BASE + "/sitemap.xml\n")
+        f.write("User-agent: *\nAllow: /\n\n")
+        for bot in ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-Web",
+                    "anthropic-ai", "PerplexityBot", "Google-Extended", "Applebot-Extended", "CCBot"]:
+            f.write(f"User-agent: {bot}\nAllow: /\n\n")
+        f.write("Sitemap: " + BASE + "/sitemap.xml\n")
     ids = [r["id"] for r in REGS]
     pages = ["index.html", "regulators.html", "timeline.html", "about.html",
              "blog/index.html", "blog/feed.xml", "search.html"] + [f"reg-{i}.html" for i in ids]
@@ -729,9 +753,9 @@ def build_db():
     print("data/regtrac.duckdb written")
 
 def main():
-    pages = {"index.html": index_page(), "search.html": search_page(), "regulators.html": regulators_page(),
+    pages = {"index.html": index_page(), "404.html": build_404(), "search.html": search_page(), "regulators.html": regulators_page(),
              "timeline.html": timeline_page(), "activity.html": build_activity_page(),
-             "social.html": build_social_page(), "about.html": about_page()}
+             "social.html": build_social_page(), "about.html": about_page(), "404.html": FORTY}
     for r in REGS:
         pages[f"reg-{r['id']}.html"] = reg_page(r)
     for name, content in pages.items():

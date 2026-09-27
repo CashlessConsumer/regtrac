@@ -57,6 +57,7 @@ def main():
     live = [p for p in posts if p["status"] in ("published", "review")]
 
     blog_index = read(os.path.join(BLOG_DIR, "index.html"))
+    blog_index += read(os.path.join(BLOG_DIR, "archive.html"))
     feed = read(os.path.join(BLOG_DIR, "feed.xml"))
     sitemap = read(os.path.join(ROOT, "sitemap.xml"))
 
