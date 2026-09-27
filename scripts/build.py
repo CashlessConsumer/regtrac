@@ -95,11 +95,20 @@ def inline(t):
 def esc(s):
     return html.escape(s or "", quote=True)
 
+SEARCH_STYLE = '<style>.search-page input{width:100%;font:inherit;font-size:1.15rem;padding:.6em .8em;border:1px solid #b9b9c4;background:#fff;border-radius:4px;margin:.6em 0 1em}.search-page input:focus{outline:2px solid #1d4ed8;outline-offset:1px}.ss-layer{margin:1.2em 0}.ss-layer h2{font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:#44454f;margin:0 0 .5em}.ss-count{font-family:monospace;background:#e3e6f8;border-radius:3px;padding:0 .4em;margin-left:.4em}.ss-hit{margin:.55em 0;display:flex;flex-direction:column}.ss-hit a{font-weight:600}.ss-desc{color:#44454f}.ss-snip{color:#5a5b66;font-size:.9em}.ss-mute{color:#5a5b66}</style>'
+PAGE_BODY = '<section class="wrap search-page"><h1>Search the stack</h1><p>One query across the sousveillance stack: rule-writers (RegTrac), rule-borrowers (SROTrac), rule-buyers (LobbyWatch). Press <kbd>/</kbd> to focus.</p><input id="stack-search-input" type="search" autocomplete="off" autofocus placeholder="e.g. UPI, NBFC, IBBI, revolving door, consultation"><div id="stack-search-status" aria-live="polite"></div><div id="stack-search-results"></div></section>'
+LAYER_CFG = '{"key":"regtrac","label":"RegTrac \\u2014 rule-writers","base":"https://regtrac.cashlessconsumer.in/","self":true},{"key":"srotrac","label":"SROTrac \\u2014 rule-borrowers","base":"https://srotrac.cashlessconsumer.in/"},{"key":"lobbywatch","label":"LobbyWatch \\u2014 rule-buyers","base":"https://lobbywatch.cashlessconsumer.in/"}'
+BUILD_TS = '202609270741'
+
+
+BUILD_TS = '202609270742'
+
+
 def nav(active, depth=0):
     pre = "../" * depth
     links = [("regulators.html", "Register"), ("timeline.html", "Timeline"),
              ("activity.html", "Activity"), ("social.html", "Social"),
-             ("blog/index.html", "Blog"), ("about.html", "About")]
+             ("blog/index.html", "Blog"), ("search.html", "Search"), ("about.html", "About")]
     items = "".join(
         f'<a href="{pre + u}" {"class=\"active\"" if u == active else ""}>{esc(t)}</a>'
         for u, t in links)
@@ -134,6 +143,44 @@ def footer():
     <p>Watch the watchers — every appointment, power and grievance route is cited to a public record; corrections welcome via GitHub.</p>
   </div>
 </footer>'''
+
+
+
+def _strip_html(h):
+    import re as _re
+    h = _re.sub(r"(?is)<(script|style).*?</\1>", " ", h)
+    h = _re.sub(r"<[^>]+>", " ", h)
+    return _re.sub(r"\s+", " ", h).strip()
+
+
+def search_page():
+    cfg = "[%s]" % LAYER_CFG
+    extra = (SEARCH_STYLE
+             + "<script>window.STACK_SEARCH={layers:" + cfg + "};</script>"
+             + '<script src="/js/search.js?v=' + BUILD_TS + '" defer></script>')
+    return page("Search the stack \u2014 RegTrac",
+                "One query across the sousveillance stack: RegTrac, SROTrac, LobbyWatch.",
+                PAGE_BODY, "search.html", extra_head=extra)
+
+
+def write_json_exports(pages):
+    import json as _json
+    import re as _re
+    items = [(u, h) for u, h in pages.items() if u != "search.html"]
+    out = []
+    for url, html in items:
+        t = _re.search(r"<title>(.*?)</title>", html, _re.S)
+        d = _re.search(r'<meta name="description" content="([^"]*)"', html)
+        out.append({"url": url, "title": t.group(1).strip() if t else url,
+                    "desc": d.group(1) if d else "",
+                    "text": _strip_html(html)[:4000]})
+    meta = {"generated": BUILD_TS, "license": "CC BY 4.0", "source": BASE}
+    with open(os.path.join(ROOT, "search-index.json"), "w", encoding="utf-8") as f:
+        _json.dump(dict(meta, pages=out), f, ensure_ascii=False)
+    with open(os.path.join(ROOT, "regtrac.json"), "w", encoding="utf-8") as f:
+        _json.dump(dict(meta, regulators=REGS, leadership=LEAD, events=EVENTS), f, ensure_ascii=False)
+    print("wrote search-index.json + regtrac.json")
+
 
 def page(title, desc, body, active, extra_head="", depth=0):
     return f'''<!doctype html>
@@ -588,7 +635,7 @@ def write_static():
         f.write("User-agent: *\nAllow: /\n\nSitemap: " + BASE + "/sitemap.xml\n")
     ids = [r["id"] for r in REGS]
     pages = ["index.html", "regulators.html", "timeline.html", "about.html",
-             "blog/index.html", "blog/feed.xml"] + [f"reg-{i}.html" for i in ids]
+             "blog/index.html", "blog/feed.xml", "search.html"] + [f"reg-{i}.html" for i in ids]
     pages += [f"blog/reg-{i}.html" for i in ids]
     pages += [f"blog/{b['slug']}.html" for b in BRIEFS]
     with open(os.path.join(ROOT, "sitemap.xml"), "w") as f:
@@ -682,7 +729,7 @@ def build_db():
     print("data/regtrac.duckdb written")
 
 def main():
-    pages = {"index.html": index_page(), "regulators.html": regulators_page(),
+    pages = {"index.html": index_page(), "search.html": search_page(), "regulators.html": regulators_page(),
              "timeline.html": timeline_page(), "activity.html": build_activity_page(),
              "social.html": build_social_page(), "about.html": about_page()}
     for r in REGS:
@@ -692,6 +739,7 @@ def main():
             f.write(content)
         print("wrote", name)
     write_static()
+    write_json_exports(pages)
     build_db()
     print(f"done: {len(pages)} pages, {len(REGS)} entities, {len(LEAD)} appointments, {len(EVENTS)} events")
 
