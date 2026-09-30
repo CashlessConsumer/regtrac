@@ -6,14 +6,16 @@
 <html lang="en">
 
 <head>
+
 	<title>International Financial Services Centres Authority</title>
 	<meta name="description" content="International Financial Services Centres Authority" />
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<!-- favicon icon -->
+
 	<link rel="apple-touch-icon" sizes="57x57" href="/images/fav/apple-icon-57x57.png" />
 	<link rel="apple-touch-icon" sizes="60x60" href="/images/fav/apple-icon-60x60.png" />
 	<link rel="apple-touch-icon" sizes="72x72" href="/images/fav/apple-icon-72x72.png" />
@@ -30,7 +32,7 @@
 
 	<meta name="msapplication-TileColor" content="#fa7070" />
 	<meta name="msapplication-TileImage" content="images/fav/ms-icon-144x144.png" />
-	<!-- favicon -->
+
 	<link rel="stylesheet" href="/CmsNIC/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/css/animate.css" media="print" onload="this.media='all'">
 	<link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
@@ -42,6 +44,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/accesibility-style-v2.12.css">
 	<link rel="stylesheet" type="text/css" href="/css/table.css">
 	<link rel="stylesheet" type="text/css" href="/css/CookieConsent.css">
+
 	<script>
 		window.addEventListener('load', function () {
 			if (typeof WOW !== 'undefined') {
@@ -49,34 +52,266 @@
 			}
 		});
 	</script>
-	 <style>
-	/* Increase modal width */
-	.custom-modal-width {
-		max-width: 90%;
-	}
 
-	/* Equal image size */
-	.event-img {
-		width: 110%;
-		height: 880px;
-		min-height:50vh;
-		object-fit: cover;
-		border-radius: 10px;
-		box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-		transition: transform 0.3s ease;
-	}
 
-		/* Hover effect (optional but nice) */
-		.event-img:hover {
-			transform: scale(1.03);
+	<style>
+
+		/* ==========================================
+				   MODAL
+				   ========================================== */
+
+		.custom-modal-width {
+			max-width: 95%;
+			width: 1100px;
 		}
 
-	/* Remove extra white feel */
-	.modal-content {
-		background: #fff !important;
-		color:#000 !important;
-	}
-</style> 
+		.modal-content {
+			background: #fff !important;
+			color: #000 !important;
+			border: 0;
+			border-radius: 12px;
+			overflow: hidden;
+		}
+
+
+		/* ==========================================
+				   CAROUSEL
+				   ========================================== */
+
+		.event-carousel {
+			width: 100%;
+			outline: none;
+		}
+
+		.event-carousel-slides {
+			position: relative;
+			width: 100%;
+			overflow: hidden;
+			background: #f5f5f5;
+		}
+
+		.event-modal-header {
+			background-color: #eef7ff;
+			padding: 12px 18px;
+			border-bottom: 1px solid #d6e9f8;
+		}
+
+		.eventCarouselTitle {
+			color: #1565c0;
+			margin: 0;
+			font-weight: 600;
+			font-size: 18px;
+		}
+
+		.event-slide {
+			display: none;
+			width: 100%;
+		}
+
+			.event-slide.active {
+				display: block;
+			}
+
+
+			.event-slide a {
+				display: block;
+				width: 100%;
+			}
+
+
+			.event-slide img {
+				display: block;
+				width: 100%;
+				height: auto;
+				max-height: 75vh;
+				object-fit: contain;
+				margin: auto;
+			}
+
+
+		/* ==========================================
+				   CONTROLS
+				   ========================================== */
+
+		.event-carousel-controls {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 10px;
+			padding: 12px 10px;
+			background: #fff;
+			flex-wrap: wrap;
+		}
+
+
+		.carousel-control-btn {
+			border: 1px solid #1f4286;
+			background: #fff;
+			color: #1f4286;
+			border-radius: 6px;
+			min-height: 40px;
+			padding: 7px 15px;
+			font-size: 14px;
+			font-weight: 600;
+			cursor: pointer;
+			transition: all 0.2s ease;
+		}
+
+
+			.carousel-control-btn:hover {
+				background: #1f4286;
+				color: #fff;
+			}
+
+
+			.carousel-control-btn:focus-visible {
+				outline: 3px solid #ff9800;
+				outline-offset: 2px;
+			}
+
+
+		.play-pause-btn {
+			background: #1f4286;
+			color: #fff;
+		}
+
+
+			.play-pause-btn:hover {
+				background: #163265;
+				color: #fff;
+			}
+
+
+		/* ==========================================
+				   INDICATORS
+				   ========================================== */
+
+		.event-carousel-indicators {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 8px;
+			padding: 10px;
+			background: #fff;
+		}
+
+
+		.event-indicator {
+			width: 12px;
+			height: 12px;
+			padding: 0;
+			border: 2px solid #1f4286;
+			border-radius: 50%;
+			background: #fff;
+			cursor: pointer;
+		}
+
+
+			.event-indicator.active {
+				background: #1f4286;
+			}
+
+
+			.event-indicator:focus-visible {
+				outline: 3px solid #ff9800;
+				outline-offset: 3px;
+			}
+
+
+		/* ==========================================
+				   CLOSE BUTTON
+				   ========================================== */
+
+		.event-modal-footer {
+			justify-content: center;
+			border: 0;
+			padding: 10px 15px 18px;
+		}
+
+
+		.event-close-btn {
+			min-width: 120px;
+			background-color: #1f4286;
+			color: #fff;
+			font-weight: 600;
+			border-radius: 6px;
+			padding: 9px 25px;
+			border: none;
+		}
+
+
+			.event-close-btn:hover {
+				background-color: #163265;
+				color: #fff;
+			}
+
+
+			.event-close-btn:focus-visible {
+				outline: 3px solid #ff9800;
+				outline-offset: 2px;
+			}
+
+
+		/* ==========================================
+				   MOBILE
+				   ========================================== */
+
+		@media (max-width: 767px) {
+			.custom-modal-width {
+				width: 96%;
+				max-width: 96%;
+				margin: 10px auto;
+			}
+
+
+			.event-carousel-controls {
+				gap: 6px;
+				padding: 10px 5px;
+			}
+
+
+			.carousel-control-btn {
+				min-height: 38px;
+				padding: 6px 10px;
+				font-size: 13px;
+			}
+
+
+			.control-text {
+				display: none;
+			}
+
+
+			.play-pause-btn {
+				min-width: 80px;
+			}
+
+
+			.event-slide img {
+				max-height: 70vh;
+				object-fit: contain;
+			}
+
+
+			.event-close-btn {
+				width: 100%;
+				max-width: 180px;
+			}
+		}
+
+
+		/* ==========================================
+				   REDUCED MOTION
+				   ========================================== */
+
+		@media (prefers-reduced-motion: reduce) {
+			.carousel-control-btn {
+				transition: none;
+			}
+		}
+	</style>
+
+
 	<style>
 		.disabled-menu {
 			display: none !important;
@@ -87,6 +322,7 @@
 			padding-right: 41px !important;
 		}
 	</style>
+
 	
 </head>
 
@@ -97,9 +333,7 @@
 
 
 
-	<!-- Code :) -->
 
-	<!-- accessibility panel -->
 	<div b-jrwyfh9yo9 class="uwaw uw-light-theme gradient-head uwaw-initial paid_widget" id="uw-main">
 		<div b-jrwyfh9yo9 class="relative second-panel">
 			<h3 b-jrwyfh9yo9>Accessibility Options</h3>
@@ -281,17 +515,15 @@
 		<img b-jrwyfh9yo9 alt="Accessibility" src="data:image/svg+xml,%0A%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1_1506)'%3E%3Cpath d='M16 7C15.3078 7 14.6311 6.79473 14.0555 6.41015C13.4799 6.02556 13.0313 5.47894 12.7664 4.83939C12.5015 4.19985 12.4322 3.49612 12.5673 2.81719C12.7023 2.13825 13.0356 1.51461 13.5251 1.02513C14.0146 0.535644 14.6383 0.202301 15.3172 0.0672531C15.9961 -0.0677952 16.6999 0.00151652 17.3394 0.266423C17.9789 0.53133 18.5256 0.979934 18.9101 1.55551C19.2947 2.13108 19.5 2.80777 19.5 3.5C19.499 4.42796 19.1299 5.31762 18.4738 5.97378C17.8176 6.62994 16.928 6.99901 16 7Z' fill='white'/%3E%3Cpath d='M27 7.05L26.9719 7.0575L26.9456 7.06563C26.8831 7.08313 26.8206 7.10188 26.7581 7.12125C25.595 7.4625 19.95 9.05375 15.9731 9.05375C12.2775 9.05375 7.14313 7.67875 5.50063 7.21188C5.33716 7.14867 5.17022 7.09483 5.00063 7.05063C3.81313 6.73813 3.00063 7.94438 3.00063 9.04688C3.00063 10.1388 3.98188 10.6588 4.9725 11.0319V11.0494L10.9238 12.9081C11.5319 13.1413 11.6944 13.3794 11.7738 13.5856C12.0319 14.2475 11.8256 15.5581 11.7525 16.0156L11.39 18.8281L9.37813 29.84C9.37188 29.87 9.36625 29.9006 9.36125 29.9319L9.34688 30.0112C9.20188 31.0206 9.94313 32 11.3469 32C12.5719 32 13.1125 31.1544 13.3469 30.0037C13.5813 28.8531 15.0969 20.1556 15.9719 20.1556C16.8469 20.1556 18.6494 30.0037 18.6494 30.0037C18.8838 31.1544 19.4244 32 20.6494 32C22.0569 32 22.7981 31.0162 22.6494 30.0037C22.6363 29.9175 22.6206 29.8325 22.6019 29.75L20.5625 18.8294L20.2006 16.0169C19.9387 14.3788 20.1494 13.8375 20.2206 13.7106C20.2225 13.7076 20.2242 13.7045 20.2256 13.7013C20.2931 13.5763 20.6006 13.2963 21.3181 13.0269L26.8981 11.0763C26.9324 11.0671 26.9662 11.0563 26.9994 11.0438C27.9994 10.6688 28.9994 10.15 28.9994 9.04813C28.9994 7.94625 28.1875 6.73813 27 7.05Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1_1506'%3E%3Crect width='32' height='32' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A">
 		<span b-jrwyfh9yo9>Accessibility Options</span>
 	</button>
-	<!-- accessibility panel end-->
-	<!-- Code :) -->
-	<input name="__RequestVerificationToken" type="hidden" value="CfDJ8PMNrbgWladKiKJ-E5HamG7_g25wmFYksO8qllVw2ns6_GTf-_NygVG9br2-5bvvuBgmxChKz0zmJkI3KwNIfFkca0NkLZklACxxprbtu31OfLmk7I8EjFX-N3Jtu1Sx7iHBUwPRMZ_oy5Tbuk1NWmI" />
-	<!-- partial -->
-	<!-------header section----------->
+
+	<input name="__RequestVerificationToken" type="hidden" value="CfDJ8Bza2PzGXvBAtkdSrX7anat0FgN0S4GsLT7ZhZjHms_3lPpBl-kGYC9iiHoSMi48XAvENonmvgilJ398M5DiCtx6Dvkw5gcZpPaAE2Bvqf9Z1UfWPSIeWYxuaoI_ydy02sihFF1Sh3BdChyvN8b7y9E" />
+
 	<header b-jrwyfh9yo9 class="site-header">
 		<div b-jrwyfh9yo9 class="top-bar">
 			<div b-jrwyfh9yo9 class="container-fluid">
 				<div b-jrwyfh9yo9 class="row align-items-center">
+
 					<div b-jrwyfh9yo9 class="col-lg-6 col-md-4 col-xl-7">
-						<!-------left content----------->
 						<div b-jrwyfh9yo9 class="left-content float-left">
 							<ul b-jrwyfh9yo9>
 								<li b-jrwyfh9yo9><a b-jrwyfh9yo9 href="/">Home</a></li>
@@ -305,9 +537,8 @@
 							</ul>
 						</div>
 					</div>
-					<!-------right content----------->
+
 					<div b-jrwyfh9yo9 class="col-lg-6 col-md-8 col-xl-5">
-						<!-------left content----------->
 						<div b-jrwyfh9yo9 class="left-content float-right">
 							<div b-jrwyfh9yo9 class="top-line-reader">
 								<ul b-jrwyfh9yo9>
@@ -327,17 +558,16 @@
 													<option value="2">हिंदी</option>
 												</select>
 										</div>
-
 									</li>
-
 								</ul>
 							</div>
 						</div>
 					</div>
+
 				</div>
 			</div>
 		</div>
-		<!-------navigation----------->
+
 		<div b-jrwyfh9yo9 class="">
 			<div b-jrwyfh9yo9 class="row align-items-center">
 				<div b-jrwyfh9yo9 class="col-12">
@@ -347,6 +577,7 @@
 						</a>
 
 						<div b-jrwyfh9yo9 class="flex-div">
+
 							<div b-jrwyfh9yo9 class="centernav">
 										<ul b-jrwyfh9yo9 id="mega-menu" class="x-mega-menu">
 												<li b-jrwyfh9yo9 class="x-has-sub-menu" style="font-size: 16px;">
@@ -1136,6 +1367,7 @@
 			</div>
 			</nav>
 		</div>
+
 		<marquee b-jrwyfh9yo9 scrollamount="4" behavior="scroll" direction="left"
 				 style="color: white; font-weight: bold; font-size: 16px;">
 <span b-jrwyfh9yo9 style="margin: 0 60px;"></span>Alert: Beware of financial scams! Always deal with IFSCA regulated entities. Check IFSCA Directory available on the website. Stay informed, stay protected!
@@ -1143,7 +1375,6 @@
 		</div>
 		</div>
 	</header>
-	<!-------banner section----------->
 
 	<section b-jrwyfh9yo9 class="banner-part">
 		<!-- <div class="carousel-inner">
@@ -1168,6 +1399,7 @@
 
 			<div b-jrwyfh9yo9 class="container-fluid">
 				<div b-jrwyfh9yo9 class="row justify-content-between align-items-center">
+
 					<div b-jrwyfh9yo9 class="col-md-6 col-sm-6 text-left wow fadeInLeft">
 						<h1 b-jrwyfh9yo9 class="display-4">International Financial Services Centres Authority</h1>
 						<p b-jrwyfh9yo9 class="lead mb-4">The IFSCA is a unified authority for the development and regulation of financial products, financial services and financial institutions in the International Financial Services Centres</p>
@@ -1176,7 +1408,8 @@
 								<input b-jrwyfh9yo9 type="text" class="form-control main-search" name="search" id="text-searchvalue" placeholder="What are you looking for?">
 								<button b-jrwyfh9yo9 type="submit" class="btn btn-primary login-btn">Search</button>
 							</div>
-</form>					</div><!-- /.col-md-6 -->
+</form>					</div>
+
 					<div b-jrwyfh9yo9 class="col-md-6 col-sm-6 text-left whats-news wow fadeInRight">
 						<div b-jrwyfh9yo9 class=" card">
 							<div b-jrwyfh9yo9 class="card-body text-dark new-bg">
@@ -1195,6 +1428,23 @@
 										</div>
 										<marquee b-jrwyfh9yo9 direction="up" height="350" scrollamount="3" onmouseenter="stop()" onmouseleave="start()">
 											<ul b-jrwyfh9yo9 id="ticker01">
+														<li b-jrwyfh9yo9>
+															<div b-jrwyfh9yo9 class="new-head">
+																<a b-jrwyfh9yo9 href="javascript" class="d-flex justify-content-between">
+																	<h6 b-jrwyfh9yo9>Circular</h6>
+																	<h6 b-jrwyfh9yo9>Sep 29, 2026</h6>
+																</a>
+															</div>
+															<div b-jrwyfh9yo9 class="main-list">
+																<ol b-jrwyfh9yo9 type="circle">
+																	<li b-jrwyfh9yo9>
+																		<a b-jrwyfh9yo9 target="_blank" class="points" href="https://ifsca.gov.in/Legal/Index?MId=L1Wh1man9wY=">
+																			Extension of timeline for completion of Certification Course by KMPs and employees of Fund Management Entities under the IFSCA (Fund Management) Regulations, 2025
+																		</a>
+																	</li>
+																</ol>
+															</div>
+														</li>
 														<li b-jrwyfh9yo9>
 															<div b-jrwyfh9yo9 class="new-head">
 																<a b-jrwyfh9yo9 href="javascript" class="d-flex justify-content-between">
@@ -1256,8 +1506,8 @@
 															<div b-jrwyfh9yo9 class="main-list">
 																<ol b-jrwyfh9yo9 type="circle">
 																	<li b-jrwyfh9yo9>
-																		<a b-jrwyfh9yo9 target="_blank" class="points" href="https://ifsca.gov.in/Legal/Index?MId=iu7sOLQIXIs=">
-																			Amendment to IFSCA Consolidated Circular - Import of Gold or Silver through IIBX
+																		<a b-jrwyfh9yo9 target="_blank" class="points" href="https://ifsca.gov.in/Legal/Index?MId=gF6 pmlY1eU=">
+																			Updated  Consolidated Circular - Import of Gold or Silver through IIBX
 																		</a>
 																	</li>
 																</ol>
@@ -1273,42 +1523,8 @@
 															<div b-jrwyfh9yo9 class="main-list">
 																<ol b-jrwyfh9yo9 type="circle">
 																	<li b-jrwyfh9yo9>
-																		<a b-jrwyfh9yo9 target="_blank" class="points" href="https://ifsca.gov.in/Legal/Index?MId=gF6 pmlY1eU=">
-																			Updated  Consolidated Circular - Import of Gold or Silver through IIBX
-																		</a>
-																	</li>
-																</ol>
-															</div>
-														</li>
-														<li b-jrwyfh9yo9>
-															<div b-jrwyfh9yo9 class="new-head">
-																<a b-jrwyfh9yo9 href="javascript" class="d-flex justify-content-between">
-																	<h6 b-jrwyfh9yo9>Regulation</h6>
-																	<h6 b-jrwyfh9yo9>Sep 18, 2026</h6>
-																</a>
-															</div>
-															<div b-jrwyfh9yo9 class="main-list">
-																<ol b-jrwyfh9yo9 type="circle">
-																	<li b-jrwyfh9yo9>
-																		<a b-jrwyfh9yo9 target="_blank" class="points" href="https://ifsca.gov.in/Legal/Index?MId=NZjEEr0RVbU=">
-																			IFSCA (ELECTRONIC TRADING PLATFORMS) REGULATIONS, 2026
-																		</a>
-																	</li>
-																</ol>
-															</div>
-														</li>
-														<li b-jrwyfh9yo9>
-															<div b-jrwyfh9yo9 class="new-head">
-																<a b-jrwyfh9yo9 href="javascript" class="d-flex justify-content-between">
-																	<h6 b-jrwyfh9yo9>FAQs</h6>
-																	<h6 b-jrwyfh9yo9>Sep 18, 2026</h6>
-																</a>
-															</div>
-															<div b-jrwyfh9yo9 class="main-list">
-																<ol b-jrwyfh9yo9 type="circle">
-																	<li b-jrwyfh9yo9>
-																		<a b-jrwyfh9yo9 target="_blank" class="points" href="https://ifsca.gov.in/Legal/Index?MId=ikN2AYrO7hw=">
-																			Frequently Asked Questions (FAQs) on Complaint Handling and Grievance Redressal by Regulated Entities in the IFSC
+																		<a b-jrwyfh9yo9 target="_blank" class="points" href="https://ifsca.gov.in/Legal/Index?MId=iu7sOLQIXIs=">
+																			Amendment to IFSCA Consolidated Circular - Import of Gold or Silver through IIBX
 																		</a>
 																	</li>
 																</ol>
@@ -1334,15 +1550,15 @@
 														<li b-jrwyfh9yo9>
 															<div b-jrwyfh9yo9 class="new-head">
 																<a b-jrwyfh9yo9 href="javascript" class="d-flex justify-content-between">
-																	<h6 b-jrwyfh9yo9>Notification</h6>
-																	<h6 b-jrwyfh9yo9>Sep 16, 2026</h6>
+																	<h6 b-jrwyfh9yo9>FAQs</h6>
+																	<h6 b-jrwyfh9yo9>Sep 18, 2026</h6>
 																</a>
 															</div>
 															<div b-jrwyfh9yo9 class="main-list">
 																<ol b-jrwyfh9yo9 type="circle">
 																	<li b-jrwyfh9yo9>
-																		<a b-jrwyfh9yo9 target="_blank" class="points" href="https://ifsca.gov.in/Legal/Index?MId=SUwoD0sCB-U=">
-																			IFSCA (Manner of Payment and Receipt of Premium) (Amendment) Regulations, 2026
+																		<a b-jrwyfh9yo9 target="_blank" class="points" href="https://ifsca.gov.in/Legal/Index?MId=ikN2AYrO7hw=">
+																			Frequently Asked Questions (FAQs) on Complaint Handling and Grievance Redressal by Regulated Entities in the IFSC
 																		</a>
 																	</li>
 																</ol>
@@ -1351,15 +1567,15 @@
 														<li b-jrwyfh9yo9>
 															<div b-jrwyfh9yo9 class="new-head">
 																<a b-jrwyfh9yo9 href="javascript" class="d-flex justify-content-between">
-																	<h6 b-jrwyfh9yo9>Career</h6>
-																	<h6 b-jrwyfh9yo9>Sep 16, 2026</h6>
+																	<h6 b-jrwyfh9yo9>Regulation</h6>
+																	<h6 b-jrwyfh9yo9>Sep 18, 2026</h6>
 																</a>
 															</div>
 															<div b-jrwyfh9yo9 class="main-list">
 																<ol b-jrwyfh9yo9 type="circle">
 																	<li b-jrwyfh9yo9>
-																		<a b-jrwyfh9yo9 target="_blank" class="points" href="https://ifsca.gov.in/Career/Index?MId=8kS3KLrLjxk=">
-																			Advetisement for the position of Young Professional, Consultant Grade I in IFSCA
+																		<a b-jrwyfh9yo9 target="_blank" class="points" href="https://ifsca.gov.in/Legal/Index?MId=NZjEEr0RVbU=">
+																			IFSCA (ELECTRONIC TRADING PLATFORMS) REGULATIONS, 2026
 																		</a>
 																	</li>
 																</ol>
@@ -1377,23 +1593,6 @@
 																	<li b-jrwyfh9yo9>
 																		<a b-jrwyfh9yo9 target="_blank" class="points" href="https://ifsca.gov.in/PressRelease/Index?MId=OzwIwhJ w4s=">
 																			Amendments to the International Financial Services Centres Authority (Fund Management) Regulations, 2025
-																		</a>
-																	</li>
-																</ol>
-															</div>
-														</li>
-														<li b-jrwyfh9yo9>
-															<div b-jrwyfh9yo9 class="new-head">
-																<a b-jrwyfh9yo9 href="javascript" class="d-flex justify-content-between">
-																	<h6 b-jrwyfh9yo9>Regulation</h6>
-																	<h6 b-jrwyfh9yo9>Sep 16, 2026</h6>
-																</a>
-															</div>
-															<div b-jrwyfh9yo9 class="main-list">
-																<ol b-jrwyfh9yo9 type="circle">
-																	<li b-jrwyfh9yo9>
-																		<a b-jrwyfh9yo9 target="_blank" class="points" href="https://ifsca.gov.in/Legal/Index?MId=Jz80ftZwCPY=">
-																			IFSCA (Capital Market Intermediaries) Regulations 2025 as amended upto 05th September, 2026
 																		</a>
 																	</li>
 																</ol>
@@ -1436,15 +1635,49 @@
 														<li b-jrwyfh9yo9>
 															<div b-jrwyfh9yo9 class="new-head">
 																<a b-jrwyfh9yo9 href="javascript" class="d-flex justify-content-between">
-																	<h6 b-jrwyfh9yo9>Regulation</h6>
-																	<h6 b-jrwyfh9yo9>Sep 14, 2026</h6>
+																	<h6 b-jrwyfh9yo9>Career</h6>
+																	<h6 b-jrwyfh9yo9>Sep 16, 2026</h6>
 																</a>
 															</div>
 															<div b-jrwyfh9yo9 class="main-list">
 																<ol b-jrwyfh9yo9 type="circle">
 																	<li b-jrwyfh9yo9>
-																		<a b-jrwyfh9yo9 target="_blank" class="points" href="https://ifsca.gov.in/Legal/Index?MId=diVxDOgoB5U=">
-																			IFSCA (Fund Management) Regulations, 2025, as amended up to September 10, 2026
+																		<a b-jrwyfh9yo9 target="_blank" class="points" href="https://ifsca.gov.in/Career/Index?MId=8kS3KLrLjxk=">
+																			Advetisement for the position of Young Professional, Consultant Grade I in IFSCA
+																		</a>
+																	</li>
+																</ol>
+															</div>
+														</li>
+														<li b-jrwyfh9yo9>
+															<div b-jrwyfh9yo9 class="new-head">
+																<a b-jrwyfh9yo9 href="javascript" class="d-flex justify-content-between">
+																	<h6 b-jrwyfh9yo9>Regulation</h6>
+																	<h6 b-jrwyfh9yo9>Sep 16, 2026</h6>
+																</a>
+															</div>
+															<div b-jrwyfh9yo9 class="main-list">
+																<ol b-jrwyfh9yo9 type="circle">
+																	<li b-jrwyfh9yo9>
+																		<a b-jrwyfh9yo9 target="_blank" class="points" href="https://ifsca.gov.in/Legal/Index?MId=Jz80ftZwCPY=">
+																			IFSCA (Capital Market Intermediaries) Regulations 2025 as amended upto 05th September, 2026
+																		</a>
+																	</li>
+																</ol>
+															</div>
+														</li>
+														<li b-jrwyfh9yo9>
+															<div b-jrwyfh9yo9 class="new-head">
+																<a b-jrwyfh9yo9 href="javascript" class="d-flex justify-content-between">
+																	<h6 b-jrwyfh9yo9>Notification</h6>
+																	<h6 b-jrwyfh9yo9>Sep 16, 2026</h6>
+																</a>
+															</div>
+															<div b-jrwyfh9yo9 class="main-list">
+																<ol b-jrwyfh9yo9 type="circle">
+																	<li b-jrwyfh9yo9>
+																		<a b-jrwyfh9yo9 target="_blank" class="points" href="https://ifsca.gov.in/Legal/Index?MId=SUwoD0sCB-U=">
+																			IFSCA (Manner of Payment and Receipt of Premium) (Amendment) Regulations, 2026
 																		</a>
 																	</li>
 																</ol>
@@ -1457,14 +1690,15 @@
 								</div>
 							</div>
 						</div>
-					</div><!-- /.col-md-6 -->
+					</div>
+
 				</div>
 			</div>
 		</div>
 		<div b-jrwyfh9yo9 id="legal-submenu-container"></div>
 
 	</section>
-	<!-------Statistics section----------->
+
 	<section b-jrwyfh9yo9 class="statistics">
 		<div b-jrwyfh9yo9 class="container">
 			<h2 b-jrwyfh9yo9 class="sec-title mb-2 text-center text-white wow fadeInUp" onclick="window.open('https://ifsca.gov.in/ReportPublication/index/wF6kttc1JR8=', '_blank')">GIFT IFSC - KEY HIGHLIGHTS</h2>
@@ -1568,8 +1802,6 @@
 			</div>
 		</div>
 	</section>
-	<!-------latest upadate section----------->
-
 
 	<section b-jrwyfh9yo9 class="gallery-twitter" id="main-content">
 		<div b-jrwyfh9yo9 class="container-fluid">
@@ -1705,14 +1937,14 @@
 									</div>
 								</div>
 							</li>
-			
-				
+
+
 				</ul>
 			</div>
 			<!-- modal gallery -->
 		</div>
 	</section>
-	<!-------about section----------->
+
 	<section b-jrwyfh9yo9 class="about-us">
 		<div b-jrwyfh9yo9 class="container">
 			<div b-jrwyfh9yo9 class="row justify-content-center">
@@ -1738,7 +1970,7 @@
 			</div>
 		</div>
 	</section>
-	<!-------business opportunity section----------->
+
 	<section b-jrwyfh9yo9 class="activities">
 		<div b-jrwyfh9yo9 class="container">
 			<h2 b-jrwyfh9yo9 class="sec-title text-center wow fadeInUp">Business<strong b-jrwyfh9yo9> Activities</strong></h2>
@@ -1856,7 +2088,7 @@
 			</div>
 		</div>
 	</section>
-	<!-------suggestion section----------->
+
 	<section b-jrwyfh9yo9 class="subscribe wow fadeInUp">
 		<div b-jrwyfh9yo9 class="container">
 			<div b-jrwyfh9yo9 class="row">
@@ -1886,7 +2118,7 @@
 			</div>
 		</div>
 	</div>
-	<!-------footer section----------->
+
 	<footer b-jrwyfh9yo9 class="footer wow fadeInUp">
 
 		<div b-jrwyfh9yo9 class="main-footer">
@@ -1964,6 +2196,7 @@
 			</div>
 	</footer>
 	<div b-jrwyfh9yo9 id="Visitorcount"></div>
+
 	<div b-jrwyfh9yo9 class="fixed-icons">
 		<ul b-jrwyfh9yo9>
 			<li b-jrwyfh9yo9><a b-jrwyfh9yo9 href="https://www.linkedin.com/showcase/ifscaofficial"><img src="/images/linkedin.png" alt="linkedin"></a></li>
@@ -1971,6 +2204,7 @@
 			<li b-jrwyfh9yo9><a b-jrwyfh9yo9 href="https://www.youtube.com/channel/UCJDOlW0d0VhtRUNt3rMg7Aw/featured"><img src="/images/youtube.png" alt="youtube"></a></li>
 		</ul>
 	</div>
+
 	<script src="/CmsNIC/js/jquery-3.7.1.min.js?v=eqaw4I9IoPldjffqieTL_h7z0ejA9zc_fyXt-05KMl4"></script>
 	<script src="/CmsNIC/js/bootstrap.bundle.min.js?v=FUpJiTKQUUZ7PvrxCQ3v1nJJFCVfbeCmH9rG40EisbU"></script>
 	<!-- <script ~/src="js/jquery.magnific-popup.min.js"></script> -->
@@ -1988,53 +2222,480 @@
 	<script src="/CustomJS/FronViewLayout/Common.js"></script>
 	<script src="/CustomJS/chatbot.js"></script>
 	<script src="/js/weights-v12.js"></script>
-	
-<div b-jrwyfh9yo9 class="modal fade" id="grsModal" tabindex="-1" aria-hidden="true" style="width:100%">
-		<div b-jrwyfh9yo9 class="modal-dialog custom-modal-width modal-dialog-centered">
-			<div b-jrwyfh9yo9 class="modal-content border-0">
 
-				<div b-jrwyfh9yo9 class="modal-header border-0">
+
+	<div b-jrwyfh9yo9 class="modal fade"
+		 id="grsModal"
+		 tabindex="-1"
+		 aria-labelledby="eventCarouselTitle"
+		 aria-hidden="true">
+
+		<div b-jrwyfh9yo9 class="modal-dialog custom-modal-width modal-dialog-centered">
+
+			<div b-jrwyfh9yo9 class="modal-content event-modal-content">
+
+				<div b-jrwyfh9yo9 class="modal-header event-modal-header">
+
+					<h5 b-jrwyfh9yo9 class="modal-title eventCarouselTitle"
+						id="eventCarouselTitle">
+						Upcoming Events
+					</h5>
+
+					<button b-jrwyfh9yo9 type="button"
+							class="btn-close"
+							data-dismiss="modal"
+							aria-label="Close">
+					</button>
+
 				</div>
 
-				<div b-jrwyfh9yo9 class="modal-body">
-					<div b-jrwyfh9yo9 class="row g-4">
 
-						<!-- LEFT -->
-						<div b-jrwyfh9yo9 class="col-md-6 text-center">
-						 <h4 b-jrwyfh9yo9 class="mb-3"> </h4> 
-							<a b-jrwyfh9yo9 href="#" target="_blank">
-								<img b-jrwyfh9yo9 src="/images/oct_banner.PNG" class="img-fluid rounded" />
-							</a>
-						</div>
+				<section b-jrwyfh9yo9 id="eventCarousel"
+						 class="event-carousel"
+						 aria-roledescription="carousel"
+						 aria-label="Upcoming events">
 
-						<!-- RIGHT -->
-						<div b-jrwyfh9yo9 class="col-md-6 text-center">
-						 <h4 b-jrwyfh9yo9 class="mb-3"></h4> 
-							<a b-jrwyfh9yo9 href="" target="_blank" style="display:block;">
-								<img b-jrwyfh9yo9 src="/images/IOSCO WIW 2026 - IFSC Conference_Popup image_v3.png" class="img-fluid rounded" />
-							</a>
-						</div>
+					<div b-jrwyfh9yo9 class="event-carousel-controls">
+
+						<button b-jrwyfh9yo9 type="button"
+								id="eventPlayPause"
+								class="carousel-control-btn play-pause-btn"
+								aria-label="Pause automatic slide show">
+
+							<span b-jrwyfh9yo9 id="playPauseIcon"
+								  aria-hidden="true">⏸</span>
+
+							<span b-jrwyfh9yo9 id="playPauseText">
+								Pause
+							</span>
+
+						</button>
+
+
+						<button b-jrwyfh9yo9 type="button"
+								id="eventPrevious"
+								class="carousel-control-btn"
+								aria-label="Previous event">
+
+							<span b-jrwyfh9yo9 aria-hidden="true">‹</span>
+
+							<span b-jrwyfh9yo9 class="control-text">
+								Previous
+							</span>
+
+						</button>
+
+
+						<button b-jrwyfh9yo9 type="button"
+								id="eventNext"
+								class="carousel-control-btn"
+								aria-label="Next event">
+
+							<span b-jrwyfh9yo9 class="control-text">
+								Next
+							</span>
+
+							<span b-jrwyfh9yo9 aria-hidden="true">›</span>
+
+						</button>
 
 					</div>
-				</div>
 
-				<div b-jrwyfh9yo9 class="modal-footer justify-content-center border-0">
-					<button b-jrwyfh9yo9 type="button" class="btn btn-light px-4" onclick="closeModal()" data-bs-dismiss="modal" style="background-color:#1f4286;color:white">Close</button>
+
+					<div b-jrwyfh9yo9 id="eventSlides"
+						 class="event-carousel-slides"
+						 aria-live="off">
+					</div>
+
+
+					<div b-jrwyfh9yo9 id="eventIndicators"
+						 class="event-carousel-indicators"
+						 role="tablist"
+						 aria-label="Event slides">
+					</div>
+
+				</section>
+
+
+				<div b-jrwyfh9yo9 class="modal-footer event-modal-footer">
+
+					<button b-jrwyfh9yo9 type="button"
+							id="eventCloseButton"
+							class="btn event-close-btn"
+							data-dismiss="modal">
+
+						Close
+
+					</button>
+
 				</div>
 
 			</div>
-		</div>
-	</div>
-	
-	 
-	<script>
-				function closeModal() {
-					document.getElementById('grsModal').style.display = 'none';
-		document.body.classList.remove('modal-open');
 
-		let backdrop = document.querySelector('.modal-backdrop');
-		if (backdrop) backdrop.remove();
+		</div>
+
+	</div>
+
+
+
+	<script>
+
+		// ==========================================
+		// EVENT DATA
+		// ==========================================
+
+		const events = [
+			{
+				title: "Blood Donation Camp",
+				date: "2026-10-01",
+				image: "/images/bloodcamp.jpeg",
+				link: "#"
+			},
+			{
+				title: "Anti Money Laundering Conference",
+				date: "2026-10-09",
+				image: "/images/oct_banner.PNG",
+				link: "#"
+			},
+			{
+				title: "IOSCO World Investor Week 2026 - IFSC Conference",
+				date: "2026-10-06",
+				image: "/images/IOSCO WIW 2026 - IFSC Conference_Popup image_v3.png",
+				link: "#"
+			},
+			{
+				title: "Global Reissurance Summit 2027",
+				date: "2027-01-27",
+				image: "/images/GRS2027.jpeg",
+				link: "#"
+			}
+		];
+
+
+		// ==========================================
+		// CAROUSEL SETTINGS
+		// ==========================================
+
+		const AUTO_ROTATE_INTERVAL = 3000;
+
+		let currentIndex = 0;
+		let isPlaying = false;
+		let autoRotateTimer = null;
+
+
+		const carousel = document.getElementById("eventCarousel");
+		const slidesContainer = document.getElementById("eventSlides");
+		const indicatorsContainer = document.getElementById("eventIndicators");
+
+		const playPauseButton = document.getElementById("eventPlayPause");
+		const playPauseIcon = document.getElementById("playPauseIcon");
+		const playPauseText = document.getElementById("playPauseText");
+
+		const previousButton = document.getElementById("eventPrevious");
+		const nextButton = document.getElementById("eventNext");
+
+
+		// ==========================================
+		// SORT EVENTS BY DATE
+		// ==========================================
+
+		events.sort(function (a, b) {
+			return new Date(a.date) - new Date(b.date);
+		});
+
+
+		// ==========================================
+		// CREATE SLIDES
+		// ==========================================
+
+		events.forEach(function (event, index) {
+
+			const slide = document.createElement("div");
+
+			slide.className =
+				"event-slide" + (index === 0 ? " active" : "");
+
+			slide.setAttribute("role", "group");
+
+			slide.setAttribute(
+				"aria-label",
+				`Event ${index + 1} of ${events.length}: ${event.title}`
+			);
+
+			slide.innerHTML = `
+				<a href="${event.link}" target="_blank">
+					<img src="${event.image}"
+						 alt="${event.title}">
+				</a>
+			`;
+
+			slidesContainer.appendChild(slide);
+
+
+			// Indicator
+			const indicator = document.createElement("button");
+
+			indicator.type = "button";
+
+			indicator.className =
+				"event-indicator" +
+				(index === 0 ? " active" : "");
+
+			indicator.setAttribute(
+				"aria-label",
+				`Show event ${index + 1}: ${event.title}`
+			);
+
+			indicator.addEventListener("click", function () {
+
+				currentIndex = index;
+
+				showSlide(currentIndex);
+
+			});
+
+			indicatorsContainer.appendChild(indicator);
+
+		});
+
+
+		const slides =
+			slidesContainer.querySelectorAll(".event-slide");
+
+		const indicators =
+			indicatorsContainer.querySelectorAll(".event-indicator");
+
+
+		// ==========================================
+		// SHOW SLIDE
+		// ==========================================
+
+		function showSlide(index) {
+
+			if (index < 0) {
+				index = slides.length - 1;
+			}
+
+			if (index >= slides.length) {
+				index = 0;
+			}
+
+			currentIndex = index;
+
+
+			slides.forEach(function (slide, i) {
+
+				slide.classList.toggle(
+					"active",
+					i === currentIndex
+				);
+
+				slide.setAttribute(
+					"aria-hidden",
+					i === currentIndex ? "false" : "true"
+				);
+
+			});
+
+
+			indicators.forEach(function (indicator, i) {
+
+				indicator.classList.toggle(
+					"active",
+					i === currentIndex
+				);
+
+			});
+
 		}
+
+
+		// ==========================================
+		// NEXT
+		// ==========================================
+
+		function nextSlide() {
+
+			showSlide(currentIndex + 1);
+
+		}
+
+
+		// ==========================================
+		// PREVIOUS
+		// ==========================================
+
+		function previousSlide() {
+
+			showSlide(currentIndex - 1);
+
+		}
+
+
+		// ==========================================
+		// START AUTOPLAY
+		// ==========================================
+
+		function startAutoRotation() {
+
+			clearInterval(autoRotateTimer);
+
+			isPlaying = true;
+
+			updatePlayPauseButton();
+
+			autoRotateTimer = setInterval(function () {
+
+				nextSlide();
+
+			}, AUTO_ROTATE_INTERVAL);
+
+		}
+
+
+		// ==========================================
+		// STOP AUTOPLAY
+		// ==========================================
+
+		function stopAutoRotation() {
+
+			clearInterval(autoRotateTimer);
+
+			autoRotateTimer = null;
+
+			isPlaying = false;
+
+			updatePlayPauseButton();
+
+		}
+
+
+		// ==========================================
+		// UPDATE PLAY / PAUSE BUTTON
+		// ==========================================
+
+		function updatePlayPauseButton() {
+
+			if (isPlaying) {
+
+				playPauseIcon.textContent = "⏸";
+
+				playPauseText.textContent = "Pause";
+
+				playPauseButton.setAttribute(
+					"aria-label",
+					"Pause automatic slide show"
+				);
+
+			}
+			else {
+
+				playPauseIcon.textContent = "▶";
+
+				playPauseText.textContent = "Play";
+
+				playPauseButton.setAttribute(
+					"aria-label",
+					"Play automatic slide show"
+				);
+
+			}
+
+		}
+
+
+		// ==========================================
+		// PLAY / PAUSE
+		// ==========================================
+
+		playPauseButton.addEventListener("click", function (event) {
+
+			event.preventDefault();
+			event.stopPropagation();
+
+			if (isPlaying) {
+
+				stopAutoRotation();
+
+			}
+			else {
+
+				startAutoRotation();
+
+			}
+
+		});
+
+
+		// ==========================================
+		// PREVIOUS
+		// ==========================================
+
+		previousButton.addEventListener("click", function (event) {
+
+			event.preventDefault();
+
+			previousSlide();
+
+		});
+
+
+		// ==========================================
+		// NEXT
+		// ==========================================
+
+		nextButton.addEventListener("click", function (event) {
+
+			event.preventDefault();
+
+			nextSlide();
+
+		});
+
+
+		// ==========================================
+		// MODAL
+		// ==========================================
+
+		const grsModalElement = document.getElementById("grsModal");
+
+		if (grsModalElement) {
+
+			grsModalElement.addEventListener("shown.bs.modal", function () {
+
+				currentIndex = 0;
+
+				showSlide(currentIndex);
+
+				// Start autoplay
+				startAutoRotation();
+			});
+
+
+			grsModalElement.addEventListener("hidden.bs.modal", function () {
+
+				// Stop autoplay when popup closes
+				stopAutoRotation();
+
+			});
+		}
+		// ==========================================
+		// INITIAL SLIDE
+		// ==========================================
+
+		showSlide(0);
+
+		updatePlayPauseButton();
+
+		startAutoRotation();
+
+
+	</script>
+
+
+
+	<script>
+
 		$(document).ready(function () {
 
 
@@ -2056,6 +2717,7 @@
 			}
 		});
 	</script>
+
 	<script>
 		$(document).ready(function() {
 
@@ -2078,6 +2740,7 @@
 			});
 		});
 	</script>
+
 	<script>
 		// $(".slick-slider").slick({
 		//     slidesToShow: 3,
@@ -2102,6 +2765,7 @@
 			document.getElementById("wait").style.display = "block";
 		});
 	</script>
+
 	<style>
 		.chat-loader-sec {
 			position: fixed;
@@ -2124,6 +2788,7 @@
 			}
 
 	</style>
+
 	<script>
 			var message = '';
 			if (message) {
@@ -2160,6 +2825,7 @@
 			}, 4000);
 		}
 	</script>
+
 	<script>
 		document.addEventListener("DOMContentLoaded", function () {
 			// Ensure jQuery and the necessary libraries are loaded first
@@ -2189,6 +2855,7 @@
 		});
 
 	</script>
+
 	<script>
 			$(document).ready(function() {
 		 // executes when HTML-Document is loaded and DOM is ready
@@ -2215,11 +2882,9 @@
 		  e.stopPropagation(); // Stop the click from bubbling up to Bootstrap's navbar toggler
 		});
 
-
-
-		// document ready
 		});
 	</script>
+
 	<script>
 
 		$('.mob-tabpane-toggler').on('click', function(e) {
@@ -2238,6 +2903,7 @@
 				}
 			});
 	</script>
+
 	<script>
 		document.addEventListener("DOMContentLoaded", function () {
 			document.querySelectorAll(".custom-link").forEach(function (link) {
@@ -2255,6 +2921,7 @@
 			});
 		});
 	</script>
+
 	<!-- Cookie Consent Banner -->
 	<div id="cookieConsentBanner">
     <div class="cookie-banner-wrapper">
@@ -2287,22 +2954,32 @@
 </div>
 
 	<script src="/CustomJS/CookieConsent.js"></script>
-	
+
 </body>
 
 </html>
 
-<script>
-	document.addEventListener("DOMContentLoaded", function () {
-		var grsModalElement = document.getElementById('grsModal');
-		var grsModal = new bootstrap.Modal(grsModalElement);
-		grsModal.show();
 
-		setTimeout(function () {
-			grsModal.hide();
-		}, 30000);
+
+<script>
+
+	document.addEventListener("DOMContentLoaded", function () {
+
+		var grsModal  = document.getElementById("grsModal");
+
+		if (!grsModal ) {
+			return;
+		}
+
+		var grsModalInstance = new bootstrap.Modal(grsModal);
+
+		/*
+		 * Show popup when page loads
+		 */
+		grsModalInstance.show();
 
 	});
+
 </script>
 
 <script>
@@ -2347,4 +3024,3 @@
 
 	});
 </script>
-
