@@ -68,3 +68,8 @@ Shared contract: `.stack` band markup identical on both (same classes, "You are 
 ## Blog archive layer (2026-09-27)
 
 `scripts/bloggen.py` now also renders `blog/archive.html` (all posts grouped year → month with event_type chips + filter) and `blog/<year>.html` per year; `blog/index.html` is capped to the latest 12 with year navigation, and archive/year URLs are patched into `sitemap.xml`. Categories on this desk = the posts' `event_type` (weekly/leadership/reform/…). The weekly agent (`500c6e1b`) is instructed to write the annual review edition ("The year in regulation <YYYY>") on the first Monday of January.
+
+## Freshness audit 2026-10-02
+
+- Content-freshness sweep (Sep 26 → Oct 2) found the refresh agents were rebuilding but not capturing new facts. SEBI WTM roster was 3 officials short: Kamlesh Chandra Varshney (WTM since 2023-09, reappointed 2026-09-15 by ACC/DoPT S.O. 5142(E) to 2029-08-04 or further orders), Amarjeet Singh (WTM 2023-09, 3-year term ended 2026-09, no renewal announced — flagged), K V R Murty (WTM, took charge 2026-04-15, PR 24/2026, 3-year term). leadership.csv + events.csv updated; live verified.
+- Per-regulator pages (reg-*.html) are hand-authored statics like SROTrac's sro-*.html — build.py regenerates index/timeline/activity/social/members pages only. Leadership facts live in BOTH leadership.csv AND the reg-*.html pages; keep them in sync manually.
