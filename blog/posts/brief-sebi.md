@@ -1,6 +1,6 @@
 ---
 title: Securities and Exchange Board of India — what changed, and what to watch
-date: 2026-09-13
+date: 2026-10-02
 regulator: sebi
 regulator_name: Securities and Exchange Board of India
 event_type: leadership
@@ -14,8 +14,11 @@ personas:
   - mapper
   - skeptic
 sources:
+  - https://gazettetracker.com/g/CG-DL-E-18092026-276316
+  - https://www.sebi.gov.in/media-and-notifications/press-releases/apr-2026/shri-k-v-r-murty-takes-charge-as-whole-time-member-sebi_100932.html
   - https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548
   - https://www.reuters.com/sustainability/boards-policy-regulation/india-watchdog-presses-banks-other-regulators-stricter-insider-trading-2026-03-02
+  - https://bfsi.economictimes.indiatimes.com/articles/govt-begins-search-for-2-whole-time-sebi-members-invites-applications/131474536
   - https://regtrac.cashlessconsumer.in/reg-sebi.html
   - https://www.sebi.gov.in
 ---
@@ -24,14 +27,19 @@ sources:
 
 The markets regulator. Everything listed, everything pooled, everything sold as an investment: brokers, mutual funds, AIFs, IPOs, takeover codes, insider trading. SEBI writes the rules, licenses the players, investigates, and adjudicates — all three powers in one body, which is both its strength and its standing conflict-of-interest.
 
-*RegTrac Brief · 2026-09-13 · Statutory regulator · register as of 12 September 2026*
+*RegTrac Brief · 2026-10-02 · Statutory regulator · register as of 12 September 2026*
 
 ## What changed
 
+- **2026-09-18** — Kamlesh Chandra Varshney reappointed SEBI Whole-Time Member until 4 Aug 2029 (gazette S.O. 5142(E)); Amarjeet Singh term ends without renewal announcement ([Leadership source](https://gazettetracker.com/g/CG-DL-E-18092026-276316)).
+- **2026-04-15** — K V Ramana Murty takes charge as SEBI Whole-Time Member (PR 24/2026), three-year term ([Leadership source](https://www.sebi.gov.in/media-and-notifications/press-releases/apr-2026/shri-k-v-r-murty-takes-charge-as-whole-time-member-sebi_100932.html)).
 - **2025-12-01** — Sandip Pradhan inducted as SEBI Whole-Time Member (Dec 2025) ([Leadership source](https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548)).
 - **2025-02-06** — Tuhin Kanta Pandey appointed SEBI Chairperson (Feb 2025), succeeding Madhabi Puri Buch ([Leadership source](https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548)).
 - **Chairperson:** Tuhin Kanta Pandey (since 2025-02, succeeding Madhabi Puri Buch) ([appointment source](https://www.reuters.com/sustainability/boards-policy-regulation/india-watchdog-presses-banks-other-regulators-stricter-insider-trading-2026-03-02)).
 - **Whole-Time Member:** Sandip Pradhan (since 2025-12) ([appointment source](https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548)).
+- **Whole-Time Member:** Kamlesh Chandra Varshney (since 2023-09 — Reappointed 2026-09-15 by ACC (DoPT order; gazette S.O. 5142(E), 18 Sep) beyond 19 Sep 2026 until 4 Aug 2029 or further orders; oversees Corporate Finance, CFI, Integrated Surveillance, Legal Affairs) ([appointment source](https://gazettetracker.com/g/CG-DL-E-18092026-276316)).
+- **Whole-Time Member:** Amarjeet Singh (since 2023-09 — 3-year term ended Sep 2026; renewal not announced as of 2026-10-02 — flagged for checking) ([appointment source](https://bfsi.economictimes.indiatimes.com/articles/govt-begins-search-for-2-whole-time-sebi-members-invites-applications/131474536)).
+- **Whole-Time Member:** K V Ramana Murty (since 2026-04 — 3-year term; took charge 15 Apr 2026 (PR 24/2026); IDAS (1991) officer, ex-Addl CGDA) ([appointment source](https://www.sebi.gov.in/media-and-notifications/press-releases/apr-2026/shri-k-v-r-murty-takes-charge-as-whole-time-member-sebi_100932.html)).
 - *Register position as rebuilt on 12 September 2026; every line above carries its own source.*
 
 ## Why it matters
@@ -59,7 +67,10 @@ SEBI-recognised SROs (AMFI, ANMI, BASL) sit in SROTrac's future scope: [SROTrac]
 
 ## Evidence
 
+- [Leadership · 2026-09-18](https://gazettetracker.com/g/CG-DL-E-18092026-276316)
+- [Leadership · 2026-04-15](https://www.sebi.gov.in/media-and-notifications/press-releases/apr-2026/shri-k-v-r-murty-takes-charge-as-whole-time-member-sebi_100932.html)
 - [Leadership · 2025-12-01](https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548)
 - [Appointment · Chairperson](https://www.reuters.com/sustainability/boards-policy-regulation/india-watchdog-presses-banks-other-regulators-stricter-insider-trading-2026-03-02)
+- [Appointment · Whole-Time Member](https://bfsi.economictimes.indiatimes.com/articles/govt-begins-search-for-2-whole-time-sebi-members-invites-applications/131474536)
 - [RegTrac register entry](https://regtrac.cashlessconsumer.in/reg-sebi.html)
 - [SEBI — official site](https://www.sebi.gov.in)
