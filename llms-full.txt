@@ -1,6 +1,6 @@
 # RegTrac — full text
 
-Leadership as of 12 Sep 2026. Built 2026-10-02 02:20 UTC.
+Leadership as of 12 Sep 2026. Built 2026-10-02 08:10 UTC.
 
 ## Register
 
@@ -98,15 +98,20 @@ Site: https://www.npci.org.in
 - FSDC Chairperson: Nirmala Sitharaman since 2019-05 (Ex officio as Union Finance Minister). Source: https://www.careerpower.in/blog/wp-content/uploads/2026/04/02191443/The-Hindu-Review-March-2026.pdf
 - RBI Deputy Governor: T. Rabi Sankar since 2021-08 (Portfolios: IT, foreign exchange (post-Oct 2025 rejig); in office as of Sep 2026). Source: https://m.economictimes.com/news/economy/policy/reserve-bank-of-india-rejigs-portfolios-of-deputy-governors/articleshow/124425308.cms
 - RBI Deputy Governor: Swaminathan Janakiraman since 2023-06 (Reappointed 2 years from 26 Jun 2026 (till 2028); portfolios: supervision, financial inclusion). Source: https://m.economictimes.com/news/economy/policy/rbi-deputy-governor-swaminathan-j-gets-two-year-extension/articleshow/131536922.cms
+- SEBI Whole-Time Member: Kamlesh Chandra Varshney since 2023-09 (Reappointed 2026-09-15 by ACC (DoPT order; gazette S.O. 5142(E), 18 Sep) beyond 19 Sep 2026 until 4 Aug 2029 or further orders; oversees Corporate Finance, CFI, Integrated Surveillance, Legal Affairs). Source: https://gazettetracker.com/g/CG-DL-E-18092026-276316
+- SEBI Whole-Time Member: Amarjeet Singh since 2023-09 (3-year term ended Sep 2026; renewal not announced as of 2026-10-02 — flagged for checking). Source: https://bfsi.economictimes.indiatimes.com/articles/govt-begins-search-for-2-whole-time-sebi-members-invites-applications/131474536
+- SEBI Whole-Time Member: K V Ramana Murty since 2026-04 (3-year term; took charge 15 Apr 2026 (PR 24/2026); IDAS (1991) officer, ex-Addl CGDA). Source: https://www.sebi.gov.in/media-and-notifications/press-releases/apr-2026/shri-k-v-r-murty-takes-charge-as-whole-time-member-sebi_100932.html
 
 ## Timeline
 
+- 2026-09-18 SEBI: Kamlesh Chandra Varshney reappointed SEBI Whole-Time Member until 4 Aug 2029 (gazette S.O. 5142(E)); Amarjeet Singh term ends without renewal announcement
 - 2026-09-10 RBI: UFF recognised as second RBI SRO-FT (10 Sep 2026) — tracked in SROTrac
 - 2026-08-01 IFSCA: K. Rajaraman's IFSCA chair tenure extended till Oct 2028 (Aug 2026)
 - 2026-07-16 IBBI: Calcutta High Court holds IBBI Chairperson cannot act as the Disciplinary Committee under IBC
 - 2026-07-13 IBBI: Corporate Laws (Amendment) Bill, 2026 Clause 73 proposes IBBI as statutory valuation authority
 - 2026-06-08 IBBI: IBBI opens search for next Chairperson — succession process starts early under incumbent Ravi Mital
 - 2026-05-20 IBBI: IBC Amendment Act 2026 bars resolution professionals from acting as liquidators in the same matter
+- 2026-04-15 SEBI: K V Ramana Murty takes charge as SEBI Whole-Time Member (PR 24/2026), three-year term
 - 2026-02-25 IBBI: IBBI Grievance and Complaint Handling (Amendment) Regulations, 2026 notified (25 Feb 2026)
 - 2025-12-01 SEBI: Sandip Pradhan inducted as SEBI Whole-Time Member (Dec 2025)
 - 2025-10-01 RBI: Shirish Chandra Murmu appointed RBI Deputy Governor (Oct 2025)
