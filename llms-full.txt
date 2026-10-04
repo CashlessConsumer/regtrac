@@ -1,6 +1,6 @@
 # RegTrac — full text
 
-Leadership as of 12 Sep 2026. Built 2026-10-03 02:18 UTC.
+Leadership as of 12 Sep 2026. Built 2026-10-04 02:20 UTC.
 
 ## Register
 
