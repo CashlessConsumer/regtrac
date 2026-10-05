@@ -72,3 +72,8 @@ The capture story only becomes visible when the layers join:
    on comment transparency.
 
 *All three layers are live; this document remains the contract for deepening the third layer.*
+
+## Daily operations (2026-10-04)
+
+- Each layer's daily refresh agent commits ~07:30–08:00 IST (gates → rebuild → push → Pages deploy).
+- **Freshness Watch** (Zo agent, daily 10:30 IST): checks each site's `Last-Modified` header; if any layer is >30 h stale it runs that repo's `scripts/refresh.sh` to self-heal and reports one line to Discord #policy-research — silent on all-fresh days. Catches silent daily-agent misses (e.g. LobbyWatch 2026-10-04, backfilled by hand).
