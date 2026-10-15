@@ -106,6 +106,7 @@
 		.event-slide {
 			display: none;
 			width: 100%;
+
 		}
 
 			.event-slide.active {
@@ -127,6 +128,7 @@
 				object-fit: contain;
 				margin: auto;
 			}
+
 
 
 		/* ==========================================
@@ -335,9 +337,15 @@
 				min-width: 80px;
 			}
 
+			.event-carousel-slides {
+				height: 65vh;
+				min-height: 300px;
+				max-height: 500px;
+			}
 
 			.event-slide img {
-				max-height: 70vh;
+				width: 100%;
+				height: 100%;
 				object-fit: contain;
 			}
 
@@ -565,7 +573,7 @@
 		<span b-jrwyfh9yo9>Accessibility Options</span>
 	</button>
 
-	<input name="__RequestVerificationToken" type="hidden" value="CfDJ8GgD9WlagHNBkpv-0QMQEd2NuMdoF2Ud685RPEmaX0V-srkcb63F1Gw2jfe-ElR7Aml46icBi7eHMGg61TZLZudwWUP435L4Ekf9_ArM2F3EibsKVpnpbZCAxu9b0kLhsdFy-0JcwDbMGmwENtQCUcI" />
+	<input name="__RequestVerificationToken" type="hidden" value="CfDJ8FMIqMIal2ROq9gIy1_zWaJksRfkWgZjc70DaewR7v5-CQqrCKxV3GfyoalI63CSKl9NpiyT0w2ACoblXEwh9HNhBUpb2yEwYahLv0xZ5sNZ5-qSEjbQk2-lzTTysrVJVrolcKVMEQqYDTOfNgPqvaU" />
 
 	<header b-jrwyfh9yo9 class="site-header">
 		<div b-jrwyfh9yo9 class="top-bar">
@@ -2395,16 +2403,12 @@
 
 				const events = [
 			{
-				title: "Anti Money Laundering Conference",
-				date: "2026-10-09",
-				image: "/images/oct_banner.PNG",
-
-				// Agenda / PDF link
-				link: "https://ifsca.gov.in/CommonDirect/PreviewPdf?id=850da50e42b9c192894a42a7d2281618&fileName=final_agenda_4_0_20261007_0457.pdf",
-
-				// Virtual registration / Webex link
-				meetingLink: "https://ifsca.webex.com/weblink/register/rb3204fc90055cbc4b49fcc5a43290f86"
-			},
+				title: "Global Securities Markets Conclave",
+				date: "2027-02-25",
+				image: "/images/GSMC.png",
+				link: "https://gsmc-ifsc.in/",
+				meetingLink: ""
+			},		
 
 			{
 				title: "Global Reinsurance Summit 2027",
@@ -2472,16 +2476,7 @@
 					 alt="${event.title}">
 			</a>
 
-			<div class="event-action-buttons">
-
-				${event.link && event.link !== "#" ? `
-					<a href="${event.link}"
-					   target="_blank"
-					   class="event-action-btn agenda-btn">
-						<i class="fa fa-file-pdf"></i>
-						View Agenda
-					</a>
-				` : ""}
+			<div class="event-action-buttons">				
 
 				${event.meetingLink ? `
 					<a href="${event.meetingLink}"
