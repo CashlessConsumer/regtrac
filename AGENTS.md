@@ -18,7 +18,9 @@ Layer 1 (rule-writers) of the sousveillance stack: RegTrac (this) + SROTrac (`Pr
 
 ## Blog / weekly edition
 
-Nav label is **Blog** (synced with SROTrac; the old "Briefs" label is retired). `scripts/bloggen.py` renders every `blog/posts/*.md` into `blog/` — per-regulator briefs carry `regulator: <id>`, weekly editions (`event_type: weekly`) omit it and surface on the index + feed only. The **RegTrac Weekly agent** (Zo automation, Mondays 09:20 IST, posts to Discord #policy-research) researches the week's most consequential development across the register, writes a sourced post, rebuilds, tests (test_publication.py must ALL PASS), and pushes. Inaugural post: `2026-09-26-ibbi-succession-watch.md`.
+Nav label is **Blog** (synced with SROTrac; the old "Briefs" label is retired). `scripts/bloggen.py` renders every `blog/posts/*.md` into `blog/` — per-regulator briefs carry `regulator: <id>`; weekly editions set `event_type: weekly` and also carry the `regulator` of the week's lead entity, because `scripts/editorial.py` requires `regulator` in front matter and rejects it if it is not in `data/regulators.csv`. The **RegTrac Weekly agent** (Zo automation `500c6e1b`, Mondays 09:20 IST, posts to Discord #policy-research) researches the week's most consequential development across the register, writes a sourced post, rebuilds, tests (test_publication.py must ALL PASS), and pushes. Inaugural post: `2026-09-26-ibbi-succession-watch.md`.
+
+Status 2026-10-20: the weekly agent had been disabled since the 2026-10-05 run and no weekly edition was published for 2026-09-28 through 2026-10-19. It was reactivated with the same model profile the sibling desks use. The Sousveillance Stack Watch (`85e22e77`) now also checks weekly-blog cadence and automation enablement, because site Last-Modified stays fresh from daily rebuilds even when nothing editorial ships.
 
 ## Content voice
 
