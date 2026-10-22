@@ -110,7 +110,128 @@ var S3WaaSAccessibilityParams = {"blogInfoName":"National Financial Reporting Au
 
         </style>
     </noscript>
-    <meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress."/>
+    <style>
+.modalbox-container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .75);
+    overflow-y: auto;
+    display: inline-grid;
+    align-items: center;
+    z-index: 999999
+}
+
+.modalbox-container .modal-box {
+    display: inline-block;
+    max-width: 1000px;
+    position: relative;
+    margin: 0 auto;
+    background:#fff;
+}
+
+.modalbox-container .modal-box img {
+    max-width: 100%;
+    border: 2px solid #fff;
+    border-radius: 5px 0 5px 5px;
+    box-shadow: 0 0 30px 0 #000
+}
+
+.modalbox-container .close-popup {
+    position: absolute;
+    top: 0;
+    right: -40px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    color: #000;
+    border-radius: 0 5px 5px 0
+}
+
+.contrast .modalbox-container .close-popup {
+    background: #ff0
+}
+
+@media (max-width:800px) {
+    .modalbox-container .modal-box {
+        margin: 45px
+    }
+
+    .modalbox-container .modal-box img {
+        width: 100%
+    }
+}
+
+.yt-popup {
+    width: 750px;
+    height: 600px;
+}
+
+@media (max-width: 800px) {
+    .yt-popup {
+        width: 100%;
+        height: auto;
+        min-height: 300px;
+    }
+}
+</style>
+<script>
+jQuery(document).ready(function($) {
+
+    let $modal_popup = 'b038e5d4a143928cc471a11bdbf19fc5';
+    let $only_once = '';
+
+    let $s3waas_modal_cookie = getCookie('s3waas_modal_cookie');
+
+
+    if ($modal_popup != $s3waas_modal_cookie) {
+        deleteCookie('s3waas_modal_cookie');
+        $s3waas_modal_cookie = null;
+    }
+    if (!$only_once) {
+        $('.modalbox-container').removeClass('hide');
+        $('html,body').css('overflow', 'hidden');
+        $('.modalbox-banner').focus();
+    } else {
+        if ($s3waas_modal_cookie == null) {
+            $('.modalbox-container').removeClass('hide');
+            $('html,body').css('overflow', 'hidden');
+            $('.modalbox-banner').focus();
+        }
+    }
+
+    $("#s3wassModalpopupClose").click(function() {
+        if ($only_once) {
+            let nonce = $(this).attr('data-nonce');
+            $.post(ajaxurl, {
+                nonce: nonce,
+                action: 's3waas_modal_cookie'
+            }, function() {
+                return true
+            });
+        }
+        $(".modalbox-container").hide();
+        $('.skip-to-content').focus();
+        $('html,body').css('overflow', '');
+        var video = $(".yt-popup").attr("src");
+        $(".yt-popup").attr("src", "").attr("src", video);
+    });
+    $(document).keyup(function(e) {
+        if (e.key === "Escape") { // escape key maps to keycode `27`
+            if ($(".modalbox-container").length > 0) {
+                $("#s3wassModalpopupClose").trigger('click');
+            }
+        }
+    });
+})
+</script>
+<meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress."/>
 <style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1791436167693{margin-top: 35px !important;background-color: #F1F1F1 !important;}.vc_custom_1580385589682{padding-top: 35px !important;}.vc_custom_1675148758428{margin-top: 25px !important;padding-bottom: 45px !important;}.vc_custom_1580385474400{padding-top: 35px !important;}.vc_custom_1553661887277{margin-top: 30px !important;margin-bottom: -4px !important;}.vc_custom_1728032542146{padding-top: 0px !important;padding-bottom: 0px !important;}.vc_custom_1675148823501{border-top-width: 1px !important;border-right-width: 1px !important;border-bottom-width: 1px !important;border-left-width: 1px !important;padding-top: 35px !important;border-left-color: #052963 !important;border-left-style: solid !important;border-right-color: #052963 !important;border-right-style: solid !important;border-top-color: #052963 !important;border-top-style: solid !important;border-bottom-color: #052963 !important;border-bottom-style: solid !important;}.vc_custom_1675148852097{padding-top: 25px !important;}.vc_custom_1554875190075{margin-left: -5px !important;}.vc_custom_1580385459984{padding-top: 35px !important;}.vc_custom_1553661928685{margin-top: 10px !important;}</style><noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript>    <!--[if lt IE 9]>
         <script src="https://nfra.gov.in/wp-content/themes/dbim-theme/js/html5shiv.min.js"></script>
     <![endif]-->
@@ -131,7 +252,19 @@ var S3WaaSAccessibilityParams = {"blogInfoName":"National Financial Reporting Au
 </head>
 
 <body class="home wp-singular page-template-default page page-id-1087 wp-theme-dbim-theme lang-en style-6 home-3 wpb-js-composer js-comp-ver-9.0.1 vc_responsive">
-        <div role="status" aria-live="polite" aria-atomic="true" class="sr-only"><span id="sc-site-notification"></span>
+    <div class="modalbox-container hide">
+    <div class="modal-box">
+                <a href="#"
+                        class="modalbox-banner" title="modal popup">
+            <img src="https://cdnbbsr.s3waas.gov.in/s3e2ad76f2326fbc6b56a45a56c59fafdb/uploads/2026/10/20261021535236409.jpg" title="modal popup"                alt="modal popup">
+        </a>
+                        <a href="JavaScript:jsvascript:void(0);" class="close-popup" id="s3wassModalpopupClose"
+            data-nonce="c0cc992a2e" title="Close Popup"
+            aria-label="close popup"><em class="fa fa-times" aria-hidden="true"></em></a>
+            </div>
+
+</div>
+    <div role="status" aria-live="polite" aria-atomic="true" class="sr-only"><span id="sc-site-notification"></span>
     </div>
     <!-- website progress bar start -->
     <div class="website-progress-container">
@@ -1169,10 +1302,10 @@ As per<strong> Sub Section (2) of Section 132 of the Companies Act, 2013</strong
                     </div>
         </div></div></div><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper"><div
     class="gen-list no-border no-bg padding-20 border-radius-medium default-list   normal-font  ">
-    <h2 id="heading-5c730" class="title-font-bold title-font-black">Advertisement / Tenders</h2>    <ul>
+    <h2 id="heading-d76be" class="title-font-bold title-font-black">Advertisement / Tenders</h2>    <ul>
             </ul>
-        <a id="view-all-link-dcf9"
-        aria-labelledby="view-all-link-dcf9 heading-5c730"
+        <a id="view-all-link-2ea8"
+        aria-labelledby="view-all-link-2ea8 heading-d76be"
         href="/document-category/tenders/"  title="View All"        class="btn btn-sm btn-gov btn-style-outline accent-color">View All</a>
     </div>
 </div></div></div></div><div data-vc-full-width="true" data-vc-full-width-temp="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid vc_custom_1553661887277 vc_row-no-padding"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">	
@@ -1530,7 +1663,7 @@ jQuery(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","curr
     </body>
 
 </html>
-<!-- Dynamic page generated in 0.589 seconds. -->
-<!-- Cached page generated by WP-Super-Cache on 2026-10-21 03:28:20 -->
+<!-- Dynamic page generated in 0.526 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2026-10-21 12:30:29 -->
 
 <!-- super cache -->
