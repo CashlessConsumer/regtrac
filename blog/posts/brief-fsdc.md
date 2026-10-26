@@ -1,6 +1,6 @@
 ---
 title: Financial Stability and Development Council — what changed, and what to watch
-date: 2026-09-13
+date: 2026-10-26
 regulator: fsdc
 regulator_name: Financial Stability and Development Council
 event_type: register_note
@@ -14,6 +14,7 @@ personas:
   - mapper
   - skeptic
 sources:
+  - https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2327596&lang=1&reg=3
   - https://www.careerpower.in/blog/wp-content/uploads/2026/04/02191443/The-Hindu-Review-March-2026.pdf
   - https://regtrac.cashlessconsumer.in/reg-fsdc.html
   - https://dea.gov.in
@@ -23,10 +24,11 @@ sources:
 
 The apex body where regulators meet the Finance Minister — with no statute, and largely unpublished minutes.
 
-*RegTrac Brief · 2026-09-13 · Non-statutory · context · register as of 12 September 2026*
+*RegTrac Brief · 2026-10-26 · Non-statutory · context · register as of 12 September 2026*
 
 ## What changed
 
+- **2026-10-23** — 30th FSDC meeting (New Delhi): macro-financial stability review; workplan covers tokenisation of financial and real-world assets, Financial Sector Cyber Security Strategy, KYC digitalisation for NRIs and FPIs, DPI scale-up (Account Aggregator, ULI) for MSMEs, faster unclaimed-asset refunds; attendance list confirms Jayanti Prasad as IBBI Acting Chairperson ([Register note source](https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2327596&lang=1&reg=3)).
 - **Chairperson:** Nirmala Sitharaman (since 2019-05 — Ex officio as Union Finance Minister) ([appointment source](https://www.careerpower.in/blog/wp-content/uploads/2026/04/02191443/The-Hindu-Review-March-2026.pdf)).
 - *Register position as rebuilt on 12 September 2026; every line above carries its own source.*
 
@@ -53,6 +55,7 @@ Who lobbies these decisions, and what consultation comments were filed, is the m
 
 ## Evidence
 
+- [Register note · 2026-10-23](https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2327596&lang=1&reg=3)
 - [Appointment · Chairperson](https://www.careerpower.in/blog/wp-content/uploads/2026/04/02191443/The-Hindu-Review-March-2026.pdf)
 - [RegTrac register entry](https://regtrac.cashlessconsumer.in/reg-fsdc.html)
 - [FSDC — official site](https://dea.gov.in)
