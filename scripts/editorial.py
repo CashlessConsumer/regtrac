@@ -40,7 +40,7 @@ REQUIRED_HEADINGS = ["What changed", "Why it matters", "Who is affected",
 REQUIRED_PERSONAS = ["tracker", "institutional", "advocate", "skeptic", "mapper", "evidence"]
 EVENT_TYPES = {"statute", "establishment", "transfer", "leadership", "reform",
                "proposal", "sro_framework", "enforcement", "consultation",
-               "grievance", "register_note"}
+               "grievance", "register_note", "weekly"}
 STATUSES = {"draft", "review", "published"}
 HEDGES = ["it is believed", "sources say", "reportedly", "allegedly", "unconfirmed", "rumour", "rumor"]
 LOADED = ["blatant", "corrupt", "shameful", "scam", "disaster", "destroyed"]

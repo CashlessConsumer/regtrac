@@ -22,7 +22,7 @@ The regulator for the end of the corporate life cycle: insolvency professionals,
 
 ## Leadership
 
-*(as of 12 Sep 2026 — Chairperson: Ravi Mital, appointed 2021, still in office — signing gazette notifications in May 2026 and referenced in an NCLAT order of 8 Sep 2026 — while the government opened the search for his successor in Jun 2026, ahead of schedule. Succession to these posts is where accountability attaches; the early-start search process itself is worth watching for transparency of shortlists.)*
+*(as of 26 Oct 2026 — Chairperson: Jayanti Prasad, a Whole-Time Member, on additional charge from 13 Sep 2026, after Ravi Mital's tenure ended on his turning 65. The charge runs until Prasad's own board tenure completes on 20 Nov 2026 or a successor is appointed and joins; the successor search opened in Jun 2026 and no substantive appointment has been announced. The arrangement was confirmed on the record in the attendance list of the 30th FSDC meeting, 23 Oct 2026. Succession to these posts is where accountability attaches — watch for published search criteria and shortlists.)*
 
 ## For the person paying
 
@@ -40,6 +40,8 @@ The regulator for the end of the corporate life cycle: insolvency professionals,
 ## Sources
 
 - [Business Today: IBBI opens search for next Chairperson (Jun 2026)](https://www.businesstoday.in/latest/corporate/story/ibbi-initiates-search-for-next-chairperson-applications-open-as-succession-process-starts-early-535500-2026-06-08)
+- [Economic Times: Jayanti Prasad gets additional charge as IBBI chairperson (Sep 2026)](https://m.economictimes.com/news/india/jayanti-prasad-gets-additional-charge-as-insolvency-and-bankruptcy-board-chairperson/articleshow/134396665.cms)
+- [PIB: 30th FSDC meeting — attendance lists Jayanti Prasad, Acting Chairperson, IBBI (23 Oct 2026)](https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2327596&lang=1&reg=3)
 - [IBC Laws: Liquidation Process (Fourth Amendment) Regulations, 2026 — signed RAVI MITAL, Chairperson](https://ibclaw.in/insolvency-and-bankruptcy-board-of-india-liquidation-process-fourth-amendment-regulations-2026)
 - [NCLAT order referencing Ravi Mital as Chairperson (8 Sep 2026)](https://nclat.nic.in/display-board/view_order_pdf?fid=9910110069362026&l=delhi&d=2026-09-08&order_type=D)
 - [LiveLaw: Calcutta HC — IBBI Chairperson cannot act as Disciplinary Committee (Jul 2026)](https://www.livelawbiz.com/high-court/calcutta-high-court/calcutta-high-court-ibbi-chairperson-cannot-act-as-disciplinary-committee-under-insolvency-and-bankruptcy-code-sashi-agarwal-541570)

@@ -1,6 +1,6 @@
 # RegTrac — full text
 
-Leadership as of 12 Sep 2026. Built 2026-10-25 02:19 UTC.
+Leadership as of 26 Oct 2026. Built 2026-10-26 04:18 UTC.
 
 ## Register
 
@@ -92,7 +92,6 @@ Site: https://www.npci.org.in
 - IRDAI Chairperson: Ajay Seth since 2025-07-24 (Former DEA Secretary). Source: https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548
 - IRDAI Whole-Time Member (Life): Swaminathan S Iyer since 2025 . Source: https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548
 - PFRDA Chairperson: Sivasubramanian Ramann since 2025-06-20 (Former Deputy CAG and CTO Office of CAG). Source: https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548
-- IBBI Chairperson: Ravi Mital since 2021-10 (Still in office as of Sep 2026 (gazette signatures May 2026; NCLAT order 8 Sep 2026); succession search opened Jun 2026). Source: https://www.businesstoday.in/latest/corporate/story/ibbi-initiates-search-for-next-chairperson-applications-open-as-succession-process-starts-early-535500-2026-06-08
 - IFSCA Chairperson: K. Rajaraman since 2023-09 (Tenure extended to Oct 2028 (Aug 2026)). Source: https://m.economictimes.com/news/india/govt-extends-ifsc-authority-chairman-k-rajaramans-tenure-till-oct-2028/articleshow/132770365.cms
 - NABARD Chairman: Shaji K V since 2022-12 (Confirmed in office as of Sep 2026). Source: https://guidely.in/current-affairs/daily-current-affairs-05-september-2026
 - FSDC Chairperson: Nirmala Sitharaman since 2019-05 (Ex officio as Union Finance Minister). Source: https://www.careerpower.in/blog/wp-content/uploads/2026/04/02191443/The-Hindu-Review-March-2026.pdf
@@ -101,10 +100,14 @@ Site: https://www.npci.org.in
 - SEBI Whole-Time Member: Kamlesh Chandra Varshney since 2023-09 (Reappointed 2026-09-15 by ACC (DoPT order; gazette S.O. 5142(E), 18 Sep) beyond 19 Sep 2026 until 4 Aug 2029 or further orders; oversees Corporate Finance, CFI, Integrated Surveillance, Legal Affairs). Source: https://gazettetracker.com/g/CG-DL-E-18092026-276316
 - SEBI Whole-Time Member: Amarjeet Singh since 2023-09 (3-year term ended Sep 2026; renewal not announced as of 2026-10-02 — flagged for checking). Source: https://bfsi.economictimes.indiatimes.com/articles/govt-begins-search-for-2-whole-time-sebi-members-invites-applications/131474536
 - SEBI Whole-Time Member: K V Ramana Murty since 2026-04 (3-year term; took charge 15 Apr 2026 (PR 24/2026); IDAS (1991) officer, ex-Addl CGDA). Source: https://www.sebi.gov.in/media-and-notifications/press-releases/apr-2026/shri-k-v-r-murty-takes-charge-as-whole-time-member-sebi_100932.html
+- IBBI Chairperson: Ravi Mital since 2021-10 (Tenure ended 13 Sep 2026 on turning 65 (five-year term or age 65, whichever earlier); successor search had opened Jun 2026; attendance list of the 30th FSDC meeting (23 Oct 2026) records his successor in acting charge). Source: https://m.economictimes.com/news/india/jayanti-prasad-gets-additional-charge-as-insolvency-and-bankruptcy-board-chairperson/articleshow/134396665.cms
+- IBBI Chairperson (additional charge): Jayanti Prasad since 2026-09 (Whole-Time Member; additional charge from 13 Sep 2026 — runs until his IBBI tenure completes 20 Nov 2026 or a successor is appointed and joins; 1986-batch IA&AS; substantive appointment pending). Source: https://m.economictimes.com/news/india/jayanti-prasad-gets-additional-charge-as-insolvency-and-bankruptcy-board-chairperson/articleshow/134396665.cms
 
 ## Timeline
 
+- 2026-10-23 FSDC: 30th FSDC meeting (New Delhi): macro-financial stability review; workplan covers tokenisation of financial and real-world assets, Financial Sector Cyber Security Strategy, KYC digitalisation for NRIs and FPIs, DPI scale-up (Account Aggregator, ULI) for MSMEs, faster unclaimed-asset refunds; attendance list confirms Jayanti Prasad as IBBI Acting Chairperson
 - 2026-09-18 SEBI: Kamlesh Chandra Varshney reappointed SEBI Whole-Time Member until 4 Aug 2029 (gazette S.O. 5142(E)); Amarjeet Singh term ends without renewal announcement
+- 2026-09-13 IBBI: Jayanti Prasad, Whole-Time Member, takes additional charge as IBBI Chairperson after Ravi Mital's tenure ends (turned 65); charge runs until 20 Nov 2026 or till a successor joins
 - 2026-09-10 RBI: UFF recognised as second RBI SRO-FT (10 Sep 2026) — tracked in SROTrac
 - 2026-08-01 IFSCA: K. Rajaraman's IFSCA chair tenure extended till Oct 2028 (Aug 2026)
 - 2026-07-16 IBBI: Calcutta High Court holds IBBI Chairperson cannot act as the Disciplinary Committee under IBC
@@ -160,7 +163,7 @@ Out of scope by design: self-regulatory organisations — those live in SROTrac.
 
 ## Caveats
 
-- Leadership positions are stated **as of 12 Sep 2026** and will drift; rows carry their source so the next refresh can re-verify.
+- Leadership positions are stated **as of 26 Oct 2026** and will drift; rows carry their source so the next refresh can re-verify.
 - "Statutory adjacent" bodies (DICGC, NHB, SIDBI, NFRA) are institutions with statutory foundations but narrower or shifted regulatory roles (e.g., HFC regulation moved from NHB to RBI in 2019).
 - FSDC and NPCI are listed as context precisely because they lack statutes — the most consequential coordination in Indian finance happens in a body with no statutory foundation, and the payment rails are run by an industry-owned company. Both facts belong on the record, not in a footnote.
 

@@ -1,6 +1,6 @@
 # RegTrac
 
-> Public register of India's statutory financial regulators — statutes, leadership appointments, powers, grievance routes and accountability gaps. By CashlessConsumer. Leadership as of 12 Sep 2026.
+> Public register of India's statutory financial regulators — statutes, leadership appointments, powers, grievance routes and accountability gaps. By CashlessConsumer. Leadership as of 26 Oct 2026.
 
 Part of a three-layer sousveillance stack: RegTrac (rule-writers), SROTrac (rule-borrowers, https://srotrac.cashlessconsumer.in), LobbyWatch (rule-buyers, https://lobbywatch.cashlessconsumer.in).
 
@@ -8,7 +8,7 @@ Part of a three-layer sousveillance stack: RegTrac (rule-writers), SROTrac (rule
 
 - [Index](https://regtrac.cashlessconsumer.in/index.html): overview, stats, stack, register of core regulators
 - [Register](https://regtrac.cashlessconsumer.in/regulators.html): all 13 entities with type filters
-- [Timeline](https://regtrac.cashlessconsumer.in/timeline.html): 40 sourced events
+- [Timeline](https://regtrac.cashlessconsumer.in/timeline.html): 42 sourced events
 - [About](https://regtrac.cashlessconsumer.in/about.html): scope, method, caveats, the stack
 - [Briefs](https://regtrac.cashlessconsumer.in/blog/index.html): per-regulator briefs from the editorial swarm (what changed, why it matters, who is affected, what to watch, evidence)
 

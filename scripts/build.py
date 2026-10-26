@@ -7,7 +7,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import frontmatter  # noqa: E402
 BASE = "https://regtrac.cashlessconsumer.in"
-AS_OF = "12 Sep 2026"
+AS_OF = "26 Oct 2026"
 BUILD_UTC = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
 TYPE_LABELS = {
@@ -18,7 +18,7 @@ TYPE_LABELS = {
 EVENT_TYPE_LABELS = {
     "statute": "Statute", "establishment": "Established", "transfer": "Transfer",
     "leadership": "Leadership", "reform": "Reform", "proposal": "Proposal",
-    "sro_framework": "SRO framework",
+    "sro_framework": "SRO framework", "register_note": "Register note",
 }
 
 FORTY = '<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<meta name="robots" content="noindex">\n<title>Page not found — RegTrac</title>\n<style>body{{margin:0;background:#ededf0;color:#1c1d22;font-family:Georgia,\'Times New Roman\',serif;display:flex;min-height:100vh;align-items:center;justify-content:center}}main{{max-width:34rem;padding:2rem;text-align:center}}.kicker{{font-family:\'IBM Plex Mono\',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#1d4ed8}}h1{{font-size:2rem;margin:.4rem 0 .8rem}}p{{line-height:1.6;color:#44454f}}a{{color:#1d4ed8}}</style>\n</head>\n<body><main>\n<div class="kicker">REG TRAC · a cashlessconsumer register</div>\n<h1>Page not found</h1>\n<p>The ledger has no page at this address. Start from the <a href="/">register</a> or search the full sousveillance stack at <a href="/search.html">/search</a>.</p>\n</main></body>\n</html>\n'
