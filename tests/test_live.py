@@ -20,6 +20,7 @@ today. The branded domain (https://regtrac.cashlessconsumer.in) is not live yet
 """
 import argparse
 import csv
+import html
 import os
 import sys
 import time
@@ -113,6 +114,7 @@ def main():
                 if "RegTrac" not in body:
                     failures.append(f"[{base}] [{rid}] stream missing chrome")
             else:
+                body = html.unescape(body)
                 if str(posts[kind].get("title", kind)) not in body:
                     failures.append(f"[{base}] [{rid}] {kind}: missing title")
                 for s in (posts[kind].get("sources") or []):
