@@ -37,7 +37,9 @@ if [ -n "$(git status --porcelain -- data ':(exclude)data/raw' '*.html' blog css
   git add -A
   git -c user.name="RegTrac bot" -c user.email="cashlessconsumerin@gmail.com" \
     commit -q -m "Daily refresh $(date -u +%F-%H%M) UTC — homepage re-fetch + rebuild + social drift check"
-  git pull --rebase -q origin main && git push -q origin main && echo "PUSHED: changes found and deployed"
+  # -X theirs: editorial.yml commits timestamp-only bumps right after every push;
+  # on collision the fresh rebuild wins (both sides render identical content).
+  git pull --rebase -q -X theirs origin main && git push -q origin main && echo "PUSHED: changes found and deployed"
 else
   echo "NO-CHANGE: register, leadership and social links unchanged"
 fi

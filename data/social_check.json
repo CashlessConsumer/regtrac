@@ -1,15 +1,7 @@
 {
-  "checked": "2026-10-30",
+  "checked": "2026-10-31",
   "official_site_accounts": 32,
-  "still_linked": 25,
-  "missing_from_site": [
-    "nhb:x",
-    "nhb:linkedin",
-    "npci:x",
-    "npci:facebook",
-    "npci:linkedin",
-    "npci:youtube",
-    "npci:instagram"
-  ],
+  "still_linked": 32,
+  "missing_from_site": [],
   "skipped_platform_lookup": 8
 }
