@@ -1,10 +1,10 @@
 # RegTrac editorial gate
 
-Posts: 16 · published: 16 · promoted this run: 0 · blocking: 0
+Posts: 17 · published: 17 · promoted this run: 0 · blocking: 0
 
 | Regulator | Entity | Briefs | Published | Words | Gate |
 | --- | --- | --- | --- | --- | --- |
-| `rbi` | Reserve Bank of India | 2 | 2 | 1514 | ✅ pass |
+| `rbi` | Reserve Bank of India | 3 | 3 | 2460 | ✅ pass |
 | `sebi` | Securities and Exchange Board of India | 1 | 1 | 594 | ✅ pass |
 | `irdai` | Insurance Regulatory and Development Authority of India | 1 | 1 | 431 | ✅ pass |
 | `pfrda` | Pension Fund Regulatory and Development Authority | 1 | 1 | 473 | ✅ pass |

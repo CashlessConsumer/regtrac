@@ -1,6 +1,6 @@
 # RegTrac — full text
 
-Leadership as of 26 Oct 2026. Built 2026-11-09 02:18 UTC.
+Leadership as of 26 Oct 2026. Built 2026-11-09 04:06 UTC.
 
 ## Register
 
@@ -105,6 +105,7 @@ Site: https://www.npci.org.in
 
 ## Timeline
 
+- 2026-11-05 RBI: RBI consolidates cyber resilience and digital payment security rules for non-bank Payment System Operators into one Master Direction (RBI/DPSS/2026-27/475); large and medium PSOs comply from issuance, small PSOs from 1 April 2028; six-hour incident reporting to RBI and CERT-In
 - 2026-10-29 RBI: Supreme Court (In Re Victims of Digital Arrest Related To Forged Documents, SMW(Crl) 3/2025): RBI KYC Amendment Directions 2026 to be notified by 30 Nov 2026 and operationalised by 31 Dec 2026; directions must mandate compensation not less than the amount lost where an institution's due diligence failed; RBI to submit list of all authorised financial institutions
 - 2026-10-23 FSDC: 30th FSDC meeting (New Delhi): macro-financial stability review; workplan covers tokenisation of financial and real-world assets, Financial Sector Cyber Security Strategy, KYC digitalisation for NRIs and FPIs, DPI scale-up (Account Aggregator, ULI) for MSMEs, faster unclaimed-asset refunds; attendance list confirms Jayanti Prasad as IBBI Acting Chairperson
 - 2026-09-18 SEBI: Kamlesh Chandra Varshney reappointed SEBI Whole-Time Member until 4 Aug 2029 (gazette S.O. 5142(E)); Amarjeet Singh term ends without renewal announcement
