@@ -1,6 +1,6 @@
 ---
 title: Reserve Bank of India — what changed, and what to watch
-date: 2026-11-09
+date: 2026-11-16
 regulator: rbi
 regulator_name: Reserve Bank of India
 event_type: reform
@@ -14,6 +14,7 @@ personas:
   - mapper
   - skeptic
 sources:
+  - https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13752&Mode=0
   - https://rbidocs.rbi.org.in/rdocs/notification/PDFs/475MDA65A2A40240B4510BB6301A33C9ECBFE.PDF
   - https://www.verdictum.in/supreme-court/rbi-rules-must-banks-compensate-victims-not-less-amount-lost-due-diligence-fails-1624758
   - https://srotrac.cashlessconsumer.in
@@ -28,14 +29,14 @@ sources:
 
 The oldest and most powerful financial regulator in India — and the one that touches the most people. The RBI licenses and supervises banks, NBFCs and payment systems, sets interest-rate policy through the Monetary Policy Committee, and runs the ombudsman scheme that is most Indians' only practical route to compensation when a bank or wallet loses their money.
 
-*RegTrac Brief · 2026-11-09 · Statutory regulator · register as of 12 September 2026*
+*RegTrac Brief · 2026-11-16 · Statutory regulator · register as of 12 September 2026*
 
 ## What changed
 
+- **2026-11-11** — RBI consolidates Domestic Money Transfer rules into one Directions text (RBI/DPSS/2026-27/476): cash pay-out capped at Rs 10,000 per transaction and Rs 25,000 per beneficiary per month; walk-in NEFT pay-in up to Rs 50,000 at branches; BC/ATM pay-in Rs 5,000 per transaction; remitter registration on verified mobile + self-certified OVD, AFA on every transaction; repeals the 2011 and 2024 DMT circulars ([Reform source](https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13752&Mode=0)).
 - **2026-11-05** — RBI consolidates cyber resilience and digital payment security rules for non-bank Payment System Operators into one Master Direction (RBI/DPSS/2026-27/475); large and medium PSOs comply from issuance, small PSOs from 1 April 2028; six-hour incident reporting to RBI and CERT-In ([Reform source](https://rbidocs.rbi.org.in/rdocs/notification/PDFs/475MDA65A2A40240B4510BB6301A33C9ECBFE.PDF)).
 - **2026-10-29** — Supreme Court (In Re Victims of Digital Arrest Related To Forged Documents, SMW(Crl) 3/2025): RBI KYC Amendment Directions 2026 to be notified by 30 Nov 2026 and operationalised by 31 Dec 2026; directions must mandate compensation not less than the amount lost where an institution's due diligence failed; RBI to submit list of all authorised financial institutions ([Register note source](https://www.verdictum.in/supreme-court/rbi-rules-must-banks-compensate-victims-not-less-amount-lost-due-diligence-fails-1624758)).
 - **2026-09-10** — UFF recognised as second RBI SRO-FT (10 Sep 2026) — tracked in SROTrac ([SRO framework source](https://srotrac.cashlessconsumer.in)).
-- **2025-10-01** — Shirish Chandra Murmu appointed RBI Deputy Governor (Oct 2025) ([Leadership source](https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548)).
 - **Governor:** Sanjay Malhotra (since 2024-12 — 26th Governor) ([appointment source](https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548)).
 - **Deputy Governor:** Poonam Gupta (since 2025-04) ([appointment source](https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548)).
 - **Deputy Governor:** Shirish Chandra Murmu (since 2025-10) ([appointment source](https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548)).
@@ -70,10 +71,11 @@ The RBI *recognises* India's fintech SROs — FACE and UFF — so who sits insid
 
 ## Evidence
 
+- [Reform · 2026-11-11](https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13752&Mode=0)
 - [Reform · 2026-11-05](https://rbidocs.rbi.org.in/rdocs/notification/PDFs/475MDA65A2A40240B4510BB6301A33C9ECBFE.PDF)
 - [Register note · 2026-10-29](https://www.verdictum.in/supreme-court/rbi-rules-must-banks-compensate-victims-not-less-amount-lost-due-diligence-fails-1624758)
 - [SRO framework · 2026-09-10](https://srotrac.cashlessconsumer.in)
-- [Leadership · 2025-10-01](https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548)
+- [Appointment · Governor](https://bfsi.economictimes.indiatimes.com/articles/leadership-overhaul-in-indian-regulatory-bodies-2025-changes-at-rbi-sebi-irdai-and-pfrda/126188548)
 - [Appointment · Deputy Governor](https://m.economictimes.com/news/economy/policy/reserve-bank-of-india-rejigs-portfolios-of-deputy-governors/articleshow/124425308.cms)
 - [Appointment · Deputy Governor](https://m.economictimes.com/news/economy/policy/rbi-deputy-governor-swaminathan-j-gets-two-year-extension/articleshow/131536922.cms)
 - [RegTrac register entry](https://regtrac.cashlessconsumer.in/reg-rbi.html)
