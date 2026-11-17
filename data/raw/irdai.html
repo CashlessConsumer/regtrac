@@ -523,7 +523,7 @@
 			}
 		};
 
-		Liferay.authToken = 'R8c7VPiE';
+		Liferay.authToken = 'BViFcoIA';
 
 		
 
@@ -1229,7 +1229,7 @@ color : blue !important;
 
 
 
-	<nav aria-label="Quick Links" class="quick-access-nav" id="lnre_quickAccessNav">
+	<nav aria-label="Quick Links" class="quick-access-nav" id="fmgv_quickAccessNav">
 		<h1 class="hide-accessible">Navigation</h1>
 
 		<ul>
@@ -1781,7 +1781,7 @@ color : blue !important;
 
 		
 			
-				<input  class="field form-control"  id="_com_liferay_portal_search_web_search_bar_portlet_SearchBarPortlet_INSTANCE_templateSearch_formDate"    name="_com_liferay_portal_search_web_search_bar_portlet_SearchBarPortlet_INSTANCE_templateSearch_formDate"     type="hidden" value="1794795428300"   />
+				<input  class="field form-control"  id="_com_liferay_portal_search_web_search_bar_portlet_SearchBarPortlet_INSTANCE_templateSearch_formDate"    name="_com_liferay_portal_search_web_search_bar_portlet_SearchBarPortlet_INSTANCE_templateSearch_formDate"     type="hidden" value="1794881820285"   />
 			
 		
 
@@ -12797,6 +12797,20 @@ October 26, 2026
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 
 	
@@ -13100,6 +13114,52 @@ $('.logo').html("<img src='https://new.irdai.gov.in/documents/37341/210059/azadi
 
 	Liferay.on('socialBookmarks:share', onShare);
 	Liferay.on('destroyPortlet', onDestroyPortlet);
+})();(function() {var $ = AUI.$;var _ = AUI._;
+	function showDialog(uri, title) {
+		Liferay.Util.openModal({
+			id: 'sharingDialog',
+			iframeBodyCssClass: 'sharing-dialog',
+			height: 475,
+			size: 'md',
+			title: Liferay.Util.escapeHTML(title),
+			url: uri,
+		});
+	}
+
+	var Sharing = {
+		manageCollaborators: function (classNameId, classPK) {
+			var manageCollaboratorsParameters = {
+				classNameId: classNameId,
+				classPK: classPK,
+			};
+
+			var manageCollaboratorsURL = Liferay.Util.PortletURL.createPortletURL(
+				'https://irdai.gov.in/group/guest/~/control_panel/manage?p_p_id=com_liferay_sharing_web_portlet_ManageCollaboratorsPortlet&p_p_lifecycle=0&p_p_state=pop_up&p_p_auth=pMrbG8Rm',
+				manageCollaboratorsParameters
+			);
+
+			showDialog(
+				manageCollaboratorsURL.toString(),
+				'Manage Collaborators'
+			);
+		},
+
+		share: function (classNameId, classPK, title) {
+			var sharingParameters = {
+				classNameId: classNameId,
+				classPK: classPK,
+			};
+
+			var sharingURL = Liferay.Util.PortletURL.createPortletURL(
+				'https://irdai.gov.in/group/guest/~/control_panel/manage?p_p_id=com_liferay_sharing_web_portlet_SharingPortlet&p_p_lifecycle=0&p_p_state=pop_up&p_p_auth=b4JapBSN',
+				sharingParameters
+			);
+
+			showDialog(sharingURL.toString(), title);
+		},
+	};
+
+	Liferay.Sharing = Sharing;
 })();
 	if (window.svg4everybody && Liferay.Data.ICONS_INLINE_SVG) {
 		svg4everybody(
