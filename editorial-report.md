@@ -1,14 +1,14 @@
 # RegTrac editorial gate
 
-Posts: 18 · published: 18 · promoted this run: 0 · blocking: 0
+Posts: 19 · published: 19 · promoted this run: 0 · blocking: 0
 
 | Regulator | Entity | Briefs | Published | Words | Gate |
 | --- | --- | --- | --- | --- | --- |
-| `rbi` | Reserve Bank of India | 4 | 4 | 3394 | ✅ pass |
+| `rbi` | Reserve Bank of India | 4 | 4 | 3449 | ✅ pass |
 | `sebi` | Securities and Exchange Board of India | 1 | 1 | 594 | ✅ pass |
 | `irdai` | Insurance Regulatory and Development Authority of India | 1 | 1 | 431 | ✅ pass |
 | `pfrda` | Pension Fund Regulatory and Development Authority | 1 | 1 | 473 | ✅ pass |
-| `ibbi` | Insolvency and Bankruptcy Board of India | 2 | 2 | 1392 | ✅ pass |
+| `ibbi` | Insolvency and Bankruptcy Board of India | 3 | 3 | 2276 | ✅ pass |
 | `ifsca` | International Financial Services Centres Authority | 1 | 1 | 447 | ✅ pass |
 | `nabard` | National Bank for Agriculture and Rural Development | 1 | 1 | 389 | ✅ pass |
 | `dicgc` | Deposit Insurance and Credit Guarantee Corporation | 1 | 1 | 406 | ✅ pass |

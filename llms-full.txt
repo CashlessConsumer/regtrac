@@ -1,6 +1,6 @@
 # RegTrac — full text
 
-Leadership as of 26 Oct 2026. Built 2026-11-23 02:17 UTC.
+Leadership as of 26 Oct 2026. Built 2026-11-23 04:02 UTC.
 
 ## Register
 
@@ -105,6 +105,7 @@ Site: https://www.npci.org.in
 
 ## Timeline
 
+- 2026-11-20 IBBI: Stated end date of Jayanti Prasad's additional charge as IBBI Chairperson (held since 13 Sep 2026) arrives on 20 Nov 2026; no successor appointment or extension announced on the Board's website as of 22 Nov 2026
 - 2026-11-11 RBI: RBI consolidates Domestic Money Transfer rules into one Directions text (RBI/DPSS/2026-27/476): cash pay-out capped at Rs 10,000 per transaction and Rs 25,000 per beneficiary per month; walk-in NEFT pay-in up to Rs 50,000 at branches; BC/ATM pay-in Rs 5,000 per transaction; remitter registration on verified mobile + self-certified OVD, AFA on every transaction; repeals the 2011 and 2024 DMT circulars
 - 2026-11-05 RBI: RBI consolidates cyber resilience and digital payment security rules for non-bank Payment System Operators into one Master Direction (RBI/DPSS/2026-27/475); large and medium PSOs comply from issuance, small PSOs from 1 April 2028; six-hour incident reporting to RBI and CERT-In
 - 2026-10-29 RBI: Supreme Court (In Re Victims of Digital Arrest Related To Forged Documents, SMW(Crl) 3/2025): RBI KYC Amendment Directions 2026 to be notified by 30 Nov 2026 and operationalised by 31 Dec 2026; directions must mandate compensation not less than the amount lost where an institution's due diligence failed; RBI to submit list of all authorised financial institutions
