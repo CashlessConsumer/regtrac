@@ -523,7 +523,7 @@
 			}
 		};
 
-		Liferay.authToken = 'fgJuYYKz';
+		Liferay.authToken = 'WRDhE3MW';
 
 		
 
@@ -1229,7 +1229,7 @@ color : blue !important;
 
 
 
-	<nav aria-label="Quick Links" class="quick-access-nav" id="indd_quickAccessNav">
+	<nav aria-label="Quick Links" class="quick-access-nav" id="mwaj_quickAccessNav">
 		<h1 class="hide-accessible">Navigation</h1>
 
 		<ul>
@@ -1781,7 +1781,7 @@ color : blue !important;
 
 		
 			
-				<input  class="field form-control"  id="_com_liferay_portal_search_web_search_bar_portlet_SearchBarPortlet_INSTANCE_templateSearch_formDate"    name="_com_liferay_portal_search_web_search_bar_portlet_SearchBarPortlet_INSTANCE_templateSearch_formDate"     type="hidden" value="1795659396634"   />
+				<input  class="field form-control"  id="_com_liferay_portal_search_web_search_bar_portlet_SearchBarPortlet_INSTANCE_templateSearch_formDate"    name="_com_liferay_portal_search_web_search_bar_portlet_SearchBarPortlet_INSTANCE_templateSearch_formDate"     type="hidden" value="1795745817037"   />
 			
 		
 
@@ -6945,8 +6945,8 @@ width:25%;
                       </a>
                       <small class="text-secondary">1.1 MB</small>
                     </h5>
-                    <a href="/web/guest/document-detail?documentId=10064773" title="आई.आर.डी.ए.आई ने स्वास्थ्य बीमा दावों में पारदर्शिता बढ़ाने और जवाबदेही मजबूत करने के लिए दो अध्ययन समूह गठित किए हैं। / irdai forms two study groups to enhance transparency and strengthen accountability in health insurance claims">
-                    	आई.आर.डी.ए.आई ने स्वास्थ्य बीमा दावों में पारदर्शिता बढ़ाने और जवाबदेही मजबूत करने के लिए दो अध्ययन समूह गठित किए हैं। / irdai forms two study groups to enhance transparency and strengthen accountability in health insurance claims
+                    <a href="/web/guest/document-detail?documentId=10064773" title="आईआरडीएआई द्वारा गठित स्वास्थ्य बीमा संबंधी आईएसी उप-समिति ने स्वास्थ्य बीमा दावों में पारदर्शिता को बढ़ाने और उत्तरदायित्व को मजबूत करने के लिए दो अध्ययन दल बनाये हैं। / irdai forms two study groups to enhance transparency and strengthen accountability in health insurance claims">
+                    	आईआरडीएआई द्वारा गठित स्वास्थ्य बीमा संबंधी आईएसी उप-समिति ने स्वास्थ्य बीमा दावों में पारदर्शिता को बढ़ाने और उत्तरदायित्व को मजबूत करने के लिए दो अध्ययन दल बनाये हैं। / irdai forms two study groups to enhance transparency and strengthen accountability in health insurance claims
                     </a>
                   </div>
                 </div>
@@ -12809,6 +12809,20 @@ October 26, 2026
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 
 	
@@ -13112,6 +13126,52 @@ $('.logo').html("<img src='https://new.irdai.gov.in/documents/37341/210059/azadi
 
 	Liferay.on('socialBookmarks:share', onShare);
 	Liferay.on('destroyPortlet', onDestroyPortlet);
+})();(function() {var $ = AUI.$;var _ = AUI._;
+	function showDialog(uri, title) {
+		Liferay.Util.openModal({
+			id: 'sharingDialog',
+			iframeBodyCssClass: 'sharing-dialog',
+			height: 475,
+			size: 'md',
+			title: Liferay.Util.escapeHTML(title),
+			url: uri,
+		});
+	}
+
+	var Sharing = {
+		manageCollaborators: function (classNameId, classPK) {
+			var manageCollaboratorsParameters = {
+				classNameId: classNameId,
+				classPK: classPK,
+			};
+
+			var manageCollaboratorsURL = Liferay.Util.PortletURL.createPortletURL(
+				'https://irdai.gov.in/group/guest/~/control_panel/manage?p_p_id=com_liferay_sharing_web_portlet_ManageCollaboratorsPortlet&p_p_lifecycle=0&p_p_state=pop_up&p_p_auth=xGmQtghA',
+				manageCollaboratorsParameters
+			);
+
+			showDialog(
+				manageCollaboratorsURL.toString(),
+				'Manage Collaborators'
+			);
+		},
+
+		share: function (classNameId, classPK, title) {
+			var sharingParameters = {
+				classNameId: classNameId,
+				classPK: classPK,
+			};
+
+			var sharingURL = Liferay.Util.PortletURL.createPortletURL(
+				'https://irdai.gov.in/group/guest/~/control_panel/manage?p_p_id=com_liferay_sharing_web_portlet_SharingPortlet&p_p_lifecycle=0&p_p_state=pop_up&p_p_auth=kEMVLqe2',
+				sharingParameters
+			);
+
+			showDialog(sharingURL.toString(), title);
+		},
+	};
+
+	Liferay.Sharing = Sharing;
 })();
 	if (window.svg4everybody && Liferay.Data.ICONS_INLINE_SVG) {
 		svg4everybody(
